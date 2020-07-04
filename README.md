@@ -9,9 +9,9 @@ and the content of the files.
 
 ## Table of contents
 1. [Setting up Vim with the files in this repo](#setting-up-this-repo)
-    1. Setting up Vim
-    2. Setting up plugin manager
-    3. Using this repo
+    1. [Setting up Vim](#set-up-your-vim)
+    2. [Setting up plugin manager](#set-up-the-plugin-manager)
+    3. [Using this repo](#set-up-the-files-in-this-repo)
 2. Contents of this repo
     1. `vimrc` file
     2. Settings files

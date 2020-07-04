@@ -11,7 +11,7 @@ let g:netrw_banner=0
 let g:netrw_bufsettings='noma nomod nu nowrap ro nobl'
 "
 " Style: filenames with size and time stamp
-let g:netrw_liststyle=1
+let g:netrw_liststyle=3
 "
 " Enable NETRW's menu
 let g:netrw_menu=1

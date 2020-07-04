@@ -8,7 +8,7 @@ In this README file is described the set-up process of the current files
 and the content of the files. 
 
 ## Table of contents
-1. Setting up Vim with the files in this repo
+1. [Setting up Vim with the files in this repo](#setting-up-this-repo)
     
     1. Setting up Vim
     2. Setting up plugin manager

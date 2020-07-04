@@ -39,7 +39,7 @@ $ vim --version
 ```
 
 This repo is tested with Vim version >= 8.2. If you have not at least Vim version 8.0,
-then you can check [this blog post](#https://kdrossos.net/blog/12/) on how to install
+then you can check [this blog post](https://kdrossos.net/blog/12/) on how to install
 it for macOS. For Linux, the process should be similar. 
 
 ### Set-up the plugin manager

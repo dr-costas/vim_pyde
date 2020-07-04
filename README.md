@@ -56,4 +56,33 @@ For more information, you can check [the GitHub repository of Plug](https://gith
 
 ### Set-up the files in this repo
 
+First, navigate to you home directory
+
+```bash
+$ cd ~
+```
+
+Then, clone this repository, by using
+
+```bash
+$ git clone git@github.com:dr-costas/myvim_files.git ~/.myvim_files
+```
+
+**Check if you already have a `.vimrc` file**. If you do, then keep a backup
+by doing
+
+```bash
+$ mv ~/.vimrc ~/.vimrc_bak
+```
+
+Then, make a symbolik link of the `vimrc` file in the `myvim_file` directory, 
+to your home directory, by doing
+
+```bash
+$ ln ~/.myvim_files/vimrc ~/.vimrc
+```
+
+Open vim and install the plugins by using the `PlugInstall`. 
+
+That's it! 
 

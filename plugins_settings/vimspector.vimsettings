@@ -1,0 +1,9 @@
+" ~/.vim/plugins_settings/vimspector_settings.vim file starts
+"
+" ==================================
+" VimSpector settings file
+" ==================================
+"
+"
+" Activate VIMSpector
+let g:vimspector_enable_mappings = 'HUMAN'

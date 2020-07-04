@@ -1,0 +1,11 @@
+" ~/.vim/plugins_settings/vim_templates.vim file starts
+"
+" ==================================
+" PaperColor settings file
+" ==================================
+"
+"
+" Path for searching for templates
+let g:tmpl_search_paths = ['~/.vim/templates']
+
+" EOF

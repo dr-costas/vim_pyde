@@ -1,0 +1,22 @@
+" ~/.vim/plugins_settings/paper_color_settings.vim file starts
+"
+" ==================================
+" PaperColor settings file
+" ==================================
+"
+"
+" Theme options
+" set termguicolors 		 " Indicate support of true colors
+let g:PaperColor_Theme_Options = { 		 
+  \   'theme': {
+  \     'default.light': {
+  \       'override' : {
+  \         'linenumber_fg' : ['#080808', '235']
+  \       }
+  \     }
+  \   }
+  \ }
+set background=dark 		 " Light background
+colorscheme PaperColor 		 " Define PaperColor as color scheme
+let g:airline_theme='papercolor' " Use the airline theme as well
+" EOF

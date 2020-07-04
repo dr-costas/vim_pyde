@@ -1,0 +1,34 @@
+" ~/.vim/plugins_settings/mappings.vimsettings file starts
+"
+" ==================================
+" Mappings settings file
+" ==================================
+"
+"
+" Normal mode mappings
+" 	Navigation to split windows with Ctrl + H, J, K, L
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"	Resizing of windows with arrow keys
+nnoremap <Up>    :resize -2<CR>
+nnoremap <Down>  :resize +2<CR>
+nnoremap <Left>  :vertical resize -2<CR>
+nnoremap <Right> :vertical resize +2<CR>
+" 	Clear search highlight with F3
+nnoremap <F2> :set hlsearch!<CR>
+" 	Enable folding with the spacebar
+nnoremap <space> za
+"
+" Insert mode mapping
+" 	Add pairs of braces
+inoremap ( ()<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
+inoremap { {}<ESC>i
+"
+" Terminal mode mappings
+" 	Make terminal as typical window with C-T
+tnoremap <C-T> <C-W>N
+" EOF

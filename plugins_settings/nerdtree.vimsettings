@@ -1,0 +1,28 @@
+" ~/.vim/plugins_settings/nerdtree_settings.vim file starts
+"
+" ==================================
+" NERDTree settings file
+" ==================================
+"
+"
+autocmd StdinReadPre * let s:std_in=1  		  " Open NERDTree automatically
+" even no file is given at ViM
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif    
+"
+autocmd VimEnter * wincmd p 			  " and jump to main window
+"
+let NERDTreeShowLineNumbers=1 			  " Line numbers on
+"
+autocmd FileType nerdtree setlocal relativenumber " Relative numbers on
+"
+let NERDTreeMinimalUI = 1 			  " Minimal UI 
+"
+let NERDTreeDirArrows = 1 			  " Arrows in NERDTree
+"
+let NERDTreeShowHidden=1 			  " Show hidden files
+"
+let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__'] " File patterns to ignore
+"
+" Open/close NERDTree with F1
+nmap <F1> :NERDTreeToggle<CR>
+" EOF

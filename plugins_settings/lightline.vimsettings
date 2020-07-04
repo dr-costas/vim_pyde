@@ -1,0 +1,32 @@
+" ~/.vim/plugins_settings/lightline_settings.vim file starts
+"
+" ==================================
+" Lightline settings file
+" ==================================
+"
+"
+" Some modifications to VIM appearance 
+set noshowmode 			  " Remove the --INSERT-- since it is visible
+"
+" Set the options for lightline
+"     Options used here are:
+"     * colorscheme: Set the colorscheme for lightline
+"     * filename: Use the LightLineFilename function
+let g:lightline = {
+      \ 'colorscheme': 'darcula',
+      \ 'component_function': {
+      \     'filename': 'LightlineFilename',
+      \ },
+      \ }
+"
+" Function to use the path of a file
+" relative to current  dir.
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+" EOF

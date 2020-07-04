@@ -1,0 +1,93 @@
+" ~/.vim/plugins_settings/pymode_settings.vim
+"
+" ==================================
+" Pymode .vimrc file
+" ==================================
+"
+let g:pymode = 1  		  " Turn on Pymode
+"
+let g:pymode_warnings = 1	  " Turn off warning
+"
+let g:pymode_paths = []		  " Add paths to `sys.path`
+"
+let g:pymode_trim_whitespaces = 1 " Trim unused white spaces on save
+"
+let g:pymode_options = 1	  " Setup default python options
+"
+" Options for python buffers: 
+setlocal complete+=t
+setlocal formatoptions-=t
+setlocal nowrap
+setlocal textwidth=79
+setlocal commentstring=#%s
+setlocal define=^\s*\\(def\\\\|class\\)
+"
+let g:pymode_options_max_line_length = 79 " Max line length
+"
+let g:pymode_options_colorcolumn = 1  	  " Color column display at max length
+"
+let g:pymode_quickfix_minheight = 3 	  " Quick fix window min height
+"
+let g:pymode_quickfix_maxheight = 6	  " Quick fix window max height
+"
+let g:pymode_preview_height = &previewheight " Preview window height
+"
+let g:pymode_preview_position = 'botright' " Preview position
+"
+let g:pymode_python = 'python3'		   " Python version for pymode
+"
+let g:pymode_indent = 1			   " PEP 8 compatible indent
+"
+let g:pymode_folding = 0		   " Disable folding (is experimental, has issues)
+"
+let g:pymode_motion = 1 		   " Enable pymode motion
+"
+let g:pymode_doc = 1 			   " Documentation script
+"
+let g:pymode_doc_bind = 'K'   		   " Press K for documentation
+"
+let g:pymode_virtualenv = 1 		   " Virtual Env support
+" 
+let g:pymode_virtualenv_path = $VIRTUAL_ENV " Path to virtual env
+"
+let g:pymode_run = 1 			   " Run code
+"
+let g:pymode_run_bind = '<leader>r'  	   " Key to run the code
+"
+let g:pymode_breakpoint = 1 		   " Enable breakpoints
+"
+let g:pymode_breakpoint_bind = '<leader>b' " Key for breakpoints
+"
+let g:pymode_breakpoint_cmd = '' 	   " Breakpoint command automatic discobery
+"
+let g:pymode_lint = 1 			   " Pymode linting
+"
+let g:pymode_lint_on_write = 1 		   " Linting on write/saving
+"
+let g:pymode_lint_unmodified = 0 	   " Check at every save
+"
+let g:pymode_lint_on_fly = 0 		   " Checking on the fly (disabled)
+"
+let g:pymode_lint_message = 1 		   " Show error message if cursor is place at the error line
+"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint'] " Pymode linters
+"
+let g:pymode_lint_ignore = ["E501", "W",]  " Skipp erros and warnings
+"
+let g:pymode_lint_select = ["E501", "W0011", "W430"] " But enabe specific errors and warnings
+"
+let g:pymode_lint_sort = ['E', 'C', 'I']   " Sorting of errors
+"
+let g:pymode_lint_cwindow = 1 		   " Auto open cwindow (quickfix)
+"
+let g:pymode_lint_signs = 1 		   " Place error signs
+"
+" Definitions for signs
+let g:pymode_lint_todo_symbol = 'WW'
+let g:pymode_lint_comment_symbol = 'CC'
+let g:pymode_lint_visual_symbol = 'RR'
+let g:pymode_lint_error_symbol = 'EE'
+let g:pymode_lint_info_symbol = 'II'
+let g:pymode_lint_pyflakes_symbol = 'FF'
+" 
+

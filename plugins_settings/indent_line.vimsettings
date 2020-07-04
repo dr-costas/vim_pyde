@@ -1,0 +1,13 @@
+" ~/.vim/plugins_settings/indent_line.vimsettings file starts
+"
+" ==================================
+" IndentLine settings file
+" ==================================
+"
+"
+let g:indentLine_enabled = 1 			  " Enable the plugin
+let g:indentLine_setColors = 0 			  " Disable plugin color setting
+let g:indentLine_color_term = 239 		  " Color for the indentation lines
+" let g:indentLine_char = 'c' 			  " Change indent char
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊'] " Or for different levels
+" EOF

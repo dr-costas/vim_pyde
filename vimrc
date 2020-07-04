@@ -94,7 +94,7 @@ set cmdheight=2	    			" Set the command window height to 2 lines, to avoid
 "
 set paste                               " Enable paste mode, for pasting text into terminal
 "
-set showmode                            " Show paste mode in insert mode, must check
+set noshowmode                            " Show paste mode in insert mode, must check
 					" compatibility with Lightline
 "
 set backspace=indent,eol,start  	" Allow backspacing over autoindent,

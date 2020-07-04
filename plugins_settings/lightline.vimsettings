@@ -1,12 +1,8 @@
-" ~/.vim/plugins_settings/lightline_settings.vim file starts
+" ~/.myvim_files/plugins_settings/lightline_settings.vim file starts
 "
 " ==================================
 " Lightline settings file
 " ==================================
-"
-"
-" Some modifications to VIM appearance 
-set noshowmode 			  " Remove the --INSERT-- since it is visible
 "
 " Set the options for lightline
 "     Options used here are:

@@ -1,5 +1,7 @@
+" ~/.myvim_files/plugins_settings/coc.vimsettings file starts
+"
 " ==================================
-" CoC .vimrc file
+" CoC settings file
 " ==================================
 "
 " Some servers have issues with backup files, see #649.

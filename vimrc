@@ -13,15 +13,14 @@ filetype plugin indent on    			" required
 call plug#begin('~/.vim/plugged')
 " Add plugins
 "
-Plug 'scrooloose/nerdtree'               	" File browser in VIM
-Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
+" Plug 'scrooloose/nerdtree'               	" File browser in VIM
+" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
 Plug 'puremourning/vimspector' 		  	" Debugging plugin
-Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git integration
+" Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git integration
 Plug 'tpope/vim-fugitive'                 	" GIT integration
 Plug 'tpope/vim-markdown' 		  	" Markdown fancy stuff
-Plug 'Yggdroot/indentLine' 			" Vertical bars for
- 						" indentation indication
+Plug 'Yggdroot/indentLine' 			" Vertical bars for indentation
 Plug 'mhinz/vim-signify' 			" Indication of file changes
 Plug 'tibabit/vim-templates' 			" Template files
 "       Color schemes
@@ -116,8 +115,11 @@ autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
 source ~/.myvim_files/plugins_settings/mappings.vimsettings
 "
 " NERDTree related
-source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
+""source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
 " 
+" NETRW related
+source ~/.myvim_files/plugins_settings/netrw.vimsettings
+"
 " COC related
 source ~/.myvim_files/plugins_settings/coc.vimsettings
 "

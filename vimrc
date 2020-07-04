@@ -11,23 +11,21 @@ filetype plugin indent on    			" required
 "
 " Start Plug
 call plug#begin('~/.vim/plugged')
-" Add plugins
-"
-" Plug 'scrooloose/nerdtree'               	" File browser in VIM
-" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
+" 	Currently using plugins ----------------------------------------------
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
 Plug 'puremourning/vimspector' 		  	" Debugging plugin
-" Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git integration
 Plug 'tpope/vim-fugitive'                 	" GIT integration
 Plug 'tpope/vim-markdown' 		  	" Markdown fancy stuff
 Plug 'Yggdroot/indentLine' 			" Vertical bars for indentation
 Plug 'mhinz/vim-signify' 			" Indication of file changes
 Plug 'tibabit/vim-templates' 			" Template files
-"       Color schemes
 Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 Plug 'itchyny/lightline.vim'                    " Status line
-"
-call plug#end()            			" required
+" 	Recently used but uninstalled ---------------------------------------
+" Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git
+" Plug 'scrooloose/nerdtree'               	" File browser in VIM
+" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
+call plug#end()
 
 " ----------------------General settings------------------
 "
@@ -91,10 +89,13 @@ set t_vb=	        		" And reset the terminal code for the visual bell.
 "
 set mouse=a 	    			" Enable use of the mouse for all modes
 "
-set cmdheight=1	    			" Set the command window height to 2 lines, to avoid
+set cmdheight=2	    			" Set the command window height to 2 lines, to avoid
 		            		" many cases of having to "press <Enter> to continue"
 "
-set pastetoggle=<F2> 			" Use <F2> to toggle between 'paste' and 'nopaste'
+set paste                               " Enable paste mode, for pasting text into terminal
+"
+set showmode                            " Show paste mode in insert mode, must check
+					" compatibility with Lightline
 "
 set backspace=indent,eol,start  	" Allow backspacing over autoindent,
 					" line breaks and start of insert action
@@ -109,14 +110,11 @@ set spellfile=~/.myvim_files/spell/en.utf-8.add " Spell file
 " Set syntax highlight for .vimsettings files
 autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
 "
-" ------------General and plugins settings------------------
+" ------------Mappings and plugins settings------------------
 "
 " Mappings
 source ~/.myvim_files/plugins_settings/mappings.vimsettings
 "
-" NERDTree related
-""source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
-" 
 " NETRW related
 source ~/.myvim_files/plugins_settings/netrw.vimsettings
 "

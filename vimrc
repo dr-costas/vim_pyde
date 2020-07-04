@@ -104,7 +104,7 @@ set notimeout ttimeout ttimeoutlen=200  " Quickly time out on keycodes, but
 "
 set clipboard=unnamed 			" Access system clipboard
 "
-set spellfile=~/.vim/spell/en.utf-8.add " Spell file
+set spellfile=~/.myvim_files/spell/en.utf-8.add " Spell file
 "
 " Set syntax highlight for .vimsettings files
 autocmd BufNewFile,BufRead *.vimsettings set filetype=vim

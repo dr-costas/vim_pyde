@@ -14,7 +14,6 @@ and the content of the files.
     2. Setting up plugin manager
     3. Using this repo
 2. Contents of this repo
-    
     1. `vimrc` file
     2. Settings files
     3. Spelling files

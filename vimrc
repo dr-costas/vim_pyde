@@ -12,6 +12,9 @@ filetype plugin indent on    			" required
 " Start Plug
 call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ----------------------------------------------
+Plug 'scrooloose/nerdtree'               	" File browser in VIM
+Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git
+Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
 Plug 'puremourning/vimspector' 		  	" Debugging plugin
 Plug 'tpope/vim-fugitive'                 	" GIT integration
@@ -22,9 +25,6 @@ Plug 'tibabit/vim-templates' 			" Template files
 Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 Plug 'itchyny/lightline.vim'                    " Status line
 " 	Recently used but uninstalled ---------------------------------------
-" Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git
-" Plug 'scrooloose/nerdtree'               	" File browser in VIM
-" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
 call plug#end()
 
 " ----------------------General settings------------------
@@ -56,6 +56,8 @@ set hidden          			" Allows you to switch from an unsaved buffer
 set autoindent	    			" When opening a new line and no filetype-specific
 		            		" indenting is enabled, keep the same indent as
 		            		" the line you're currently on. Useful for READMEs, etc.
+"
+set tabstop=4 				" Set tab to 4 spaces
 "
 set nostartofline   			" Stop certain movements from always going to the
 					" first character of a line. While this behavior
@@ -115,8 +117,8 @@ autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
 " Mappings
 source ~/.myvim_files/plugins_settings/mappings.vimsettings
 "
-" NETRW related
-source ~/.myvim_files/plugins_settings/netrw.vimsettings
+" NERDTree related
+source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
 "
 " COC related
 source ~/.myvim_files/plugins_settings/coc.vimsettings

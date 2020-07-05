@@ -94,7 +94,7 @@ set mouse=a 	    			" Enable use of the mouse for all modes
 set cmdheight=2	    			" Set the command window height to 2 lines, to avoid
 		            		" many cases of having to "press <Enter> to continue"
 "
-set paste                               " Enable paste mode, for pasting text into terminal
+set nopaste                               " Enable paste mode, for pasting text into terminal
 "
 set noshowmode                            " Show paste mode in insert mode, must check
 					" compatibility with Lightline

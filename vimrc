@@ -14,7 +14,7 @@ call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ----------------------------------------------
 Plug 'scrooloose/nerdtree'               	" File browser in VIM
 Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git
-Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
+" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
 Plug 'puremourning/vimspector' 		  	" Debugging plugin
 Plug 'tpope/vim-fugitive'                 	" GIT integration

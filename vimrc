@@ -12,16 +12,16 @@ filetype plugin indent on    			" required
 " Start Plug
 call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ----------------------------------------------
-Plug 'scrooloose/nerdtree'               	" File browser in VIM
-Plug 'Xuyuanp/nerdtree-git-plugin'        	" Plugin for NERDTRee and Git
-" Plug 'jistr/vim-nerdtree-tabs'           	" File browser support for tabs
+Plug 'scrooloose/nerdtree'               		" File browser in VIM
+Plug 'Xuyuanp/nerdtree-git-plugin'        		" Plugin for NERDTRee and Git
+" Plug 'jistr/vim-nerdtree-tabs'           		  " File browser support for tabs
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
-Plug 'puremourning/vimspector' 		  	" Debugging plugin
-Plug 'tpope/vim-fugitive'                 	" GIT integration
-Plug 'tpope/vim-markdown' 		  	" Markdown fancy stuff
-Plug 'Yggdroot/indentLine' 			" Vertical bars for indentation
-Plug 'mhinz/vim-signify' 			" Indication of file changes
-Plug 'tibabit/vim-templates' 			" Template files
+Plug 'puremourning/vimspector' 		  			" Debugging plugin
+Plug 'tpope/vim-fugitive'                 		" GIT integration
+Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
+Plug 'Yggdroot/indentLine' 						" Vertical bars for indentation
+Plug 'mhinz/vim-signify' 						" Indication of file changes
+Plug 'tibabit/vim-templates' 					" Template files
 Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 Plug 'itchyny/lightline.vim'                    " Status line
 " 	Recently used but uninstalled ---------------------------------------

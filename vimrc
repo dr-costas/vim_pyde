@@ -4,6 +4,11 @@
 " VIM settings file
 " ==================================
 "
+" Directives that go on top and are not tracked by git
+" The file: myvim_files/other_files/directives_that_go_on_top.vimsettings
+" has to be manually created.
+source ~/.myvim_files/other_files/directives_that_go_on_top.vimsettings
+" Necessary directives
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required
 "

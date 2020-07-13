@@ -6,7 +6,7 @@
 "
 " Set the options for lightline
 let g:lightline = {
-	\ 'colorscheme': 'wombat',
+	\ 'colorscheme': 'darcula',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste', 'readonly' ], 
 	\			  [ 'fugitive', 'filename', 'modified' ] ],

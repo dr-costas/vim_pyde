@@ -5,16 +5,35 @@
 " ==================================
 "
 " Set the options for lightline
-"     Options used here are:
-"     * colorscheme: Set the colorscheme for lightline
-"     * filename: Use the LightLineFilename function
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
-      \ 'component_function': {
-      \     'filename': 'LightlineFilename',
-      \ },
-      \ }
-"
+	\ 'colorscheme': 'wombat',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste', 'readonly' ], 
+	\			  [ 'fugitive', 'filename', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'fileformat', 'fileencoding', 'filetype', ] ]
+	\ },
+	\ 'component_function': {
+	\   'fugitive': 'LightlineFugitive',
+	\   'filename': 'LightlineFilename'
+	\ }
+	\ }
+" Function to check if the file has been modified
+function! LightlineModified()
+	return &ft =~# 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+" Function to check the read-only property
+function! LightlineReadonly()
+	return &ft !~? 'help\|vimfiler' && &readonly ? 'RO' : ''
+endfunction
+" Function to get the current branch from Fugitive
+function! LightlineFugitive()
+	if &ft !~? 'vimfiler' && exists('*FugitiveHead')
+		return FugitiveHead()
+	endif
+	return ''
+endfunction
 " Function to use the path of a file
 " relative to current  dir.
 function! LightlineFilename()

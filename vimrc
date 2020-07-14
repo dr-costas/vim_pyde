@@ -12,6 +12,8 @@ source ~/.myvim_files/other_files/directives_that_go_on_top.vimsettings
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required
 "
+" Make Vimspector mapping to HUMAN before loading it
+let g:vimspector_enable_mappings = 'HUMAN'
 " ----------------------Plugin settings----------------------------------
 "
 " Start Plug

@@ -20,7 +20,13 @@ set shortmess+=c
 set signcolumn=yes
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-@> coc#refresh()
+if has('macunix')
+	" In macOS <c-space> types <c-@>
+	inoremap <silent><expr> <c-@> coc#refresh()
+else
+	inoremap <silent><expr> <c-space> coc#refresh()
+endif
+
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.

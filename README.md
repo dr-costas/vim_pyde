@@ -84,5 +84,13 @@ $ ln ~/.myvim_files/vimrc ~/.vimrc
 
 Open vim and install the plugins by using the `PlugInstall`. 
 
+Finally, using your terminal, go to `~/.vim/plugged/vimspector/` and do
+
+```bash
+$ ./install_gadget.py --all --disable-tcl
+```
+
+So that the `vimspector` plugin will install the necessary gadgets for debugging. 
+
 That's it! 
 

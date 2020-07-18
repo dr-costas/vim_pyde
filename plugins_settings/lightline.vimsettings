@@ -4,6 +4,9 @@
 " Lightline settings file
 " ==================================
 "
+" Set last status to 2 so Lightline can work properly
+set laststatus=2
+"
 " Set the options for lightline
 let g:lightline = {
 	\ 'colorscheme': 'darcula',

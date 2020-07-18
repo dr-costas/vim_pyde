@@ -4,6 +4,7 @@
 " VIM settings file
 " ==================================
 "
+set pythonthreedll=/opt/lintula/worktmp/anaconda3/envs/drossos_p3.7/lib/libpython3.7m.so
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required
 "
@@ -24,6 +25,7 @@ Plug 'mhinz/vim-signify' 			" Indication of file changes
 Plug 'tibabit/vim-templates' 			" Template files
 Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 Plug 'itchyny/lightline.vim'                    " Status line
+Plug 'vim-python/python-syntax'
 " 	Recently used but uninstalled ---------------------------------------
 call plug#end()
 
@@ -111,6 +113,8 @@ set spellfile=~/.myvim_files/spell/en.utf-8.add " Spell file
 "
 " Set syntax highlight for .vimsettings files
 autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
+"
+let g:python_highlight_all = 1
 "
 " ------------Mappings and plugins settings------------------
 "

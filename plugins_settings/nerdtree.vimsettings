@@ -5,11 +5,15 @@
 " ==================================
 "
 "
-autocmd StdinReadPre * let s:std_in=1  		  " Open NERDTree automatically
-" even no file is given at ViM
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif    
-"
-autocmd VimEnter * wincmd p 			  " and jump to main window
+" Open NERDTree automatically even when no file is
+" given at Vim and jump to the main window
+augroup NERD
+    au!
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    autocmd VimEnter * wincmd p
+    autocmd VimEnter * call lightline#update()
+augroup END
 "
 let NERDTreeShowLineNumbers=1 			  " Line numbers on
 "

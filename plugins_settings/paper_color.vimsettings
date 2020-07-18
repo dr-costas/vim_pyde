@@ -14,6 +14,11 @@ let g:PaperColor_Theme_Options = {
   \         'linenumber_fg' : ['#080808', '235']
   \       }
   \     }
+  \   },
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins': 1
+  \     }
   \   }
   \ }
 set background=dark 		 " Light background

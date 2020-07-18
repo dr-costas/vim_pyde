@@ -30,7 +30,8 @@ Plug 'mhinz/vim-signify' 						" Indication of file changes
 Plug 'tibabit/vim-templates' 					" Template files
 Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 Plug 'itchyny/lightline.vim'                    " Status line
-Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax' 				" Python syntax highlight
+Plug 'mhinz/vim-startify'						" Vim start screen
 " 	Recently used but uninstalled ---------------------------------------
 call plug#end()
 

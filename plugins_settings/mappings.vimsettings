@@ -21,13 +21,6 @@ nnoremap <F2> :set hlsearch!<CR>
 " 	Enable folding with the spacebar
 nnoremap <space> za
 "
-" Insert mode mapping
-" 	Add pairs of braces
-inoremap ( ()<ESC>i
-inoremap " ""<ESC>i
-inoremap ' ''<ESC>i
-inoremap { {}<ESC>i
-"
 " Terminal mode mappings
 " 	Make terminal as typical window with C-T
 tnoremap <C-T> <C-W>N

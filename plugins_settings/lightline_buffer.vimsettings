@@ -4,6 +4,8 @@
 " <name of settings> settings file
 " ==================================
 "
+" Show tabline
+set showtabline=2 
 "
 " Set-up lightline buffer 
 let g:lightline_buffer_logo = ' '

@@ -1,0 +1,19 @@
+" ~/.myvim_files/plugins_settings/solarized.vimsettings file starts
+"
+" ==================================
+" Solarized settings file
+" ==================================
+"
+"
+" Declare that we use 256 colors
+let g:solarized_termcolors=256
+"
+" Choose dark background
+set background=dark
+"
+" Enable solarized theme
+colorscheme solarized
+"
+" Let Solarized to use default transparency
+let g:solarized_termtrans=1
+" EOF

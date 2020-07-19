@@ -8,6 +8,7 @@
 " The file: myvim_files/other_files/directives_that_go_on_top.vimsettings
 " has to be manually created.
 source ~/.myvim_files/other_files/directives_that_go_on_top.vimsettings
+"
 " Necessary directives
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required
@@ -26,15 +27,19 @@ Plug 'puremourning/vimspector' 		  			" Debugging plugin
 Plug 'tpope/vim-fugitive'                 		" GIT integration
 Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
 Plug 'Yggdroot/indentLine' 						" Vertical bars for indentation
-Plug 'mhinz/vim-signify' 						" Indication of file changes
+Plug 'airblade/vim-gitgutter' 					" Git indication at sign column
 Plug 'tibabit/vim-templates' 					" Template files
-Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
+Plug 'altercation/vim-colors-solarized' 		" Solarized colorscheme
 Plug 'itchyny/lightline.vim'                    " Status line
 Plug 'vim-python/python-syntax' 				" Python syntax highlight
 Plug 'mhinz/vim-startify'						" Vim start screen
+Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
+Plug 'tpope/vim-surround' 						" Postfix surrounding
 " 	Recently used but uninstalled ---------------------------------------
+" Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
+" Plug 'mhinz/vim-signify' 						" Indication of file changes
 call plug#end()
-
+"
 " ----------------------General settings---------------------------------
 "
 " Setting of variables
@@ -134,7 +139,10 @@ source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
 source ~/.myvim_files/plugins_settings/coc.vimsettings
 "
 " PaperColor related
-source ~/.myvim_files/plugins_settings/paper_color.vimsettings
+" source ~/.myvim_files/plugins_settings/paper_color.vimsettings
+"
+" Solarized related
+source ~/.myvim_files/plugins_settings/solarized.vimsettings
 " 
 " Vimspector related
 source ~/.myvim_files/plugins_settings/vimspector.vimsettings
@@ -154,10 +162,13 @@ source ~/.myvim_files/plugins_settings/lightline.vimsettings
 highlight Comment cterm=bold
 " 
 " Cursor line appearance
-highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
+" highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 "
 " Highlight bad space
 highlight BadWhitespace ctermbg=red guibg=red
+"
+" Clear highlight on the sign column
+highlight clear SignColumn
 "
 " ----------------------Misc settings------------------------------------
 "

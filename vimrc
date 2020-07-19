@@ -35,6 +35,8 @@ Plug 'vim-python/python-syntax' 				" Python syntax highlight
 Plug 'mhinz/vim-startify'						" Vim start screen
 Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
 Plug 'tpope/vim-surround' 						" Postfix surrounding
+Plug 'bling/vim-bufferline'
+Plug 'taohexxx/lightline-buffer'
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 " Plug 'mhinz/vim-signify' 						" Indication of file changes
@@ -71,6 +73,8 @@ set autoindent	    					" When opening a new line and no filetype-specific
 		            					" the line you're currently on. Useful for READMEs, etc.
 "
 set tabstop=4 							" Set tab to 4 spaces
+"
+set shiftwidth=4 						" Using >> or << shifts by 4 spaces
 "
 set nostartofline   					" Stop certain movements from always going to the
 										" first character of a line. While this behavior
@@ -155,6 +159,12 @@ source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
 "
 " Lightline related
 source ~/.myvim_files/plugins_settings/lightline.vimsettings
+"
+" Bufferline related
+source ~/.myvim_files/plugins_settings/bufferline.vimsettings
+"
+" Lightline buffer related
+source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings
 "
 " ----------------------Appearance settings------------------------------
 "

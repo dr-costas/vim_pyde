@@ -8,7 +8,7 @@
 set showtabline=2 
 "
 " Set-up lightline buffer 
-let g:lightline_buffer_logo = ' '
+let g:lightline_buffer_logo = 'Tab: '
 let g:lightline_buffer_readonly_icon = ''
 let g:lightline_buffer_modified_icon = '✭'
 let g:lightline_buffer_git_icon = '[]'

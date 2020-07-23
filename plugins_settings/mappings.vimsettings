@@ -94,5 +94,5 @@ endfunction
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 " Mapping of Ctrl-q to use the Kwbd
-nnoremap <silent><nowait> <C-q>! :Kwbd<CR>
+nmap <C-Q> <Plug>Kwbd
 " EOF

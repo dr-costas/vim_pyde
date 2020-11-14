@@ -36,6 +36,7 @@ Plug 'mhinz/vim-startify'						" Vim start screen
 Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
 Plug 'tpope/vim-surround' 						" Postfix surrounding
 Plug 'taohexxx/lightline-buffer' 			    " Show open buffers in lightline
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list
 " Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme

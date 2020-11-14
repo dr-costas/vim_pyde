@@ -61,6 +61,8 @@ set cursorline 							" Enable cursor line
 "
 set splitright      					" Vertical split adds new window to the right.
 "
+" set autochdir 							" Current working directory follows buffers
+"
 set hidden          					" Allows you to switch from an unsaved buffer
 		            					" without saving it first. Also allows
                     					" you to keep an undo history for multiple files.

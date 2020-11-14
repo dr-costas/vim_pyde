@@ -87,7 +87,6 @@ function! ShowTime()
 endfunction
 "
 function! UpdateStatus(timer)
-	" call lightline#update()
 	redrawtabline
 endfunction
 "

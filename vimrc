@@ -169,6 +169,9 @@ source ~/.myvim_files/plugins_settings/lightline.vimsettings
 " Lightline buffer related
 source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings
 "
+" Python doctring related
+source ~/.myvim_files/plugins_settings/python_docstring.vimsettings
+"
 " ----------------------Appearance settings------------------------------
 "
 " Highlight comments

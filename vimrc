@@ -35,11 +35,11 @@ Plug 'vim-python/python-syntax' 				" Python syntax highlight
 Plug 'mhinz/vim-startify'						" Vim start screen
 Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
 Plug 'tpope/vim-surround' 						" Postfix surrounding
-Plug 'bling/vim-bufferline'
-Plug 'taohexxx/lightline-buffer'
+Plug 'taohexxx/lightline-buffer' 			    " Show open buffers in lightline
 " 	Recently used but uninstalled ---------------------------------------
+" Plug 'bling/vim-bufferline' 				      " Show open buffers list
 " Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
-" Plug 'mhinz/vim-signify' 						" Indication of file changes
+" Plug 'mhinz/vim-signify' 						  " Indication of file changes
 call plug#end()
 "
 " ----------------------General settings---------------------------------
@@ -163,7 +163,7 @@ source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
 source ~/.myvim_files/plugins_settings/lightline.vimsettings
 "
 " Bufferline related
-source ~/.myvim_files/plugins_settings/bufferline.vimsettings
+" source ~/.myvim_files/plugins_settings/bufferline.vimsettings
 "
 " Lightline buffer related
 source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings

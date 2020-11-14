@@ -9,20 +9,28 @@ set laststatus=2
 "
 " Set the options for lightline
 let g:lightline = {
-	\ 'colorscheme': 'darcula',
+	\ 'colorscheme': 'jellybeans',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste', 'readonly' ], 
-	\			  [ 'fugitive', 'filename', 'modified' ]
+	\			  [ 'fugitive' ],
+    \             [ 'filename', 'separator', 'modified' ]
 	\		    ],
     \   'right': [ [ 'lineinfo' ],
     \              [ 'percent' ],
     \              [ 'fileformat', 'fileencoding', 'filetype', ] ]
 	\ },
+	\ 'inactive': {
+	\   'left': [ [ 'fugitive' ],
+    \             [ 'filename', 'separator', 'modified' ]
+	\		    ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'filetype', ] ]
+	\ },
     \ 'tabline': {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
     \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-    \   'right': [ [ 'close' ], ],
+    \   'right': [ [ 'clock' ], ],
     \ },
 	\ 'component_expand': {
     \   'buffercurrent': 'lightline#buffer#buffercurrent',
@@ -33,6 +41,7 @@ let g:lightline = {
 	\   'fugitive': 'LightlineFugitive',
 	\   'filename': 'LightlineFilename',
     \   'bufferinfo': 'lightline#buffer#bufferinfo',
+	\	'clock': 'ShowTime',
 	\ },
     \ 'component_type': {
     \   'buffercurrent': 'tabsel',
@@ -40,6 +49,7 @@ let g:lightline = {
     \   'bufferafter': 'raw',
     \ }
 	\ }
+" 'right': [ [ 'clock', 'close' ], ],
 " ----------------------------------------------------------
 " Functions
 " ----------------------------------------------------------
@@ -72,6 +82,24 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 "
+function! ShowTime()
+	return strftime('%c')
+endfunction
+"
+function! UpdateStatus(timer)
+	" call lightline#update()
+	redrawtabline
+endfunction
+"
+let statusTimer = timer_start(1000, 'UpdateStatus', {'repeat': -1})
+"
+command LightlineReload call LightlineReload()
+
+function! LightlineReload()
+	call lightline#init()
+	call lightline#colorscheme()
+	call lightline#update()
+endfunction
 " Function for getting the buffers
 " function! BufferlineFunction()
 "   call bufferline#refresh_status()

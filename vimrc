@@ -29,7 +29,6 @@ Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
 Plug 'Yggdroot/indentLine' 						" Vertical bars for indentation
 Plug 'airblade/vim-gitgutter' 					" Git indication at sign column
 Plug 'tibabit/vim-templates' 					" Template files
-Plug 'altercation/vim-colors-solarized' 		" Solarized colorscheme
 Plug 'itchyny/lightline.vim'                    " Status line
 Plug 'vim-python/python-syntax' 				" Python syntax highlight
 Plug 'mhinz/vim-startify'						" Vim start screen
@@ -38,9 +37,10 @@ Plug 'tpope/vim-surround' 						" Postfix surrounding
 Plug 'taohexxx/lightline-buffer' 			    " Show open buffers in lightline
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 " 	Recently used but uninstalled ---------------------------------------
-" Plug 'bling/vim-bufferline' 				      " Show open buffers list
-" Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
-" Plug 'mhinz/vim-signify' 						  " Indication of file changes
+" Plug 'altercation/vim-colors-solarized' 		" Solarized colorscheme
+" Plug 'bling/vim-bufferline' 				    " Show open buffers list
+" Plug 'NLKNguyen/papercolor-theme'             " Papercolor theme
+" Plug 'mhinz/vim-signify' 						" Indication of file changes
 call plug#end()
 "
 " ----------------------General settings---------------------------------

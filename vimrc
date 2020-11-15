@@ -145,9 +145,6 @@ source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
 " COC related
 source ~/.myvim_files/plugins_settings/coc.vimsettings
 "
-" PaperColor related
-" source ~/.myvim_files/plugins_settings/paper_color.vimsettings
-"
 " Solarized related
 source ~/.myvim_files/plugins_settings/solarized.vimsettings
 " 
@@ -162,9 +159,6 @@ source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
 "
 " Lightline related
 source ~/.myvim_files/plugins_settings/lightline.vimsettings
-"
-" Bufferline related
-" source ~/.myvim_files/plugins_settings/bufferline.vimsettings
 "
 " Lightline buffer related
 source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings

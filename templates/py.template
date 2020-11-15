@@ -3,8 +3,8 @@
 
 # imports
 
-__author__ = 'Konstantinos Drossos - Tampere University'
-__docformat__ = 'reStructuredText'
+__author__ = ''
+__docformat__ = ''
 __all__ = []
 
 

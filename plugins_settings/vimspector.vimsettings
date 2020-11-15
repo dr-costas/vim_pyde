@@ -5,5 +5,5 @@
 " ==================================
 "
 "
-" Add settings for Vimspectot
+packadd! vimspector
 "

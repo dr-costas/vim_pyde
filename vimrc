@@ -149,7 +149,7 @@ source ~/.myvim_files/plugins_settings/coc.vimsettings
 " source ~/.myvim_files/plugins_settings/paper_color.vimsettings
 "
 " Solarized related
-source ~/.myvim_files/plugins_settings/solarized.vimsettings
+" source ~/.myvim_files/plugins_settings/solarized.vimsettings
 " 
 " Vimspector related
 source ~/.myvim_files/plugins_settings/vimspector.vimsettings

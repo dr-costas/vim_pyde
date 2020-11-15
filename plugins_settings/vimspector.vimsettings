@@ -5,6 +5,6 @@
 " ==================================
 "
 "
-packadd! vimspector
+" Add settings for Vimspectot
 "
 " EOF

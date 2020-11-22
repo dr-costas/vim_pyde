@@ -24,7 +24,10 @@ nnoremap <space> za
 " Terminal mode mappings
 " 	Make terminal as typical window with C-T
 tnoremap <C-T> <C-W>N
-" 
+" Setting leader key
+let mapleader = ","
+"
+"" 
 " Delete a buffer but keep window script, code from: 
 " https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
 " Delete the buffer; keep windows; create a scratch buffer if no buffers left

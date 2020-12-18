@@ -20,7 +20,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " Use <c-space> to trigger completion.
-if has('macunix')
+if has('macunix') || has('unix')
 	" In macOS <c-space> types <c-@>
 	inoremap <silent><expr> <c-@> coc#refresh()
 else
@@ -43,6 +43,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>gd :vsplit<cr>:call CocAction('jumpDefinition')<cr>zt
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)

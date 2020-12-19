@@ -1,7 +1,7 @@
 " ~/.vimrc file starts
 "
 " ==================================
-" VIM settings file
+" VIM run commands file
 " ==================================
 "
 " Directives that go on top and are not tracked by git

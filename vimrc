@@ -47,7 +47,10 @@ call plug#end()
 " ----------------------General settings---------------------------------
 "
 " General settings file
-source ~/.myvim_files/other_files/general_settings.vimsettings
+source ~/.myvim_files/vim_settings/general_settings.vimsettings
+"
+" Appearance settings file
+source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 "
 " ------------Mappings and plugins settings------------------------------
 "

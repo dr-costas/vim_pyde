@@ -5,6 +5,9 @@
 " ==================================
 "
 "
+" Mapping for :REPLToggle
+nnoremap <leader>r :REPLToggle<cr>
+"
 " Bottom location for the REPL buffer
 " Location "codes" are: 
 " 	0: bottom
@@ -16,10 +19,12 @@ let g:repl_position = 0
 " Choose to have the cursor staying at REPL after opening it
 let g:repl_stayatrepl_when_open = 1
 "
+let g:repl_unhide_when_send_lines = 1
+"
 " Choose programs to run when opening REPL
 let g:repl_program = {
 			\	'python': ['ipython'],
-			\	'default': ['bash']
+			\	'default': ['bash'],
 			\	} 
 "
 " Define iPython version
@@ -38,6 +43,6 @@ let g:repl_exit_commands = {
 let g:repl_auto_sends = ['class ', 'def ', 'for ', 'if ', 'while ', 'with ']
 "
 " Define REPL buffer name
-let g:repl_console_name = 'Python REPL'
+let g:repl_console_name = 'Python REPL '
 "
 " EOF

@@ -1,4 +1,4 @@
-" ~/.vimrc file starts
+" ~/.myvim_files/.vimrc file starts
 "
 " ==================================
 " Vim run commands file

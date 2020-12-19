@@ -5,6 +5,13 @@
 " ==================================
 "
 "
+" Necessary directives
+set nocompatible              			" be iMproved, required
+filetype plugin indent on    			" required
+"
+" Make Vimspector mapping to HUMAN before loading it
+let g:vimspector_enable_mappings = 'HUMAN'
+"
 " Start Plug
 call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ---------------------------------------------

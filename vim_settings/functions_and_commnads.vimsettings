@@ -1,7 +1,7 @@
-" ~/.myvim_files/vim_settings/functions.vimsettings file starts
+" ~/.myvim_files/vim_settings/functions_and_commands.vimsettings file starts
 "
 " ==================================
-" Functions file
+" Functions and commands file
 " ==================================
 "
 "
@@ -72,5 +72,10 @@ function s:Kwbd(kwbdStage)
     endif
   endif
 endfunction
+"
+command! Kwbd call s:Kwbd(1)
+nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+" Mapping of Ctrl-q to use the Kwbd
+nmap <C-Q> <Plug>Kwbd
 "
 " EOF

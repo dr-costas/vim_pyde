@@ -30,6 +30,9 @@ source ~/.myvim_files/vim_settings/general_settings.vimsettings
 " Appearance settings file
 source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 "
+" Functions and commands
+source ~/.myvim_files/vim_settings/functions_and_commnads.vimsettings
+"
 " Mappings
 source ~/.myvim_files/vim_settings/mappings.vimsettings
 "

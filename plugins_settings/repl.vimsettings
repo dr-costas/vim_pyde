@@ -6,6 +6,11 @@
 "
 "
 " Bottom location for the REPL buffer
+" Location "codes" are: 
+" 	0: bottom
+" 	1: top
+" 	2: left
+" 	3: right
 let g:repl_position = 0
 "
 " Choose to have the cursor staying at REPL after opening it

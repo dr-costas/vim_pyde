@@ -5,6 +5,9 @@
 " ==================================
 "
 "
+" Setting leader key
+let mapleader = ","
+"
 " Normal mode mappings
 " 	Navigation to split windows with Ctrl + H, J, K, L
 nnoremap <C-J> <C-W><C-J>
@@ -20,14 +23,19 @@ nnoremap <Right> :vertical resize +2<CR>
 nnoremap <F2> :set hlsearch!<CR>
 " 	Enable folding with the spacebar
 nnoremap <space> za
+"	Open terminal at belowright
+nnoremap <silent> <leader><C-T> :belowright terminal<cr>
 "
 " Terminal mode mappings
 " 	Make terminal as typical window with C-T
 tnoremap <C-T> <C-W>N
-" Setting leader key
-let mapleader = ","
+"	Export PYTHONPATH
+tnoremap <leader><C-E> export PYTHONPATH=$PYTHONPATH:.<cr>
 "
-"" 
+" -------------------------------------
+" Functions
+" -------------------------------------
+"
 " Delete a buffer but keep window script, code from: 
 " https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
 " Delete the buffer; keep windows; create a scratch buffer if no buffers left

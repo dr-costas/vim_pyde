@@ -1,0 +1,38 @@
+" ~/.myvim_files/plugins_settings/repl.vimsettings file starts
+"
+" ==================================
+" REPL settings file
+" ==================================
+"
+"
+" Bottom location for the REPL buffer
+let g:repl_position = 0
+"
+" Choose to have the cursor staying at REPL after opening it
+let g:repl_stayatrepl_when_open = 1
+"
+" Choose programs to run when opening REPL
+let g:repl_program = {
+			\	'python': ['ipython'],
+			\	'default': ['bash']
+			\	} 
+"
+" Define iPython version
+let g:repl_ipython_version = '7' 
+"
+" Define exit commands
+let g:repl_exit_commands = {
+			\	'python': 'quit()',
+			\	'ipython': 'quit()',
+			\	'bash': 'exit',
+			\	'zsh': 'exit',
+			\	'default': 'exit',
+			\	} 
+"
+" Define blocks of keywords to be sent as a whole
+let g:repl_auto_sends = ['class ', 'def ', 'for ', 'if ', 'while ', 'with ']
+"
+" Define REPL buffer name
+let g:repl_console_name = 'Python REPL'
+"
+" EOF

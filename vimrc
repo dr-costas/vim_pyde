@@ -24,10 +24,10 @@ source ~/.myvim_files/vim_settings/general_settings.vimsettings
 " Appearance settings file
 source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 "
-" ------------Mappings and plugins settings------------------------------
-"
 " Mappings
-source ~/.myvim_files/plugins_settings/mappings.vimsettings
+source ~/.myvim_files/vim_settings/mappings.vimsettings
+"
+" ------------Mappings and plugins settings------------------------------
 "
 " NERDTree related
 source ~/.myvim_files/plugins_settings/nerdtree.vimsettings

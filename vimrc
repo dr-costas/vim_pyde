@@ -4,19 +4,25 @@
 " Vim run commands file
 " ==================================
 "
-" -----------------Directives that go on top-----------------------------
+" -----------------------------------------------------------------------
+" 		Directives that go on top
+" -----------------------------------------------------------------------
 "
 " Directives that go on top and are not tracked by git
 " The file: myvim_files/other_files/directives_that_go_on_top.vimsettings
 " has to be manually created.
 source ~/.myvim_files/other_files/directives_that_go_on_top.vimsettings
 "
-" ----------------------Plugin settings----------------------------------
+" -----------------------------------------------------------------------
+" 		Plugin settings
+" -----------------------------------------------------------------------
 "
 " Plugin settings file
 source ~/.myvim_files/vim_settings/plugins.vimsettings
 "
-" ----------------------General settings---------------------------------
+" -----------------------------------------------------------------------
+" 		General settings
+" -----------------------------------------------------------------------
 "
 " General settings file
 source ~/.myvim_files/vim_settings/general_settings.vimsettings
@@ -27,7 +33,9 @@ source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 " Mappings
 source ~/.myvim_files/vim_settings/mappings.vimsettings
 "
-" ------------Mappings and plugins settings------------------------------
+" -----------------------------------------------------------------------
+" 		Mappings and plugins settings
+" -----------------------------------------------------------------------
 "
 " NERDTree related
 source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
@@ -59,7 +67,9 @@ source ~/.myvim_files/plugins_settings/python_docstring.vimsettings
 " REPL related
 source ~/.myvim_files/plugins_settings/repl.vimsettings
 "
-" ----------------------Appearance settings------------------------------
+" -----------------------------------------------------------------------
+" 		Appearance settings
+" -----------------------------------------------------------------------
 "
 " Appearance settings file
 source ~/.myvim_files/vim_settings/appearance_settings.vimsettings 

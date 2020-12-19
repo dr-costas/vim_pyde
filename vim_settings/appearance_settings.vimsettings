@@ -17,6 +17,4 @@ highlight BadWhitespace ctermbg=red guibg=red
 " Clear highlight on the sign column
 highlight clear SignColumn
 "
-" ----------------------Misc settings------------------------------------
-"
 " EOF

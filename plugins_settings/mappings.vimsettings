@@ -19,7 +19,7 @@ nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
-" 	Clear search highlight with F3
+" 	Clear search highlight with F2
 nnoremap <F2> :set hlsearch!<CR>
 " 	Enable folding with the spacebar
 nnoremap <space> za

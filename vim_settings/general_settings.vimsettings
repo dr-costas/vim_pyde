@@ -5,6 +5,11 @@
 " ==================================
 "
 "
+let g:python_highlight_all = 1
+"
+" Setting leader key
+let mapleader = ","
+"
 " Setting of variables
 set hlsearch! 							" Clear the highlight of last search
 "
@@ -88,10 +93,5 @@ set notimeout ttimeout ttimeoutlen=200 	" Quickly time out on keycodes, but
 set clipboard=unnamed 					" Access system clipboard
 "
 set spellfile=~/.myvim_files/spell/en.utf-8.add " Spell file
-"
-let g:python_highlight_all = 1
-"
-" Setting leader key
-let mapleader = ","
 "
 " EOF

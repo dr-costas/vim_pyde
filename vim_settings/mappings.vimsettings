@@ -28,6 +28,8 @@ nnoremap <F2> :set hlsearch!<CR>
 nnoremap <space> za
 "	Open terminal at belowright
 nnoremap <silent> <leader><C-T> :belowright terminal<cr>
+" 	Mapping of Ctrl-q to use the Kwbd
+nmap <C-Q> <Plug>Kwbd
 "
 " -----------------------------------------------------------------------
 " Terminal mode mappings

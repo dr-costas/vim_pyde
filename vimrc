@@ -18,7 +18,7 @@ let g:vimspector_enable_mappings = 'HUMAN'
 " ----------------------Plugin settings----------------------------------
 "
 " Plugin settings file
-source ~/.myvim_files/vim_settings/plugins_settings.vimsettings
+source ~/.myvim_files/vim_settings/plugins.vimsettings
 "
 " ----------------------General settings---------------------------------
 "

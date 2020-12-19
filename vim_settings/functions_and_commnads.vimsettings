@@ -6,8 +6,9 @@
 "
 "
 " -----------------------------------------------------------------------
-" Delete a buffer but keep window script
+" 	Functions
 " -----------------------------------------------------------------------
+" Delete a buffer but keep window script
 " Code from: https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
 " Delete the buffer; keep windows; create a scratch buffer if no buffers left
 function s:Kwbd(kwbdStage)
@@ -73,9 +74,14 @@ function s:Kwbd(kwbdStage)
   endif
 endfunction
 "
+" -----------------------------------------------------------------------
+" 	Commands
+" -----------------------------------------------------------------------
+"
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-" Mapping of Ctrl-q to use the Kwbd
-nmap <C-Q> <Plug>Kwbd
+"
+" Set syntax highlight for .vimsettings files
+autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
 "
 " EOF

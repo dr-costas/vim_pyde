@@ -53,7 +53,7 @@ source ~/.myvim_files/plugins_settings/lightline.vimsettings
 " Lightline buffer related
 source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings
 "
-" Python doctsring related
+" Python docstring related
 source ~/.myvim_files/plugins_settings/python_docstring.vimsettings
 "
 " REPL related

@@ -89,25 +89,7 @@ source ~/.myvim_files/plugins_settings/repl.vimsettings
 "
 " ----------------------Appearance settings------------------------------
 "
-" Highlight comments
-highlight Comment cterm=bold
-" 
-" Cursor line appearance
-" highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
-"
-" Highlight bad space
-highlight BadWhitespace ctermbg=red guibg=red
-"
-" Clear highlight on the sign column
-highlight clear SignColumn
-"
-" ----------------------Misc settings------------------------------------
-"
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-"
-" See doc strings for folded code
-let g:SimplyFold_docstring_preview=1
+" Appearance settings file
+source ~/.myvim_files/vim_settings/appearance_settings.vimsettings 
 "
 " EOF

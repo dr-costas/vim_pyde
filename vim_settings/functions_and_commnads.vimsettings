@@ -1,35 +1,15 @@
-" ~/.myvim_files/plugins_settings/mappings.vimsettings file starts
+" ~/.myvim_files/vim_settings/functions_and_commands.vimsettings file starts
 "
 " ==================================
-" Mappings settings file
+" Functions and commands file
 " ==================================
 "
 "
-" Normal mode mappings
-" 	Navigation to split windows with Ctrl + H, J, K, L
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-"	Resizing of windows with arrow keys
-nnoremap <Up>    :resize -2<CR>
-nnoremap <Down>  :resize +2<CR>
-nnoremap <Left>  :vertical resize -2<CR>
-nnoremap <Right> :vertical resize +2<CR>
-" 	Clear search highlight with F3
-nnoremap <F2> :set hlsearch!<CR>
-" 	Enable folding with the spacebar
-nnoremap <space> za
-"
-" Terminal mode mappings
-" 	Make terminal as typical window with C-T
-tnoremap <C-T> <C-W>N
-" Setting leader key
-let mapleader = ","
-"
-"" 
-" Delete a buffer but keep window script, code from: 
-" https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
+" -----------------------------------------------------------------------
+" 	Functions
+" -----------------------------------------------------------------------
+" Delete a buffer but keep window script
+" Code from: https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
 " Delete the buffer; keep windows; create a scratch buffer if no buffers left
 function s:Kwbd(kwbdStage)
   if(a:kwbdStage == 1)
@@ -93,9 +73,15 @@ function s:Kwbd(kwbdStage)
     endif
   endif
 endfunction
-
+"
+" -----------------------------------------------------------------------
+" 	Commands
+" -----------------------------------------------------------------------
+"
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-" Mapping of Ctrl-q to use the Kwbd
-nmap <C-Q> <Plug>Kwbd
+"
+" Set syntax highlight for .vimsettings files
+autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
+"
 " EOF

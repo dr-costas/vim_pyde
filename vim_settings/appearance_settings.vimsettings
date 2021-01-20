@@ -1,0 +1,20 @@
+" ~/.myvim_files/vim_files/appearance_settings.vimsettings file starts
+"
+" ==================================
+" Appearance settings file
+" ==================================
+"
+"
+" Highlight comments
+highlight Comment cterm=bold
+" 
+" Cursor line appearance
+" highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
+"
+" Highlight bad space
+highlight BadWhitespace ctermbg=red guibg=red
+"
+" Clear highlight on the sign column
+highlight clear SignColumn
+"
+" EOF

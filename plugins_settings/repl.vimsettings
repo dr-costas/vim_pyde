@@ -6,8 +6,9 @@
 "
 "
 " Mapping for :REPLToggle
-nnoremap <leader>r :REPLToggle<cr>
+nnoremap <leader>z :REPLToggle<CR>
 "
+""
 " Bottom location for the REPL buffer
 " Location "codes" are: 
 " 	0: bottom

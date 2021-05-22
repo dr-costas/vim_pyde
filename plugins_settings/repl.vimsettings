@@ -25,6 +25,7 @@ let g:repl_unhide_when_send_lines = 1
 let g:repl_program = {
 			\	'python': ['ipython'],
 			\	'default': ['bash'],
+			\   'vim': ['bash'],
 			\	} 
 "
 " Define iPython version

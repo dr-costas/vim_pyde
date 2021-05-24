@@ -20,7 +20,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " Use <c-space> to trigger completion.
-if has('macunix')
+if has('macunix') || has('unix')
 	" In macOS <c-space> types <c-@>
 	inoremap <silent><expr> <c-@> coc#refresh()
 else

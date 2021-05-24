@@ -1,0 +1,15 @@
+" ~/.myvim_files/vim_settings/misc_settings.vimsettings file starts
+"
+" ==================================
+" Misc settings file
+" ==================================
+"
+"
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+"
+" See doc strings for folded code
+let g:SimplyFold_docstring_preview=1
+"
+" EOF

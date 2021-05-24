@@ -6,7 +6,8 @@
 "
 "
 " Mapping for :REPLToggle
-nnoremap <leader>z :REPLToggle<CR>
+nnoremap <leader>zb :REPLToggle bash<CR>
+nnoremap <leader>zp :REPLToggle ipython<CR>
 "
 ""
 " Bottom location for the REPL buffer

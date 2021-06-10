@@ -4,6 +4,16 @@
 " CoC settings file
 " ==================================
 "
+" Install useful plugins as a starting point
+" * coc-pyright is Python extension
+"   (https://github.com/fannheyward/coc-pyright)
+" * coc-marketplace is an extension to see all avaialble extensions 
+"   (https://github.com/fannheyward/coc-marketplace)
+let g:coc_global_extensions =[
+	\ 'coc-marketplace',
+	\ 'coc-pyright'
+\ ]
+"
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup

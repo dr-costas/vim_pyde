@@ -172,6 +172,27 @@
         }
       }
     },
+    "run with arguments - main.py": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request": "launch",
+        "type": "python",
+        "cwd": "${workspaceRoot}",
+        "program": "${workspaceRoot}/main.py",
+		"args": [
+		"--input-argument-1", "value", "argument=\"test\"""
+		],
+        "stopOnEntry": false,
+        "console": "integratedTerminal"
+      },
+      "breakpoints": {
+        "exception": {
+          "raised": "N",
+          "uncaught": "",
+          "userUnhandled": ""
+        }
+      }
+    },
     "run - exception question": {
       "adapter": "debugpy",
       "configuration": {

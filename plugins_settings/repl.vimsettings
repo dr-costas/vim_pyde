@@ -6,8 +6,10 @@
 "
 "
 " Mapping for :REPLToggle
-nnoremap <leader>r :REPLToggle<cr>
+nnoremap <leader>zb :REPLToggle bash<CR>
+nnoremap <leader>zp :REPLToggle ipython<CR>
 "
+""
 " Bottom location for the REPL buffer
 " Location "codes" are: 
 " 	0: bottom
@@ -25,6 +27,7 @@ let g:repl_unhide_when_send_lines = 1
 let g:repl_program = {
 			\	'python': ['ipython'],
 			\	'default': ['bash'],
+			\   'vim': ['bash'],
 			\	} 
 "
 " Define iPython version

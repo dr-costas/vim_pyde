@@ -24,7 +24,7 @@ nnoremap <F2> :set hlsearch!<CR>
 " 	Enable folding with the spacebar
 nnoremap <space> za
 "	Open terminal at belowright
-nnoremap <silent> <leader><C-T> :belowright terminal<cr>
+nnoremap <silent> <leader><C-T> :belowright terminal<cr>export PYTHONPATH=$PYTHONPATH<cr>clear<cr>
 " 	Mapping of Ctrl-q to use the Kwbd
 nmap <C-Q> <Plug>Kwbd
 "

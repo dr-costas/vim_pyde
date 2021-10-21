@@ -94,4 +94,5 @@ set clipboard=unnamed 					" Access system clipboard
 "
 set spellfile=~/.myvim_files/spell/en.utf-8.add " Spell file
 "
+set shell=/bin/bash						" Set bash as the shell to be used
 " EOF

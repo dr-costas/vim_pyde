@@ -12,4 +12,7 @@ nmap <silent> <leader><F3> :call vimspector#Reset()<cr>
 "
 " Key for launching Vimspector, not just restarting
 nmap <silent> <leader><F4> :call vimspector#Launch()<cr> 
+"
+" Key for clearing all breakpoints
+nmap <silent> <leader><F9> :call vimspector#ClearBreakpoints()<cr>
 " EOF

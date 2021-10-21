@@ -29,4 +29,14 @@ let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__'] " File patterns to ignore
 "
 " Open/close NERDTree with F1
 nmap <F1> :NERDTreeToggle<CR>
+" Automatically close NERDTree after opening a file. For
+" future reference: 
+" Value  | NERDTree Window Behavior
+" -------+-------------------------------------------------------
+" 0      | No change
+" 1      | Closes after opening a file
+" 2      | Closes the bookmark table after opening a bookmark
+" 3(1+2) | Same as both 1 and 2
+let NERDTreeQuitOnOpen=0
+nmap <silent> <leader><F1> :let NERDTreeQuitOnOpen=NERDTreeQuitOnOpen  == 1? 0 : 1<CR>:echo printf("NERDTree autoclose is %s", NERDTreeQuitOnOpen == 1?"ON":"OFF")<CR>
 " EOF

@@ -11,7 +11,8 @@
 "   (https://github.com/fannheyward/coc-marketplace)
 let g:coc_global_extensions =[
 	\ 'coc-marketplace',
-	\ 'coc-pyright'
+	\ 'coc-pyright',
+	\ 'coc-json'
 \ ]
 "
 " Some servers have issues with backup files, see #649.

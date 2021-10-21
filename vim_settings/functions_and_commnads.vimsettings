@@ -74,6 +74,20 @@ function s:Kwbd(kwbdStage)
   endif
 endfunction
 "
+"
+" Add preview window for NERDTree.
+" Code from: https://stackoverflow.com/a/28407909/3842823
+function! NERDTreeLivePreview()
+  " Get the path of the item under the cursor if possible:
+  let current_file = g:NERDTreeFileNode.GetSelected()
+
+  if current_file == {}
+    return
+  else
+    exe 'pedit '.current_file.path.str()
+  endif
+endfunction
+"
 " -----------------------------------------------------------------------
 " 	Commands
 " -----------------------------------------------------------------------

@@ -37,4 +37,16 @@ tnoremap <C-T> <C-W>N
 "	Export PYTHONPATH
 tnoremap <leader><C-E> export PYTHONPATH=$PYTHONPATH:.<cr>
 "
+" -----------------------------------------------------------------------
+" Tagbar mapping
+" -----------------------------------------------------------------------
+"
+nmap <silent> <leader><Tab> :TagbarToggle<CR>
+"
+" -----------------------------------------------------------------------
+" Live preview mapping for NerdTree
+" -----------------------------------------------------------------------
+"
+nnoremap <leader><space> :call NERDTreeLivePreview()<CR>
+"
 " EOF

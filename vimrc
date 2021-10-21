@@ -27,8 +27,6 @@ source ~/.myvim_files/vim_settings/plugins.vimsettings
 " General settings file
 source ~/.myvim_files/vim_settings/general_settings.vimsettings
 "
-" Appearance settings file
-source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 "
 " Functions and commands
 source ~/.myvim_files/vim_settings/functions_and_commnads.vimsettings
@@ -47,7 +45,9 @@ source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
 source ~/.myvim_files/plugins_settings/coc.vimsettings
 "
 " Solarized related
-source ~/.myvim_files/plugins_settings/solarized.vimsettings
+" source ~/.myvim_files/plugins_settings/solarized.vimsettings
+" Gruvbox relate
+source ~/.myvim_files/plugins_settings/gruvbox.vimsettings
 " 
 " Vimspector related
 source ~/.myvim_files/plugins_settings/vimspector.vimsettings

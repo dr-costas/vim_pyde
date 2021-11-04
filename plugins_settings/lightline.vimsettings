@@ -9,7 +9,7 @@ set laststatus=2
 "
 " Set the options for lightline
 let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
+	\ 'colorscheme': 'OldHope',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste', 'readonly' ], 
 	\			  [ 'fugitive' ],

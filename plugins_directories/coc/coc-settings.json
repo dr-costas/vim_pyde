@@ -1,0 +1,10 @@
+{
+  "pyright.enable": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.useLibraryCodeForTypes": true,
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true
+}
+

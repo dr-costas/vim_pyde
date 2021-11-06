@@ -26,7 +26,7 @@ let g:coc_global_extensions =[
 \ ]
 "
 " Custom location for coc_settings.son
-let g:coc_config_home = '~/.myvim_files/plugins_directories/coc'
+let g:coc_config_home = '~/.myvim_files/other_files/coc'
 "
 " Some servers have issues with backup files, see #649.
 set nobackup

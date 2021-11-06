@@ -10,5 +10,5 @@
 [._]sw[a-p]
 #
 # ------ Individual files
-directives_that_go_on_top.vimsettings
+other_files/directives_that_go_on_top.vimsettings
 # EOF

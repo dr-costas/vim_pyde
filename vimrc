@@ -70,6 +70,9 @@ source ~/.myvim_files/plugins_settings/python_docstring.vimsettings
 " REPL related
 source ~/.myvim_files/plugins_settings/repl.vimsettings
 "
+" Tagbar related
+source ~/.myvim_files/plugins_settings/tagbar.vimsettings 
+"
 " -----------------------------------------------------------------------
 " 		Appearance settings
 " -----------------------------------------------------------------------

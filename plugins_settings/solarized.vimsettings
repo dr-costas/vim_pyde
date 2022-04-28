@@ -17,4 +17,6 @@ set background=dark
 " Enable solarized theme
 colorscheme solarized
 "
+"Make BG at the specific color to match terminal BG
+set ctermbg=234
 " EOF

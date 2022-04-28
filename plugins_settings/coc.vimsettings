@@ -9,24 +9,11 @@
 "   (https://github.com/fannheyward/coc-pyright)
 " * coc-marketplace is an extension to see all avaialble extensions 
 "   (https://github.com/fannheyward/coc-marketplace)
-" * coc-json is json extension
-"   (https://github.com/neoclide/coc-json)
-" * coc-yaml is yaml extension
-"   (https://github.com/neoclide/coc-yaml)
-" * coc-sh is bash extension
-"   (https://github.com/josa42/coc-sh)
-" * coc-floatinput is an extension to handle floating input
-"   (https://github.com/weirongxu/coc-floatinput)
 let g:coc_global_extensions =[
 	\ 'coc-marketplace',
 	\ 'coc-pyright',
-	\ 'coc-json',
-	\ 'coc-yaml',
-	\ 'coc-sh'
+	\ 'coc-json'
 \ ]
-"
-" Custom location for coc_settings.son
-let g:coc_config_home = '~/.myvim_files/other_files/coc'
 "
 " Some servers have issues with backup files, see #649.
 set nobackup

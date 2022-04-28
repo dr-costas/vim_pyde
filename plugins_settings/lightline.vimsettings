@@ -7,11 +7,11 @@
 " Set last status to 2 so Lightline can work properly
 set laststatus=2
 "
-" Set the options for lightline
+" Set the options for lightline (originally I had OldHope coloscheme)
 let g:lightline = {
-	\ 'colorscheme': 'OldHope',
+	\ 'colorscheme': 'apprentice',
 	\ 'active': {
-	\   'left': [ [ 'mode', 'paste', 'readonly' ], 
+	\   'left': [ [ 'patchedMode', 'paste', 'readonly' ], 
 	\			  [ 'fugitive' ],
     \             [ 'filename', 'separator', 'modified' ]
 	\		    ],
@@ -20,7 +20,7 @@ let g:lightline = {
     \              [ 'fileformat', 'fileencoding', 'filetype', ] ]
 	\ },
 	\ 'inactive': {
-	\   'left': [ [ 'fugitive' ],
+	\   'left': [ [ 'inactivemode',  'fugitive' ],
     \             [ 'filename', 'separator', 'modified' ]
 	\		    ],
     \   'right': [ [ 'lineinfo' ],
@@ -30,7 +30,7 @@ let g:lightline = {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
     \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-    \   'right': [ [ 'clock' ], ],
+    \   'right': [ [ 'clock' ], ]
     \ },
 	\ 'component_expand': {
     \   'buffercurrent': 'lightline#buffer#buffercurrent',
@@ -38,10 +38,17 @@ let g:lightline = {
     \   'bufferafter': 'lightline#buffer#bufferafter',
     \ },
 	\ 'component_function': {
+	\	'patchedMode': 'PatchedModeFunction',
 	\   'fugitive': 'LightlineFugitive',
-	\   'filename': 'LightlineFilename',
+	\   'filename': 'PatchedFileName',
     \   'bufferinfo': 'lightline#buffer#bufferinfo',
 	\	'clock': 'ShowTime',
+	\	'readonly': 'LightlineReadonly',
+	\	'modified': 'LightlineModified',
+	\	'filetype': 'PatchedFileType',
+	\	'fileformat': 'PatchedFileFormat',
+	\	'fileencoding': 'PatchedFileEncoding',
+	\	'inactivemode': 'InactiveMode',
 	\ },
     \ 'component_type': {
     \   'buffercurrent': 'tabsel',
@@ -54,20 +61,164 @@ let g:lightline = {
 " Functions
 " ----------------------------------------------------------
 "
+" Function to handle no file name appearance
+function! NoFileNameBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to handle no file format appearance
+function! NoFileFormatBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to handle no file type appearance
+function! NoFileTypeBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to handle no file encoding appearance
+function! NoFileEncodingBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to handle no modified appearance
+function! NoModifiedBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to handle no fugitive appearance
+function! NoFugitiveBuffer()
+	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
+endfunction	
+" Function to check if the buffer is the NERDTree
+function! IsNERDETree()
+	if count(LightlineFilename(), "_") > 0
+		return split(LightlineFilename(), "_")[0] == "NERD"
+	else
+		return 0
+	endif
+endfunction
+"
+" Function to check if the buffer is terminal
+function! IsTerminal()
+	if (lightline#mode() == 'Terminal')
+		return 1
+	else
+		return 0
+	endif
+endfunction	
+"
+" Function to check if the bufer is Tagbar
+function! IsTagbar()
+	if count(LightlineFilename(), "_Tagbar_") > 0
+		return 1
+	else
+		return 0
+	endif
+endfunction
+"
+" Function to check if the bufer is Startify
+function! IsStartify()
+	let fFormat = &ft!=#""?&ft:"no ft"
+	if ( fFormat == "startify" )
+		return 1
+	else
+		return 0
+	endif
+endfunction	
+"
+" Function to handle the case where the file name will not be printed
+" This function changes the default component of LightLine
+function! PatchedFileName()
+	if (NoFileNameBuffer() > 0)
+		return ''
+	else
+		return LightlineFilename()
+	endif
+endfunction
+"
+" Function to handle the case where the file format will not be printed
+" This function changes the default component of LightLine
+function! PatchedFileFormat()
+	if (NoFileFormatBuffer() > 0)
+		return ''
+	else
+		return &ff
+	endif
+endfunction
+"
+" Function to handle the case where the file type will not be printed
+" This function changes the default component of LightLine
+function! PatchedFileType()
+	if (NoFileTypeBuffer() > 0)
+		return ''
+	else
+		return &ft!=#""?&ft:"no ft"
+	endif
+endfunction
+"
+" Function to handle the case where the file encoding will not be printed
+" This function changes the default component of LightLine
+function! PatchedFileEncoding()
+	if (NoFileEncodingBuffer() > 0)
+		return ''
+	else
+		return &fenc!=#""?&fenc:&enc
+	endif
+endfunction
+"
+" Function to handle the case where the mode will be different
+" This function changes the default component of LightLine
+function! PatchedModeFunction()
+	if (IsNERDETree()) 
+		return "  NERDTree"
+	elseif (IsTerminal() > 0)
+		return "  Terminal"
+	elseif (IsTagbar() > 0)
+		return '  Tagbar'
+	elseif (IsStartify() > 0)
+		return '  Startify'
+	else
+		return "  " . lightline#mode()
+	endif
+endfunction	
+"
+" Function to return the mode when inactive
+function! InactiveMode()
+	if (IsNERDETree() > 0)
+		return "NERDTree"
+	elseif (IsTerminal() > 0)
+		return 'Terminal'
+	elseif (IsTagbar() > 0)
+		return 'Tagbar'
+	elseif (IsStartify() > 0)
+		return 'Startify'
+	else
+		return ''
+	endif
+endfunction
+"
 " Function to check if the file has been modified
 function! LightlineModified()
-	return &ft =~# 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+	if (NoModifiedBuffer() > 0)
+		return ""
+	else
+		return &ft =~# 'help\|vimfiler' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+	endif
 endfunction
 "
 " Function to check the read-only property
 function! LightlineReadonly()
-	return &ft !~? 'help\|vimfiler' && &readonly ? 'RO' : ''
+	if (IsNERDETree() > 0) || (IsTerminal() > 0)
+		return ""
+	else
+		return &ft !~? 'help\|vimfiler' && &readonly ? 'RO' : ''
+	endif
 endfunction
 "
 " Function to get the current branch from Fugitive
 function! LightlineFugitive()
 	if &ft !~? 'vimfiler' && exists('*FugitiveHead')
-		return FugitiveHead()
+		if (NoFugitiveBuffer() > 0)
+			return ''
+		else
+			return " " . FugitiveHead()
+		endif
 	endif
 	return ''
 endfunction
@@ -99,5 +250,31 @@ function! LightlineReload()
 	call lightline#colorscheme()
 	call lightline#update()
 endfunction
+" Function for getting the buffers
+" function! BufferlineFunction()
+"   call bufferline#refresh_status()
+"   let b = g:bufferline_status_info.before
+"   let c = g:bufferline_status_info.current
+"   let a = g:bufferline_status_info.after
+"   let alen = strlen(a)
+"   let blen = strlen(b)
+"   let clen = strlen(c)
+"   let w = winwidth(0) * 4 / 9
+"   if w < alen+blen+clen
+"     let whalf = (w - strlen(c)) / 2
+"     let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
+"     let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
+"     return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
+"   else
+"     return b . c . a
+"   endif
+" endfunction 
+" function! BufferlineFunction()
+"   call bufferline#refresh_status()
+"   let b = g:bufferline_status_info.before
+"   let c = g:bufferline_status_info.current
+"   let a = g:bufferline_status_info.after
+"   return b . c . a
+" endfunction
 "
 " EOF

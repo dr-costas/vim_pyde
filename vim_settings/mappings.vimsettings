@@ -49,4 +49,10 @@ nmap <silent> <leader><Tab> :TagbarToggle<CR>
 "
 nnoremap <leader><space> :call NERDTreeLivePreview()<CR>
 "
+" -----------------------------------------------------------------------
+" Toggling paste
+" -----------------------------------------------------------------------
+"
+nnoremap <leader>p :set paste!<CR>
+"
 " EOF

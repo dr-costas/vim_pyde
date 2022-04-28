@@ -36,7 +36,7 @@ Plug 'chrisbra/csv.vim' 						" CSV formatting
 Plug 'preservim/tagbar' 						" Tag bar
 Plug 'psf/black', { 'branch': 'stable'  } 		" Python code formatter
 Plug 'morhetz/gruvbox' 							" Gruvbox theme
-Plug 'ryanoasis/vim-devicons' 					" Devicons
+Plug 'ryanoasis/vim-devicons'					" Devicons
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list

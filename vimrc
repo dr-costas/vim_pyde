@@ -27,7 +27,6 @@ source ~/.myvim_files/vim_settings/plugins.vimsettings
 " General settings file
 source ~/.myvim_files/vim_settings/general_settings.vimsettings
 "
-"
 " Functions and commands
 source ~/.myvim_files/vim_settings/functions_and_commnads.vimsettings
 "

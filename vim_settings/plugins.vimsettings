@@ -4,7 +4,6 @@
 " Plugins file
 " ==================================
 "
-"
 " Necessary directives
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required

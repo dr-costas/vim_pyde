@@ -37,6 +37,8 @@ Plug 'psf/black', { 'branch': 'stable'  } 		" Python code formatter
 Plug 'morhetz/gruvbox' 							" Gruvbox theme
 Plug 'ryanoasis/vim-devicons'					" Devicons
 Plug 'lambdalisue/vim-pyenv' 					" pyEnv handling
+Plug 'plytophogy/vim-virtualenv' 				" Virtual env support
+Plug 'PieterjanMontens/vim-pipenv' 				" Pipenv support
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list

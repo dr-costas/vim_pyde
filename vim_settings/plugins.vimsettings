@@ -33,7 +33,8 @@ Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 Plug 'sillybun/vim-repl'                        " REPL Python terminal for Vim
 Plug 'chrisbra/csv.vim' 						" CSV formatting
 Plug 'preservim/tagbar' 						" Tag bar
-Plug 'psf/black', { 'branch': 'stable'  } 		" Python code formatter
+Plug 'psf/black', { 'branch': 'stable'  } 		" Black Python code formatter
+Plug 'fisadev/vim-isort' 						" iSort for Python
 Plug 'morhetz/gruvbox' 							" Gruvbox theme
 Plug 'ryanoasis/vim-devicons'					" Devicons
 Plug 'lambdalisue/vim-pyenv' 					" pyEnv handling

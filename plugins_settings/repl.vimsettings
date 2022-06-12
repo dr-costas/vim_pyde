@@ -31,7 +31,7 @@ let g:repl_program = {
 			\	} 
 "
 " Define iPython version
-let g:repl_ipython_version = '7' 
+let g:repl_ipython_version = '8' 
 "
 " Define exit commands
 let g:repl_exit_commands = {

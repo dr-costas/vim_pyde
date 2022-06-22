@@ -14,5 +14,5 @@ nmap <silent> <leader><F3> :call vimspector#Reset()<cr>
 nmap <silent> <leader><F4> :call vimspector#Launch()<cr> 
 "
 " Key for clearing all breakpoints
-nmap <leader><F9> :call vimspector#ClearBreakpoints()<cr>
+nmap <leader>d<F9> :call vimspector#ClearBreakpoints()<cr>
 " EOF

@@ -60,7 +60,8 @@
         "cwd": "${workspaceRoot}",
         "program": "${file}",
         "stopOnEntry": true,
-        "console": "integratedTerminal"
+        "console": "integratedTerminal",
+		"justMyCode": false,
       },
       "breakpoints": {
         "exception": {

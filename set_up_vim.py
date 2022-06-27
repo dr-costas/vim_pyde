@@ -27,7 +27,7 @@ def get_argument_parser() -> ArgumentParser:
             },
         ],
         [
-            ['--instal-vin'],
+            ['--install-vim'],
             {
                 'action': 'store_true',
                 'help': 'Install Vim from Homebrew',
@@ -41,7 +41,7 @@ def get_argument_parser() -> ArgumentParser:
             },
         ],
         [
-            ['install-vim-plugins'],
+            ['--install-vim-plugins'],
             {
                 'action': 'store_true',
                 'help': 'Install Vim plugins',
@@ -88,7 +88,7 @@ def download_plug() -> None:
 
 
 def install_plugins() -> None:
-    pass
+    run('vim -c PlugInstall', shell=True)
 
 
 def main():

@@ -14,33 +14,33 @@ let g:vimspector_enable_mappings = 'HUMAN'
 " Start Plug
 call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ---------------------------------------------
-Plug 'scrooloose/nerdtree'               		" File browser in VIM
-Plug 'Xuyuanp/nerdtree-git-plugin'        		" Plugin for NERDTRee and Git
+Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
+Plug 'psf/black', { 'branch': 'stable'  } 		" Black Python code formatter
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
+Plug 'chrisbra/csv.vim' 						" CSV formatting
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder binary installation
 Plug 'junegunn/fzf.vim' 						" Fuzzy finder plugin
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
-Plug 'puremourning/vimspector' 		  			" Debugging plugin
-Plug 'tpope/vim-fugitive'                 		" GIT integration
-Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
+Plug 'morhetz/gruvbox' 							" Gruvbox theme
 Plug 'Yggdroot/indentLine' 						" Vertical bars for indentation
-Plug 'airblade/vim-gitgutter' 					" Git indication at sign column
-Plug 'tibabit/vim-templates' 					" Template files
 Plug 'itchyny/lightline.vim'                    " Status line
-Plug 'vim-python/python-syntax' 				" Python syntax highlight
-Plug 'mhinz/vim-startify'						" Vim start screen
-Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
-Plug 'tpope/vim-surround' 						" Postfix surrounding
 Plug 'taohexxx/lightline-buffer' 			    " Show open buffers in lightline
+Plug 'preservim/nerdcommenter' 					" Commenting out lines
+Plug 'scrooloose/nerdtree'               		" File browser in VIM
+Plug 'PhilRunninger/nerdtree-buffer-ops' 		" Open buffer highlight at NERTReee
+Plug 'Xuyuanp/nerdtree-git-plugin'        		" Plugin for NERDTRee and Git
+Plug 'vim-python/python-syntax' 				" Python syntax highlight
+Plug 'preservim/tagbar' 						" Tag bar
+Plug 'ryanoasis/vim-devicons'					" Devicons
+Plug 'tpope/vim-fugitive'                 		" GIT integration
+Plug 'airblade/vim-gitgutter' 					" Git indication at sign column
+Plug 'fisadev/vim-isort' 						" iSort for Python
+Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 Plug 'sillybun/vim-repl'                        " REPL Python terminal for Vim
-Plug 'chrisbra/csv.vim' 						" CSV formatting
-Plug 'preservim/tagbar' 						" Tag bar
-Plug 'psf/black', { 'branch': 'stable'  } 		" Black Python code formatter
-Plug 'fisadev/vim-isort' 						" iSort for Python
-Plug 'morhetz/gruvbox' 							" Gruvbox theme
-Plug 'ryanoasis/vim-devicons'					" Devicons
-Plug 'PhilRunninger/nerdtree-buffer-ops' 		" Open buffer highlight at NERTReee
-Plug 'preservim/nerdcommenter' 					" Commenting out lines
+Plug 'tibabit/vim-templates' 					" Template files
+Plug 'puremourning/vimspector' 		  			" Debugging plugin
+Plug 'mhinz/vim-startify'						" Vim start screen
+Plug 'tpope/vim-surround' 						" Postfix surrounding
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list

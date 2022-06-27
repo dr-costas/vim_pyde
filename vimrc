@@ -17,66 +17,67 @@ source ~/.myvim_files/other_files/directives_that_go_on_top.vimsettings
 " 		Plugin settings
 " -----------------------------------------------------------------------
 "
-" Plugin settings file
+" ---- Plugin settings
 source ~/.myvim_files/vim_settings/plugins.vimsettings
 "
 " -----------------------------------------------------------------------
 " 		General settings
 " -----------------------------------------------------------------------
 "
-" General settings file
+" ---- General settings
 source ~/.myvim_files/vim_settings/general_settings.vimsettings
 "
-" Functions and commands
+" ---- Functions and commands
 source ~/.myvim_files/vim_settings/functions_and_commnads.vimsettings
 "
-" Mappings
+" ---- Mappings
 source ~/.myvim_files/vim_settings/mappings.vimsettings
 "
 " -----------------------------------------------------------------------
 " 		Mappings and plugins settings
 " -----------------------------------------------------------------------
 "
-" NERDTree related
-source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
-"
-" COC related
+" ---- COC
 source ~/.myvim_files/plugins_settings/coc.vimsettings
 "
-" Solarized related
-" source ~/.myvim_files/plugins_settings/solarized.vimsettings
-" Gruvbox relate
+" ---- Gruvbox 
 source ~/.myvim_files/plugins_settings/gruvbox.vimsettings
 " 
-" Vimspector related
-source ~/.myvim_files/plugins_settings/vimspector.vimsettings
-"
-" IndentLine related
+" ---- IndentLine
 source ~/.myvim_files/plugins_settings/indent_line.vimsettings
 "
-" Vim-templates related
-source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
-"
-" Lightline related
+" ---- Lightline
 source ~/.myvim_files/plugins_settings/lightline.vimsettings
 "
-" Lightline buffer related
+" ---- Lightline buffer
 source ~/.myvim_files/plugins_settings/lightline_buffer.vimsettings
 "
-" Python docstring related
+" ---- NERDTree
+source ~/.myvim_files/plugins_settings/nerdtree.vimsettings
+"
+" ---- Python docstring
 source ~/.myvim_files/plugins_settings/python_docstring.vimsettings
 "
-" REPL related
+" ---- REPL
 source ~/.myvim_files/plugins_settings/repl.vimsettings
 "
-" Tagbar related
+" ---- Solarized (not used)
+" source ~/.myvim_files/plugins_settings/solarized.vimsettings
+"
+" ---- Tagbar
 source ~/.myvim_files/plugins_settings/tagbar.vimsettings 
+"
+" ---- Vim templates
+source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
+"
+" Vimspector related
+source ~/.myvim_files/plugins_settings/vimspector.vimsettings
 "
 " -----------------------------------------------------------------------
 " 		Appearance settings
 " -----------------------------------------------------------------------
 "
-" Appearance settings file
+" ---- Appearance settings
 source ~/.myvim_files/vim_settings/appearance_settings.vimsettings 
 "
 " EOF

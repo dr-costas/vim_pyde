@@ -70,7 +70,7 @@ source ~/.myvim_files/plugins_settings/tagbar.vimsettings
 " ---- Vim templates
 source ~/.myvim_files/plugins_settings/vim_templates.vimsettings
 "
-" Vimspector related
+" Vimspector
 source ~/.myvim_files/plugins_settings/vimspector.vimsettings
 "
 " -----------------------------------------------------------------------

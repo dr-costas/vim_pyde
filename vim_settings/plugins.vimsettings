@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
 " 	Currently using plugins ---------------------------------------------
 Plug 'scrooloose/nerdtree'               		" File browser in VIM
 Plug 'Xuyuanp/nerdtree-git-plugin'        		" Plugin for NERDTRee and Git
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy finder binary installation
+Plug 'junegunn/fzf.vim' 						" Fuzzy finder plugin
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
 Plug 'puremourning/vimspector' 		  			" Debugging plugin
 Plug 'tpope/vim-fugitive'                 		" GIT integration
@@ -37,15 +39,11 @@ Plug 'psf/black', { 'branch': 'stable'  } 		" Black Python code formatter
 Plug 'fisadev/vim-isort' 						" iSort for Python
 Plug 'morhetz/gruvbox' 							" Gruvbox theme
 Plug 'ryanoasis/vim-devicons'					" Devicons
-Plug 'lambdalisue/vim-pyenv' 					" pyEnv handling
-Plug 'plytophogy/vim-virtualenv' 				" Virtual env support
-Plug 'PieterjanMontens/vim-pipenv' 				" Pipenv support
 Plug 'PhilRunninger/nerdtree-buffer-ops' 		" Open buffer highlight at NERTReee
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list
 " Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
-" Plug 'mhinz/vim-signify' 						  " Indication of file changes
 call plug#end()
 "
 " EOF

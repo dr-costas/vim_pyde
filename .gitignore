@@ -12,7 +12,4 @@
 # ------ Individual files
 other_files/directives_that_go_on_top.vimsettings
 #
-# Personal spelling
-spell/*
-!spell/.dummy
 # EOF

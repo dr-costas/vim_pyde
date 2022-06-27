@@ -40,6 +40,7 @@ Plug 'fisadev/vim-isort' 						" iSort for Python
 Plug 'morhetz/gruvbox' 							" Gruvbox theme
 Plug 'ryanoasis/vim-devicons'					" Devicons
 Plug 'PhilRunninger/nerdtree-buffer-ops' 		" Open buffer highlight at NERTReee
+Plug 'preservim/nerdcommenter' 					" Commenting out lines
 " 	Recently used but uninstalled ---------------------------------------
 " Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
 " Plug 'bling/vim-bufferline' 				      " Show open buffers list

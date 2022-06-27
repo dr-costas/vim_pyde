@@ -93,6 +93,8 @@ set notimeout ttimeout ttimeoutlen=200 	" Quickly time out on keycodes, but
 set clipboard=unnamed 					" Access system clipboard
 "
 set spell								" Turn on spell checking
+" 
+set spelllang=en_us						" Set spelling language to English US
 "
 set shell=/bin/bash						" Set bash as the shell to be used
 " EOF

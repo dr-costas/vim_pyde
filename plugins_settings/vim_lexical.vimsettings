@@ -5,6 +5,12 @@
 " ==================================
 "
 "
+" ---- Enable lexical
+let g:lexical#spell = 1  
+"
+" ---- Set the thesaurus file
+let g:lexical#thesaurus = ['~/.myvim_files/plugins_directories/thesaurus/mthesaur.txt',]
+"
 " ---- Setting lexical to work with specific file types
 augroup lexical
   autocmd!

@@ -10,6 +10,6 @@ autocmd vimenter * ++nested colorscheme gruvbox
 " Choose dark background
 set background=dark
 "
-" Enable solarized theme
+" Enable gruvbox theme
 colorscheme gruvbox
 " EOF

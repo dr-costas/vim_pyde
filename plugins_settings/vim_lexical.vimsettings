@@ -1,0 +1,16 @@
+" ~/.myvim_files/plugins_settings/vim_lexical.vimsettings file starts
+"
+" ==================================
+" Vim lexical settings file
+" ==================================
+"
+"
+" ---- Setting lexical to work with specific file types
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()	" Markdown
+  autocmd FileType textile call lexical#init()		" Textile
+  autocmd FileType text call lexical#init() 		" Text
+augroup END
+"
+" EOF

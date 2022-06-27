@@ -9,4 +9,3 @@
   "python.linting.flake8Enabled": true,
   "pyright.organizeimports.provider": "isort"
 }
-

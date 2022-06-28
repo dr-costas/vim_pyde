@@ -7,10 +7,10 @@
 "
 let g:python_highlight_all = 1
 "
-" Setting leader key
+" ---- Setting leader key
 let mapleader = ","
 "
-" Setting of variables
+" ---- Setting of variables
 set hlsearch! 							" Clear the highlight of last search
 "
 syntax on           					" Syntax highlight.
@@ -94,7 +94,9 @@ set clipboard=unnamed 					" Access system clipboard
 "
 set spell								" Turn on spell checking
 " 
-set spelllang=en						" Set spelling language to English US
+set thesaurus+=~/.myvim_files/plugins_directories/thesaurus/mthesaur.txt " Thesaurus file
+"
+set dictionary=/usr/share/dict/words 	" Dictionary to use
 "
 set shell=/bin/bash						" Set bash as the shell to be used
 " EOF

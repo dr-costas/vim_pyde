@@ -8,7 +8,7 @@
 " ---- Highlight comments
 highlight Comment cterm=bold
 " 
-" Cursor line appearance
+" ---- Cursor line appearance
 " highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 "
 " ---- Highlight bad space
@@ -23,10 +23,13 @@ highlight clear SpellBad
 " ---- Choose dark background
 set background=dark
 "
-" ---- Enable spelling indication
-augroup my_colours
+" ---- Enable indication for spelling and bad white space,
+"      and make comments boldface
+augroup gruvbox_overrides
   autocmd!
   autocmd ColorScheme gruvbox hi SpellBad cterm=underline
+  autocmd ColorScheme gruvbox hi BadWhitespace ctermbg=red guibg=red
+  autocmd ColorScheme gruvbox hi Comment cterm=bold
 augroup END
 "
 " ---- Enable gruvbox theme

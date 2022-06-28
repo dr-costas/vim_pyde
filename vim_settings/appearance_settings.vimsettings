@@ -25,12 +25,49 @@ set background=dark
 "
 " ---- Enable indication for spelling and bad white space,
 "      and make comments boldface
-augroup gruvbox_overrides
+"      Solution taken from: https://vi.stackexchange.com/a/21168
+augroup colorscheme_overrides
   autocmd!
-  autocmd ColorScheme gruvbox hi SpellBad cterm=underline
-  autocmd ColorScheme gruvbox hi BadWhitespace ctermbg=red guibg=red
-  autocmd ColorScheme gruvbox hi Comment cterm=bold
-augroup END
+  autocmd ColorScheme *
+	\ highlight Comment
+ 	\ 	cterm=bold
+  autocmd ColorScheme *
+	\ highlight BadWhitespace
+ 	\ 	ctermbg=red
+  	\ 	guibg=red
+  autocmd ColorScheme *
+    \ highlight SpellBad
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellCap
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellLocal
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellRare
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  augroup END
 "
 " ---- Enable gruvbox theme
 colorscheme gruvbox

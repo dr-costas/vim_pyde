@@ -7,13 +7,4 @@
 "
 autocmd vimenter * ++nested colorscheme gruvbox
 "
-" Choose dark background
-set background=dark
-"
-augroup my_colours
-  autocmd!
-  autocmd ColorScheme gruvbox hi SpellBad cterm=underline
-augroup END
-" Enable gruvbox theme
-colorscheme gruvbox
 " EOF

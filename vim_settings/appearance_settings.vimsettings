@@ -5,9 +5,6 @@
 " ==================================
 "
 "
-" ---- Cursor line appearance
-" highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
-"
 " ---- Clear highlight on the sign column
 highlight clear SignColumn
 "
@@ -63,7 +60,7 @@ augroup colorscheme_overrides
     \   guisp=Red
   augroup END
 "
-" ---- Enable gruvbox theme
+" ---- Enable Gruvbox theme
 colorscheme gruvbox
 "
 " EOF

@@ -95,7 +95,4 @@ endfunction
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
 "
-" ---- Set syntax highlight for .vimsettings files
-autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
-"
 " EOF

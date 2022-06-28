@@ -5,16 +5,31 @@
 " ==================================
 "
 "
-" Highlight comments
+" ---- Highlight comments
 highlight Comment cterm=bold
 " 
 " Cursor line appearance
 " highlight CursorLine cterm=NONE ctermbg=236 ctermfg=NONE
 "
-" Highlight bad space
+" ---- Highlight bad space
 highlight BadWhitespace ctermbg=red guibg=red
 "
-" Clear highlight on the sign column
+" ---- Clear highlight on the sign column
 highlight clear SignColumn
+"
+" ---- Clear highlight for bad spelling
+highlight clear SpellBad
+"
+" ---- Choose dark background
+set background=dark
+"
+" ---- Enable spelling indication
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme gruvbox hi SpellBad cterm=underline
+augroup END
+"
+" ---- Enable gruvbox theme
+colorscheme gruvbox
 "
 " EOF

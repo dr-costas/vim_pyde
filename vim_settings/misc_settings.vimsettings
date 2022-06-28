@@ -5,11 +5,11 @@
 " ==================================
 "
 "
-" Enable folding
+" ---- Enable folding
 set foldmethod=indent
 set foldlevel=99
 "
-" See doc strings for folded code
+" ---- See doc strings for folded code
 let g:SimplyFold_docstring_preview=1
 "
 " EOF

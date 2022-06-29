@@ -1,11 +1,11 @@
 " ~/.myvim_files/plugins_settings/vim_templates.vim file starts
 "
 " ==================================
-" PaperColor settings file
+" Vim-templates settings file
 " ==================================
 "
 "
-" Path for searching for templates
+" ---- Path for searching for templates
 let g:tmpl_search_paths = ['~/.myvim_files/templates']
-
+"
 " EOF

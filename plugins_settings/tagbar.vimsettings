@@ -5,73 +5,73 @@
 " ==================================
 "
 "
-" Make tagbar show line numbers
-" Possible values are:
-"   0: Don't show any line numbers.
-"   1: Show absolute line numbers.
-"   2: Show relative line numbers.
-"   -1: Use the global line number settings.
+" ---- Make tagbar show line numbers
+" 	   Possible values are:
+" 	     0: Don't show any line numbers.
+" 	     1: Show absolute line numbers.
+" 	     2: Show relative line numbers.
+" 	     -1: Use the global line number settings.
 let g:tagbar_show_linenumbers = -1
 "
-" This option allows printing the tag line number next to the tag in the tagbar
-" window. It can be set to the following values:
-"     0 - The line number will not be printed
-"     1 - The line number will be printed to the right of the tag >
-"         Example:    function1(int i) [123]
-" <
-"     2 - The line number will be printed to the left of the tag >
-"         Example:    [123] function1(int i)
-" <
+" ---- This option allows printing the tag line number next to the tag in the tagbar
+" 	   window. It can be set to the following values:
+" 	       0 - The line number will not be printed
+" 	       1 - The line number will be printed to the right of the tag >
+" 	           Example:    function1(int i) [123]
+" 	   <
+" 	       2 - The line number will be printed to the left of the tag >
+" 	           Example:    [123] function1(int i)
+" 	   <
 let g:tagbar_show_tag_linenumbers = 1
 "
-" Line wrapping
-" Possible Values:
-"     0   Disable line wrapping.
-"     1   Enable the |wrap| option and also enable the |linebreak| option to
-"         split the lines on word boundaries. This will use the default
-"         |breakat| setting in vim. Note: This can cause possible display issues
-"         with tags that exceed the tagbar window width. A very long tag name
-"         will cause the tag itself to wrap resulting in an empty line and
-"         indentation of the tag (see example below).
-"     2   Enable the |wrap| option but disable the |linebreak| option. This will
-"         split the lines at the end of the tagbar window and can cause it to
-"         wrap in the middle of a word. This should be used if there are tags
-"         that are regularly longer than the tagbar window width.
+" ---- Line wrapping
+" 	   Possible Values:
+" 	       0   Disable line wrapping.
+" 	       1   Enable the |wrap| option and also enable the |linebreak| option to
+" 	           split the lines on word boundaries. This will use the default
+" 	           |breakat| setting in vim. Note: This can cause possible display issues
+" 	           with tags that exceed the tagbar window width. A very long tag name
+" 	           will cause the tag itself to wrap resulting in an empty line and
+" 	           indentation of the tag (see example below).
+" 	       2   Enable the |wrap| option but disable the |linebreak| option. This will
+" 	           split the lines at the end of the tagbar window and can cause it to
+" 	           wrap in the middle of a word. This should be used if there are tags
+" 	           that are regularly longer than the tagbar window width.
 " 
-" This also will use the |breakindent| and |breakindentopt| options in vim to
-" set the indentation of the wrapped lines.
-" 
-" Note: This requires VIM to be compiled with the |+linebreak| option for the
-" wrap intentation to function.
-" 
-" Examples:
-" >
-"        " Wrap with linebreak - note the wrap works on word boundaries, but
-"        " a very long tag name does cause an odd display issue.
-"        let g:tagbar_wrap = 1
-"        +-------------------------------------------+
-"        | ⯆ functions (106)                         |
-"        |     s:add_tag_recursive(parent,taginfo,   |
-"        |         pathlist) : function!             |
-"        |     s:AutoUpdate(fname,force,...) :       |
-"        |         function!                         |
-"        |                                           |
-"        |         s:SomeReallyLongTagNameThatWillExc|
-"        |         eedWindowWidth : function!        |
-"        +-------------------------------------------+
-"        " Wrap without linbreak - note the display issue is gone for the
-"        " really long tag name, but the other wraps will breakup words.
-"        let g:tagbar_wrap = 2
-"        +-------------------------------------------+
-"        | ⯆ functions (106)                         |
-"        |     s:add_tag_recursive(parent,taginfo,pat|
-"        |         hlist) : function!                |
-"        |     s:AutoUpdate(fname,force,...) : functi|
-"        |         on!                               |
-"        |     s:SomeReallyLongTagNameThatWillExceedW|
-"        |         indowWidth : funciton!            |
-"        +-------------------------------------------+
-" <
+" 	    This also will use the |breakindent| and |breakindentopt| options in vim to
+" 	    set the indentation of the wrapped lines.
+" 	    
+" 	    Note: This requires VIM to be compiled with the |+linebreak| option for the
+" 	    wrap intentation to function.
+" 	    
+" 	    Examples:
+" 	    >
+" 	           " Wrap with linebreak - note the wrap works on word boundaries, but
+" 	           " a very long tag name does cause an odd display issue.
+" 	           let g:tagbar_wrap = 1
+" 	           +-------------------------------------------+
+" 	           | ⯆ functions (106)                         |
+" 	           |     s:add_tag_recursive(parent,taginfo,   |
+" 	           |         pathlist) : function!             |
+" 	           |     s:AutoUpdate(fname,force,...) :       |
+" 	           |         function!                         |
+" 	           |                                           |
+" 	           |         s:SomeReallyLongTagNameThatWillExc|
+" 	           |         eedWindowWidth : function!        |
+" 	           +-------------------------------------------+
+" 	           " Wrap without linbreak - note the display issue is gone for the
+" 	           " really long tag name, but the other wraps will breakup words.
+" 	           let g:tagbar_wrap = 2
+" 	           +-------------------------------------------+
+" 	           | ⯆ functions (106)                         |
+" 	           |     s:add_tag_recursive(parent,taginfo,pat|
+" 	           |         hlist) : function!                |
+" 	           |     s:AutoUpdate(fname,force,...) : functi|
+" 	           |         on!                               |
+" 	           |     s:SomeReallyLongTagNameThatWillExceedW|
+" 	           |         indowWidth : funciton!            |
+" 	           +-------------------------------------------+
+" 	    <
 let g:tagbar_wrap = 1
 "
 " EOF

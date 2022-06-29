@@ -78,6 +78,6 @@ source ~/.myvim_files/plugins_settings/vimspector.vimsettings
 " -----------------------------------------------------------------------
 "
 " ---- Appearance settings
-source ~/.myvim_files/vim_settings/appearance_settings.vimsettings 
+source ~/.myvim_files/vim_settings/appearance_settings.vimsettings
 "
 " EOF

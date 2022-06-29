@@ -5,8 +5,8 @@
 " ==================================
 "
 "
-" Open NERDTree automatically even when no file is
-" given at Vim and jump to the main window
+" ---- Open NERDTree automatically even when no file is
+" 	   given at Vim and jump to the main window
 augroup NERD
     au!
     autocmd StdinReadPre * let s:std_in=1
@@ -15,20 +15,27 @@ augroup NERD
     autocmd VimEnter * call lightline#update()
 augroup END
 "
-let NERDTreeShowLineNumbers=1 			  " Line numbers on
+" ---- Line numbers on
+let NERDTreeShowLineNumbers=1
 "
-autocmd FileType nerdtree setlocal relativenumber " Relative numbers on
+" ---- Relative numbers on
+autocmd FileType nerdtree setlocal relativenumber
 "
-let NERDTreeMinimalUI = 1 			  " Minimal UI 
+" ---- Minimal UI
+let NERDTreeMinimalUI = 1
 "
-let NERDTreeDirArrows = 1 			  " Arrows in NERDTree
+" ---- Arrows in NERDTree
+let NERDTreeDirArrows = 1
 "
-let NERDTreeShowHidden=1 			  " Show hidden files
+" ---- Show hidden files
+let NERDTreeShowHidden=1
 "
-let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__'] " File patterns to ignore
+" ---- File patterns to ignore
+let NERDTreeIgnore=['\.pyc$', '\~$', '__pycache__']
 "
-" Open/close NERDTree with F1
+" ---- Open/close NERDTree with F1
 nmap <F1> :NERDTreeToggle<CR>
+"
 " Automatically close NERDTree after opening a file. For
 " future reference: 
 " Value  | NERDTree Window Behavior
@@ -37,6 +44,11 @@ nmap <F1> :NERDTreeToggle<CR>
 " 1      | Closes after opening a file
 " 2      | Closes the bookmark table after opening a bookmark
 " 3(1+2) | Same as both 1 and 2
+"
+" Keep NERDTree open after opening a file from it
 let NERDTreeQuitOnOpen=0
+"
+" ---- Make <leader>F1 to toggle the NERDTreeQuitOnOpen
 nmap <silent> <leader><F1> :let NERDTreeQuitOnOpen=NERDTreeQuitOnOpen  == 1? 0 : 1<CR>:echo printf("NERDTree autoclose is %s", NERDTreeQuitOnOpen == 1?"ON":"OFF")<CR>
+"
 " EOF

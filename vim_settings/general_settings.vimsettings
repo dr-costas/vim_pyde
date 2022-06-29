@@ -99,4 +99,5 @@ set thesaurus+=~/.myvim_files/plugins_directories/thesaurus/mthesaur.txt " Thesa
 set dictionary=/usr/share/dict/words 	" Dictionary to use
 "
 set shell=/bin/bash						" Set bash as the shell to be used
+"
 " EOF

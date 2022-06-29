@@ -4,10 +4,11 @@
 " Lightline settings file
 " ==================================
 "
-" Set last status to 2 so Lightline can work properly
+"
+" ---- Set last status to 2 so Lightline can work properly
 set laststatus=2
 "
-" Set the options for lightline (originally I had OldHope coloscheme)
+" ---- Set the options for Lightline
 let g:lightline = {
 	\ 'colorscheme': 'apprentice',
 	\ 'active': {
@@ -56,36 +57,42 @@ let g:lightline = {
     \   'bufferafter': 'raw',
     \ }
 	\ }
-" 'right': [ [ 'clock', 'close' ], ],
+"
 " ----------------------------------------------------------
 " Functions
 " ----------------------------------------------------------
 "
-" Function to handle no file name appearance
+" ---- Function to handle no file name appearance
 function! NoFileNameBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to handle no file format appearance
+"
+" ---- Function to handle no file format appearance
 function! NoFileFormatBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to handle no file type appearance
+"
+" ---- Function to handle no file type appearance
 function! NoFileTypeBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to handle no file encoding appearance
+"
+" ---- Function to handle no file encoding appearance
 function! NoFileEncodingBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to handle no modified appearance
+"
+" ---- Function to handle no modified appearance
 function! NoModifiedBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to handle no fugitive appearance
+"
+" ---- Function to handle no fugitive appearance
 function! NoFugitiveBuffer()
 	return ((IsNERDETree() + IsTerminal() + IsTagbar() + IsStartify()) > 0)
 endfunction	
-" Function to check if the buffer is the NERDTree
+"
+" ---- Function to check if the buffer is the NERDTree
 function! IsNERDETree()
 	if count(LightlineFilename(), "_") > 0
 		return split(LightlineFilename(), "_")[0] == "NERD"
@@ -94,7 +101,7 @@ function! IsNERDETree()
 	endif
 endfunction
 "
-" Function to check if the buffer is terminal
+" ---- Function to check if the buffer is terminal
 function! IsTerminal()
 	if (lightline#mode() == 'Terminal')
 		return 1
@@ -103,7 +110,7 @@ function! IsTerminal()
 	endif
 endfunction	
 "
-" Function to check if the bufer is Tagbar
+" ---- Function to check if the bufer is Tagbar
 function! IsTagbar()
 	if count(LightlineFilename(), "_Tagbar_") > 0
 		return 1
@@ -112,7 +119,7 @@ function! IsTagbar()
 	endif
 endfunction
 "
-" Function to check if the bufer is Startify
+" ---- Function to check if the bufer is Startify
 function! IsStartify()
 	let fFormat = &ft!=#""?&ft:"no ft"
 	if ( fFormat == "startify" )
@@ -122,8 +129,8 @@ function! IsStartify()
 	endif
 endfunction	
 "
-" Function to handle the case where the file name will not be printed
-" This function changes the default component of LightLine
+" ---- Function to handle the case where the file name will not be printed
+" 	   This function changes the default component of LightLine
 function! PatchedFileName()
 	if (NoFileNameBuffer() > 0)
 		return ''
@@ -132,8 +139,8 @@ function! PatchedFileName()
 	endif
 endfunction
 "
-" Function to handle the case where the file format will not be printed
-" This function changes the default component of LightLine
+" ---- Function to handle the case where the file format will not be printed
+"      This function changes the default component of LightLine
 function! PatchedFileFormat()
 	if (NoFileFormatBuffer() > 0)
 		return ''
@@ -142,8 +149,8 @@ function! PatchedFileFormat()
 	endif
 endfunction
 "
-" Function to handle the case where the file type will not be printed
-" This function changes the default component of LightLine
+" ---- Function to handle the case where the file type will not be printed
+" 	   This function changes the default component of LightLine
 function! PatchedFileType()
 	if (NoFileTypeBuffer() > 0)
 		return ''
@@ -152,8 +159,8 @@ function! PatchedFileType()
 	endif
 endfunction
 "
-" Function to handle the case where the file encoding will not be printed
-" This function changes the default component of LightLine
+" ---- Function to handle the case where the file encoding will not be printed
+" 	   This function changes the default component of LightLine
 function! PatchedFileEncoding()
 	if (NoFileEncodingBuffer() > 0)
 		return ''
@@ -162,8 +169,8 @@ function! PatchedFileEncoding()
 	endif
 endfunction
 "
-" Function to handle the case where the mode will be different
-" This function changes the default component of LightLine
+" ---- Function to handle the case where the mode will be different
+" 	   This function changes the default component of LightLine
 function! PatchedModeFunction()
 	if (IsNERDETree()) 
 		return "  NERDTree"
@@ -178,7 +185,7 @@ function! PatchedModeFunction()
 	endif
 endfunction	
 "
-" Function to return the mode when inactive
+" ---- Function to return the mode when inactive
 function! InactiveMode()
 	if (IsNERDETree() > 0)
 		return "NERDTree"
@@ -193,7 +200,7 @@ function! InactiveMode()
 	endif
 endfunction
 "
-" Function to check if the file has been modified
+" ---- Function to check if the file has been modified
 function! LightlineModified()
 	if (NoModifiedBuffer() > 0)
 		return ""
@@ -202,7 +209,7 @@ function! LightlineModified()
 	endif
 endfunction
 "
-" Function to check the read-only property
+" ---- Function to check the read-only property
 function! LightlineReadonly()
 	if (IsNERDETree() > 0) || (IsTerminal() > 0)
 		return ""
@@ -211,7 +218,7 @@ function! LightlineReadonly()
 	endif
 endfunction
 "
-" Function to get the current branch from Fugitive
+" ---- Function to get the current branch from Fugitive
 function! LightlineFugitive()
 	if &ft !~? 'vimfiler' && exists('*FugitiveHead')
 		if (NoFugitiveBuffer() > 0)
@@ -223,7 +230,7 @@ function! LightlineFugitive()
 	return ''
 endfunction
 " 
-" Function to use the path of a file relative to current  dir.
+" ---- Function to use the path of a file relative to current  dir.
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
   let path = expand('%:p')
@@ -233,48 +240,27 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 "
+" ---- Function to show time in preferred format
 function! ShowTime()
 	return strftime('%c')
 endfunction
 "
+" ---- Function to update states
 function! UpdateStatus(timer)
 	redrawtabline
 endfunction
 "
+" ---- Function to update the status at specific interval
 let statusTimer = timer_start(1000, 'UpdateStatus', {'repeat': -1})
 "
+" ---- Command to reload Lightline
 command LightlineReload call LightlineReload()
-
+"
+" ---- Function to reload Lightline
 function! LightlineReload()
 	call lightline#init()
 	call lightline#colorscheme()
 	call lightline#update()
 endfunction
-" Function for getting the buffers
-" function! BufferlineFunction()
-"   call bufferline#refresh_status()
-"   let b = g:bufferline_status_info.before
-"   let c = g:bufferline_status_info.current
-"   let a = g:bufferline_status_info.after
-"   let alen = strlen(a)
-"   let blen = strlen(b)
-"   let clen = strlen(c)
-"   let w = winwidth(0) * 4 / 9
-"   if w < alen+blen+clen
-"     let whalf = (w - strlen(c)) / 2
-"     let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
-"     let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
-"     return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
-"   else
-"     return b . c . a
-"   endif
-" endfunction 
-" function! BufferlineFunction()
-"   call bufferline#refresh_status()
-"   let b = g:bufferline_status_info.before
-"   let c = g:bufferline_status_info.current
-"   let a = g:bufferline_status_info.after
-"   return b . c . a
-" endfunction
 "
 " EOF

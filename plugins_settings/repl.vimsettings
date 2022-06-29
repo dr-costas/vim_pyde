@@ -5,35 +5,36 @@
 " ==================================
 "
 "
-" Mapping for :REPLToggle
+" ---- Mapping for :REPLToggle
 nnoremap <leader>zb :REPLToggle bash<CR>
 nnoremap <leader>zp :REPLToggle ipython<CR>
 "
-""
-" Bottom location for the REPL buffer
-" Location "codes" are: 
-" 	0: bottom
-" 	1: top
-" 	2: left
-" 	3: right
+"
+" ---- Bottom location for the REPL buffer
+" 	   Location "codes" are: 
+" 		   0: bottom
+" 	   	   1: top
+" 	   	   2: left
+" 	   	   3: right
 let g:repl_position = 0
 "
-" Choose to have the cursor staying at REPL after opening it
+" ---- Choose to have the cursor staying at REPL after opening it
 let g:repl_stayatrepl_when_open = 1
 "
+" ---- Unhide REPL when sending lines
 let g:repl_unhide_when_send_lines = 1
 "
-" Choose programs to run when opening REPL
+" ---- Choose programs to run when opening REPL
 let g:repl_program = {
 			\	'python': ['ipython'],
 			\	'default': ['bash'],
 			\   'vim': ['bash'],
 			\	} 
 "
-" Define iPython version
+" ---- Define iPython version
 let g:repl_ipython_version = '8' 
 "
-" Define exit commands
+" ---- Define exit commands
 let g:repl_exit_commands = {
 			\	'python': 'quit()',
 			\	'ipython': 'quit()',
@@ -42,10 +43,10 @@ let g:repl_exit_commands = {
 			\	'default': 'exit',
 			\	} 
 "
-" Define blocks of keywords to be sent as a whole
+" ---- Define blocks of keywords to be sent as a whole
 let g:repl_auto_sends = ['class ', 'def ', 'for ', 'if ', 'while ', 'with ']
 "
-" Define REPL buffer name
+" ---- Define REPL buffer name
 let g:repl_console_name = 'Python REPL '
 "
 " EOF

@@ -4,10 +4,14 @@
 " IndentLine settings file
 " ==================================
 "
+"
 " ---- Enable the plugin
 let g:indentLine_enabled = 1
 "
 " ---- Disable plugin color setting
 let g:indentLine_setColors = 0
-let g:indentLine_color_term = 239 		  " Color for the indentation lines
+"
+" ---- Color for the indentation lines
+let g:indentLine_color_term = 239 		  
+"
 " EOF

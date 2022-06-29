@@ -4,16 +4,17 @@
 " Plugins file
 " ==================================
 "
-" Necessary directives
+"
+" ---- Necessary directives
 set nocompatible              			" be iMproved, required
 filetype plugin indent on    			" required
 "
-" Make Vimspector mapping to HUMAN before loading it
+" ---- Make Vimspector mapping to HUMAN before loading it
 let g:vimspector_enable_mappings = 'HUMAN'
 "
-" Start Plug
+" ---- Start Plug
 call plug#begin('~/.vim/plugged')
-" 	Currently using plugins ---------------------------------------------
+" 	     Currently using plugins ---------------------------------------------
 Plug 'jiangmiao/auto-pairs' 					" Brackets and more pair handling
 Plug 'psf/black', { 'branch': 'stable'  } 		" Black Python code formatter
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Coc plugin
@@ -41,10 +42,6 @@ Plug 'tibabit/vim-templates' 					" Template files
 Plug 'puremourning/vimspector' 		  			" Debugging plugin
 Plug 'mhinz/vim-startify'						" Vim start screen
 Plug 'tpope/vim-surround' 						" Postfix surrounding
-" 	Recently used but uninstalled ---------------------------------------
-" Plug 'altercation/vim-colors-solarized' 		  " Solarized colorscheme
-" Plug 'bling/vim-bufferline' 				      " Show open buffers list
-" Plug 'NLKNguyen/papercolor-theme'               " Papercolor theme
 call plug#end()
 "
 " EOF

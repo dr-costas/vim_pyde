@@ -5,5 +5,7 @@
 " ==================================
 "
 "
+" ---- Mapping for invoking doc-string
 nmap <silent> <C-_> <Plug>(pydocstring)
+"
 " EOF

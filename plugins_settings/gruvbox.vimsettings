@@ -5,6 +5,59 @@
 " ==================================
 "
 "
+" ---- Choose dark background
+set background=dark
+"
+" ---- Clear highlight on the sign column
+highlight clear SignColumn
+"
+" ---- Enable indication for spelling and bad white space,
+"      and make comments boldface
+"      Solution taken from: https://vi.stackexchange.com/a/21168
+augroup colorscheme_overrides
+  autocmd!
+  autocmd ColorScheme *
+	\ highlight Comment
+ 	\ 	cterm=bold
+  autocmd ColorScheme *
+	\ highlight BadWhitespace
+ 	\ 	ctermbg=red
+  	\ 	guibg=red
+  autocmd ColorScheme *
+    \ highlight SpellBad
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellCap
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellLocal
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  autocmd ColorScheme *
+    \ highlight SpellRare
+    \   cterm=Underline
+    \   ctermfg=NONE
+    \   ctermbg=NONE
+    \   term=Reverse
+    \   gui=Undercurl
+    \   guisp=Red
+  augroup END
+"
+" ---- Activate on Vim enter the colorscheme
 autocmd vimenter * ++nested colorscheme gruvbox
 "
 " EOF

@@ -33,6 +33,9 @@ source ~/.myvim_files/vim_settings/functions_and_commnads.vimsettings
 " ---- Mappings
 source ~/.myvim_files/vim_settings/mappings.vimsettings
 "
+" ---- Miscellaneous 
+source ~/.myvim_files/vim_settings/misc_settings.vimsettings  
+"
 " -----------------------------------------------------------------------
 " 		Mappings and plugins settings
 " -----------------------------------------------------------------------

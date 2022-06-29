@@ -5,14 +5,13 @@
 " ==================================
 "
 "
-" Add settings for Vimspectot
-"
-" Key for VimspectorReset
+" ---- Key for VimspectorReset
 nmap <silent> <leader><F3> :call vimspector#Reset()<cr>
 "
-" Key for launching Vimspector, not just restarting
+" ---- Key for launching Vimspector, not just restarting
 nmap <silent> <leader><F4> :call vimspector#Launch()<cr> 
 "
-" Key for clearing all breakpoints
+" ---- Key for clearing all breakpoints
 nmap <leader>d<F9> :call vimspector#ClearBreakpoints()<cr>
+"
 " EOF

@@ -7,12 +7,12 @@ Vim related files, using the
 Brew is needed to use this script.
 """
 
-__author__ = 'Konstantinos Drossos'
-__docformat__ = 'reStructuredText'
+__author__ = "Konstantinos Drossos"
+__docformat__ = "reStructuredText"
 
 from argparse import ArgumentParser
 from pathlib import Path
-from subprocess import run, PIPE
+from subprocess import PIPE, run
 
 
 def get_argument_parser() -> ArgumentParser:
@@ -20,31 +20,31 @@ def get_argument_parser() -> ArgumentParser:
 
     args = [
         [
-            ['--install-fonts'],
+            ["--install-fonts"],
             {
-                'action': 'store_true',
-                'help': 'Install available NerdFonts from Homebrew',
+                "action": "store_true",
+                "help": "Install available NerdFonts from Homebrew",
             },
         ],
         [
-            ['--install-vim'],
+            ["--install-vim"],
             {
-                'action': 'store_true',
-                'help': 'Install Vim from Homebrew',
+                "action": "store_true",
+                "help": "Install Vim from Homebrew",
             },
         ],
         [
-            ['--install-plug'],
+            ["--install-plug"],
             {
-                'action': 'store_true',
-                'help': 'Install Vim Plug',
+                "action": "store_true",
+                "help": "Install Vim Plug",
             },
         ],
         [
-            ['--install-vim-plugins'],
+            ["--install-vim-plugins"],
             {
-                'action': 'store_true',
-                'help': 'Install Vim plugins',
+                "action": "store_true",
+                "help": "Install Vim plugins",
             },
         ],
     ]
@@ -62,33 +62,33 @@ def arrange_files() -> None:
 def install_fonts() -> None:
     # Get all available fonts from homebrew
     brew_fonts = run(
-        'brew search "/font-/"',
-        shell=True,
-        stdout=PIPE
+        'brew search "/font-/"', shell=True, stdout=PIPE
     ).stdout.splitlines()
 
     # Keep on the Nerd Fonts
     brew_fonts = [
-        font.decode('utf-8') for font in brew_fonts
-        if 'nerd-font' in font.decode('utf-8')
+        font.decode("utf-8")
+        for font in brew_fonts
+        if "nerd-font" in font.decode("utf-8")
     ]
 
     for font_name in brew_fonts:
-        run(f'brew install {font_name}', shell=True)
+        run(f"brew install {font_name}", shell=True)
 
 
 def install_vim() -> None:
-    run('brew install vim', shell=True)
+    run("brew install vim", shell=True)
 
 
 def download_plug() -> None:
     run(
-        'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        , shell=True)
+        "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        shell=True,
+    )
 
 
 def install_plugins() -> None:
-    run('vim -c PlugInstall', shell=True)
+    run("vim -c PlugInstall", shell=True)
 
 
 def main():
@@ -108,7 +108,7 @@ def main():
         install_plugins()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
 
 

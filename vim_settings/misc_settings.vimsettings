@@ -12,4 +12,7 @@ set foldlevel=99
 " ---- See doc strings for folded code
 let g:SimplyFold_docstring_preview=1
 "
+" ---- Set syntax highlight for .vimsettings files
+autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
+"
 " EOF

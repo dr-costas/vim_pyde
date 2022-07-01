@@ -102,37 +102,25 @@ And your are ready!
 Multiple plugins are used in order to make Vim PyDE happen. These will be listed here
 in alphabetical order, together with links to their GitHub repository.
 
-* [Auto-pairs](https://github.com/jiangmiao/auto-pairs)
+* [Auto-pairs](https://github.com/jiangmiao/auto-pairs): The auto-pairs plugin allows
+to insert or delete brackets, quotes, etc., in pairs
 
-   The auto-pairs plugin allows to insert or delete brackets, quotes,
-   etc., in pairs
+* [Black](https://github.com/psf/black): Black is the "uncompromising" Python code formatter.
 
-* [Black](https://github.com/psf/black)
+* [CoC](https://github.com/neoclide/coc.nvim): Conquest of Completion (CoC) is a
+completion plugin and a platform with various add-ons.
 
-   Black is the "uncompromising" Python code formatter.
+* [CSV](https://github.com/chrisbra/csv.vim): CSV is a plugin for handling and nicely
+formatting CSV files.
 
-* [CoC](https://github.com/neoclide/coc.nvim)
+* [FzF](https://github.com/junegunn/fzf.vim): FzF is a plugin that provides a wrapper
+function for the functionalities of the [Fuzzy Finder](https://github.com/junegunn/fzf).
 
-   Conquest of Completion (CoC) is a completion plugin and a platform
-   with various add-ons.
+* [Gruvbox](https://github.com/morhetz/gruvbox): Gruvbox is a retro color scheme for Vim,
+and the color scheme currently used by Vim PyDE.
 
-* [CSV](https://github.com/chrisbra/csv.vim)
-
-   CSV is a plugin for handling and nicely formatting CSV files.
-
-* [FzF](https://github.com/junegunn/fzf.vim)
-
-   FzF is a plugin that provides a wrapper function for the
-   functionalities of the [Fuzzy Finder](https://github.com/junegunn/fzf).
-
-* [Gruvbox](https://github.com/morhetz/gruvbox)
-
-   Gruvbox is a retro color scheme for Vim, and the color scheme
-   currently used by Vim PyDE.
-
-* [IndentLine](https://github.com/Yggdroot/indentLine)
-
-   IndentiLine is a Vim plugin to display line indentation.
+* [IndentLine](https://github.com/Yggdroot/indentLine): IndentiLine is a Vim plugin to
+display line indentation.
 
 * [LightLine](https://github.com/itchyny/lightline.vim)
 

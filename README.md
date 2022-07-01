@@ -74,19 +74,19 @@ Then, to set-up Vim PyDE you have to:
 2. Execute the set-up script `set_up_vim.py` from within the `ROOT` directory and
   using the following flags:
 
-  * `--install-vim` to install [Vim](https://github.com/vim/vim) using [Homebrew](https://brew.sh).
-  * `--install-plug` to install [Plug](https://github.com/junegunn/vim-plug).
-  * `--install-fonts` to install [NERDFonts](https://github.com/ryanoasis/nerd-fonts) for [Vim](https://github.com/vim/vim)
-  * `--install-plugins` to install the plugins for Vim PyDE
+   * `--install-vim` to install [Vim](https://github.com/vim/vim) using [Homebrew](https://brew.sh).
+   * `--install-plug` to install [Plug](https://github.com/junegunn/vim-plug).
+   * `--install-fonts` to install [NERDFonts](https://github.com/ryanoasis/nerd-fonts) for [Vim](https://github.com/vim/vim)
+   * `--install-plugins` to install the plugins for Vim PyDE
 
-  For example, to use all the above flags, you can do from inside `ROOT` directory:
+   For example, to use all the above flags, you can do from inside `ROOT` directory:
 
-  ```bash
-  python set_up_vim.py --install-vim --install-plug --install-fonts --install-plugins
-  ```
+   ```bash
+   python set_up_vim.py --install-vim --install-plug --install-fonts --install-plugins
+   ```
 
-  All the above should be installed. The only reason for not installing them is
-  if you already have them installed. For example, you might already have some NERDFonts
-  installed and you do not need new all you already have installed Vim from [Homebrew](https://brew.sh).
+   All the above should be installed. The only reason for not installing them is
+   if you already have them installed. For example, you might already have some NERDFonts
+   installed and you do not need new all you already have installed Vim from [Homebrew](https://brew.sh).
 
 And your are ready!

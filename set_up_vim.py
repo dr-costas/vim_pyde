@@ -63,7 +63,7 @@ def arrange_files() -> None:
 
 
 def install_fonts() -> None:
-    # Get all available fonts from homebrew
+    # Get all available fonts from Homebrew
     brew_fonts = run(
         'brew search "/font-/"', shell=True, stdout=PIPE
     ).stdout.splitlines()

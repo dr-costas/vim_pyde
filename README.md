@@ -22,7 +22,7 @@ At the moment, Vim PyDE is only for macOS.
 ## Table of contents
 
 1. [Introduction](#introduction)
-2. [How to set-up]
+2. [How to set-up Vim PyDE](#how-to-set-up-vim-pyde)
 3. [Plugins used]
 4. [Common development cases]
 5. [Debugging]
@@ -49,101 +49,37 @@ Please note that this repository is offered without any warranty and
 it should be used by your own responsibility. All plugins maintain their
 licences, since this code is just a Vim set-up that uses plugins.
 
+Finally, to use Vim PyDE it is required some familiarity with Vim.
+For example, one should already know how to quit Vim or how to navigate
+around. Most of the extra functionality is covered by the used plugins
+and the remaining is explained here.
 
+## How to set-up Vim PyDE
 
-# Vim and Vim plugin settings 
+To set-up Vim PyDE you have to use [Homebrew](https://brew.sh) and
+[Plug](https://github.com/junegunn/vim-plug).  [Homebrew](https://brew.sh)
+is a package manager for macOS and [Plug](https://github.com/junegunn/vim-plug)
+is a plugin manager for Vim.
 
-This is a git repository, containing a working set-up of Vim-related files,
-containing the `.vimrc` file, settings for the plugins used in `.vimrc`, 
-spelling files, and template files. 
+Then, to set-up Vim PyDE you have to:
 
-In this README file is described the set-up process of the current files
-and the content of the files. 
+1. Clone this repository somewhere on your computer by using:
 
-## Table of contents
-1. [Setting up Vim with the files in this repo](#setting-up-this-repo)
-    1. [Setting up Vim](#set-up-your-vim)
-    2. [Setting up plugin manager](#set-up-the-plugin-manager)
-    3. [Using this repo](#set-up-the-files-in-this-repo)
-2. Contents of this repo
-    1. `vimrc` file
-    2. Settings files
-    3. Spelling files
-    4. Template files
+  ```bash
+  git clone https://github.com/dr-costas/myvim_files
+  ```
 
-## Setting up this repo
+  This will create the directory `myvim_files` which will call now `ROOT` directory.
+  Then, execute the Python script `set_up_vim.py` from within the `ROOT` directory and
+  using the following flags:
 
-To set up this repo, you have to
+  * `--install-vim` to install Vim using [Homebrew](https://brew.sh).
+  * `--install-plug` to install [Plug](https://github.com/junegunn/vim-plug).
+  * `--install-fonts` to install NERDFonts for Vim
+  * `--install-plugins` to install the plugins for Vim PyDE
 
-1. Clone it to your computer
-2. Set-up your Vim
-3. Set-up the plugin manager of your Vim
-4. Set-up the files in this repo
+  All the above should be installed. The only reason for not installing them is
+  if you already have them installed. For example, you might already have some NERDFonts
+  installed and you do not need new all you already have installed Vim from [Homebrew](https://brew.sh).
 
-The following subsections describe steps 2 to 4. 
-
-### Set-up your Vim
-
-To use this repo, first you have to make sure that you have Vim installed. Then,
-you have to check the version of your Vim, by using in terminal
-
-```bash
-$ vim --version
-```
-
-This repo is tested with Vim version >= 8.2. If you have not at least Vim version 8.0,
-then you can check [this blog post](https://kdrossos.net/blog/12/) on how to install
-it for macOS. For Linux, the process should be similar. 
-
-### Set-up the plugin manager
-
-This repo is based on the Plug plugin manager for Vim. To install Plug, you have to clone
-it in your `$HOME` directory, by using:
-
-```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-For more information, you can check [the GitHub repository of Plug](https://github.com/junegunn/vim-plug).
-
-### Set-up the files in this repo
-
-First, navigate to you home directory
-
-```bash
-$ cd ~
-```
-
-Then, clone this repository, by using
-
-```bash
-$ git clone git@github.com:dr-costas/myvim_files.git ~/.myvim_files
-```
-
-**Check if you already have a `.vimrc` file**. If you do, then keep a backup
-by doing
-
-```bash
-$ mv ~/.vimrc ~/.vimrc_bak
-```
-
-Then, make a symbolik link of the `vimrc` file in the `myvim_file` directory, 
-to your home directory, by doing
-
-```bash
-$ ln ~/.myvim_files/vimrc ~/.vimrc
-```
-
-Open vim and install the plugins by using the `PlugInstall`. 
-
-Finally, using your terminal, go to `~/.vim/plugged/vimspector/` and do
-
-```bash
-$ ./install_gadget.py --all --disable-tcl
-```
-
-So that the `vimspector` plugin will install the necessary gadgets for debugging. 
-
-That's it! 
-
+2. adsadsa:

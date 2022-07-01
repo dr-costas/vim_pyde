@@ -67,7 +67,7 @@ def get_argument_parser() -> ArgumentParser:
 
 
 def arrange_files() -> None:
-    msg_log = partial(message_logging, process="arrange_files", indent="  -")
+    msg_log = partial(message_logging, process="arrange_files", indent="  ")
     home_dir = Path().home()
 
     target_file_path = home_dir.joinpath(".vimrc")
@@ -117,7 +117,10 @@ def install_fonts() -> None:
 
 
 def install_vim() -> None:
+    msg_log = partial(message_logging, process="install_vim", indent="  ")
+    msg_log("Installing Vim from Homebrew")
     run("brew install vim", shell=True, stdout=DEVNULL)
+    msg_log("Vim installed")
 
 
 def download_plug() -> None:
@@ -135,7 +138,10 @@ def download_plug() -> None:
 
 
 def install_plugins() -> None:
+    msg_log = partial(message_logging, process="install_plugins", indent="  ")
+    msg_log("Installing Vim plugins")
     run("vim +'PlugInstall' +qa", shell=True, stdout=DEVNULL, stderr=DEVNULL)
+    msg_log("Plugins installed")
 
 
 def main():
@@ -145,27 +151,27 @@ def main():
     msg_log = partial(message_logging, process="main", indent="")
 
     if args.install_fonts:
-        msg_log("Installing fonts from Homebrew")
+        msg_log("Installing fonts from Homebrew process starting")
         install_fonts()
-        msg_log("Fonts installed")
+        msg_log("Fonts installing process ended")
     if args.install_vim:
-        msg_log("Installing Vim from Homebrew")
+        msg_log("Installing Vim from Homebrew process starting")
         install_vim()
-        msg_log("Vim installed")
+        msg_log("Vim installation process ended")
 
-    msg_log("Making symbolik link of `vimrc` file")
+    msg_log("Making symbolik link of `vimrc` file process startin")
     arrange_files()
-    msg_log("Symbolik link created")
+    msg_log("Symbolik link creation process ended")
 
     if args.install_plug:
-        msg_log("Downloading Plug")
+        msg_log("Downloading Plug process starting")
         download_plug()
-        msg_log("Plug downloaded")
+        msg_log("Plug downloading process ended")
 
     if args.install_plugins:
-        msg_log("Installing Vim plugins")
+        msg_log("Installing Vim plugins process starting")
         install_plugins()
-        msg_log("Plugins installed")
+        msg_log("Plugins installation process ended")
 
 
 if __name__ == "__main__":

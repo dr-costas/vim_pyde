@@ -5,17 +5,22 @@
 " ==================================
 "
 " ---- Install useful plugins as a starting point
-"		* coc-pyright is Python extension
-"   	  (https://github.com/fannheyward/coc-pyright)
-"		* coc-marketplace is an extension to see all available extensions 
-"   	  (https://github.com/fannheyward/coc-marketplace)
 "		* coc-json is a JSON language extension
 "   	  (https://github.com/neoclide/coc-json)
+"		* coc-marketplace is an extension to see all available extensions 
+"   	  (https://github.com/fannheyward/coc-marketplace)
+"		* coc-pyright is Python extension
+"   	  (https://github.com/fannheyward/coc-pyright)
+"		* coc-sh is SH language extension
+"   	  (https://github.com/josa42/coc-sh)
+"		* coc-yaml is YAML language extension
+"   	  (https://github.com/neoclide/coc-yaml)
 let g:coc_global_extensions =[
-let g:coc_global_extensions =[
+	\ 'coc-json'
 	\ 'coc-marketplace',
 	\ 'coc-pyright',
-	\ 'coc-json'
+	\ 'coc-sh',
+	\ 'coc-yaml'
 \ ]
 "
 " ---- Some servers have issues with backup files, see #649.

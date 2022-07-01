@@ -87,6 +87,7 @@ Then, to set-up Vim PyDE you have to:
 
    All the above should be installed. The only reason for not installing them is
    if you already have them installed. For example, you might already have some NERDFonts
-   installed and you do not need new all you already have installed Vim from [Homebrew](https://brew.sh).
+   installed and you do not need new all you already have installed
+   [Vim](https://github.com/vim/vim) from [Homebrew](https://brew.sh).
 
 And your are ready!

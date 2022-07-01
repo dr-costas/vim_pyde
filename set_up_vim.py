@@ -13,7 +13,11 @@ __docformat__ = "reStructuredText"
 from argparse import ArgumentParser
 from pathlib import Path
 from subprocess import PIPE, run
+import logging
 
+
+FORMAT = '%(asctime)s: %(message)s'
+logging.basicConfig(format=FORMAT)
 
 def get_argument_parser() -> ArgumentParser:
     arg_parser = ArgumentParser()
@@ -56,13 +60,18 @@ def get_argument_parser() -> ArgumentParser:
 
 
 def arrange_files() -> None:
-    target_file_path = Path().home().joinpath(".vimrc")
-    source_file_path = Path().home().joinpath(".myvim_files", "vimrc")
+    logging.info("Arranging files")
+    home_dir = Path().home()
+
+    target_file_path = home_dir.joinpath(".vimrc")
+    source_file_path = home_dir.joinpath(".myvim_files", "vimrc")
+
     if not target_file_path.is_symlink():
         run(f"ln -s {source_file_path} {target_file_path}", shell=True)
 
 
 def install_fonts() -> None:
+    logging.info("Installing fonts from Homebrew")
     # Get all available fonts from Homebrew
     brew_fonts = run(
         'brew search "/font-/"', shell=True, stdout=PIPE
@@ -80,10 +89,12 @@ def install_fonts() -> None:
 
 
 def install_vim() -> None:
+    logging.info("Intalling Vim from Homebrew")
     run("brew install vim", shell=True)
 
 
 def download_plug() -> None:
+    logging.info("Downloading Plug from Github")
     run(
         "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
         shell=True,
@@ -91,6 +102,7 @@ def download_plug() -> None:
 
 
 def install_plugins() -> None:
+    logging.info("Installing Vim plugins")
     run("vim +'PlugInstall' +qa", shell=True)
 
 

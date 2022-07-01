@@ -41,7 +41,7 @@ def get_argument_parser() -> ArgumentParser:
             },
         ],
         [
-            ["--install-vim-plugins"],
+            ["--install-plugins"],
             {
                 "action": "store_true",
                 "help": "Install Vim plugins",

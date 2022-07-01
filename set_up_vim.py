@@ -33,20 +33,6 @@ def get_argument_parser() -> ArgumentParser:
                 "help": "Install Vim from Homebrew",
             },
         ],
-        [
-            ["--install-plug"],
-            {
-                "action": "store_true",
-                "help": "Install Vim Plug",
-            },
-        ],
-        [
-            ["--install-plugins"],
-            {
-                "action": "store_true",
-                "help": "Install Vim plugins",
-            },
-        ],
     ]
 
     for arg in args:
@@ -56,7 +42,9 @@ def get_argument_parser() -> ArgumentParser:
 
 
 def arrange_files() -> None:
-    run(f'ln -s vimrc {Path().home().joinpath(".vimrc")}', shell=True)
+    target_file_path = Path().home().joinpath(".vimrc")
+    if not target_file_path.is_symlink():
+        run(f"ln -s vimrc {target_file_path}", shell=True)
 
 
 def install_fonts() -> None:
@@ -80,17 +68,6 @@ def install_vim() -> None:
     run("brew install vim", shell=True)
 
 
-def download_plug() -> None:
-    run(
-        "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        shell=True,
-    )
-
-
-def install_plugins() -> None:
-    run("vim -c PlugInstall", shell=True)
-
-
 def main():
     arg_parser = get_argument_parser()
     args = arg_parser.parse_args()
@@ -99,13 +76,8 @@ def main():
         install_fonts()
     if args.install_vim:
         install_vim()
-    if args.install_plug:
-        download_plug()
 
     arrange_files()
-
-    if args.install_vim_plugins:
-        install_plugins()
 
 
 if __name__ == "__main__":

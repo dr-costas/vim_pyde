@@ -22,6 +22,18 @@ FORMAT = "[Vim-PyDE | %(asctime)s | %(procesname)s | %(levelname)s]: %(message)s
 logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 
 
+def print_ascii_art() -> None:
+    print("\n\n\n"
+        "   _    ___              ____        ____  ______\n"
+        "  | |  / (_)___ ___     / __ \\__  __/ __ \\/ ____/\n"
+        "  | | / / / __ `__ \\   / /_/ / / / / / / / __/   \n"
+        "  | |/ / / / / / / /  / ____/ /_/ / /_/ / /___   \n"
+        "  |___/_/_/ /_/ /_/  /_/    \\__, /_____/_____/   \n"
+        "                           /____/                \n"
+        "\n"
+    )
+
+
 def message_logging(msg: str, process: str, indent: str = "") -> None:
     logging.info(msg=f"{indent}- {msg}", extra={"procesname": process})
 
@@ -150,6 +162,11 @@ def main():
 
     msg_log = partial(message_logging, process="main", indent="")
 
+    print("\n")
+    print("="*200)
+    msg_log("Set-up script starting")
+    print("-"*200, end="\n\n")
+
     if args.install_fonts:
         msg_log("Installing fonts from Homebrew process starting")
         install_fonts()
@@ -173,8 +190,15 @@ def main():
         install_plugins()
         msg_log("Plugins installation process ended")
 
+    print("")
+    print("-"*200)
+    msg_log("Set-up script ended")
+    print("="*200)
+    print("\n")
+
 
 if __name__ == "__main__":
+    print_ascii_art()
     main()
 
 

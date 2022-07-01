@@ -65,11 +65,11 @@ Then, to set-up Vim PyDE you have to:
 
 1. Clone this repository somewhere on your computer by using:
 
-  ```bash
-  git clone https://github.com/dr-costas/myvim_files
-  ```
+   ```bash
+   git clone https://github.com/dr-costas/myvim_files
+   ```
 
-  This will create the directory `myvim_files` which will call now `ROOT` directory.
+   This will create the directory `myvim_files` which will call now `ROOT` directory.
 
 2. Execute the set-up script `set_up_vim.py` from within the `ROOT` directory and
   using the following flags:

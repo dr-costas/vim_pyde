@@ -16,7 +16,7 @@
 "		* coc-yaml is YAML language extension
 "   	  (https://github.com/neoclide/coc-yaml)
 let g:coc_global_extensions =[
-	\ 'coc-json'
+	\ 'coc-json',
 	\ 'coc-marketplace',
 	\ 'coc-pyright',
 	\ 'coc-sh',

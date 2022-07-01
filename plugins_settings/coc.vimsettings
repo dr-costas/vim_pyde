@@ -7,8 +7,11 @@
 " ---- Install useful plugins as a starting point
 "		* coc-pyright is Python extension
 "   	  (https://github.com/fannheyward/coc-pyright)
-"		* coc-marketplace is an extension to see all avaialble extensions 
+"		* coc-marketplace is an extension to see all available extensions 
 "   	  (https://github.com/fannheyward/coc-marketplace)
+"		* coc-json is a JSON language extension
+"   	  (https://github.com/neoclide/coc-json)
+let g:coc_global_extensions =[
 let g:coc_global_extensions =[
 	\ 'coc-marketplace',
 	\ 'coc-pyright',

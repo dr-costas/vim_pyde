@@ -23,6 +23,11 @@ logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 
 
 def print_ascii_art() -> None:
+    """Prints an ASCII art of the Vim PyDE string.
+
+    ASCII art was taken from: https://patorjk.com/software/taag
+    using the Slant fonts.
+    """
     print("\n\n\n"
         "   _    ___              ____        ____  ______\n"
         "  | |  / (_)___ ___     / __ \\__  __/ __ \\/ ____/\n"

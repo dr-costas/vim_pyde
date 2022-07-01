@@ -88,7 +88,7 @@ def arrange_files() -> None:
     home_dir = Path().home()
 
     target_file_path = home_dir.joinpath(".vimrc")
-    source_file_path = home_dir.joinpath(".myvim_files", "vimrc")
+    source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
 
     if not target_file_path.is_symlink():
         msg_log(f"Making symbolik link of {source_file_path} to {target_file_path}")

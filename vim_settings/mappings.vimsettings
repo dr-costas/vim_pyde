@@ -14,19 +14,27 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+"
 " ---- Resizing of windows with arrow keys
 nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
+"
 " ---- Clear search highlight with F2
 nnoremap <F2> :set hlsearch!<CR>
+"
 " ---- Enable folding with the spacebar
 nnoremap <space> za
+"
 " ---- Open terminal at below-right
 nnoremap <silent> <leader><C-T> :belowright terminal<cr>export PYTHONPATH=$PYTHONPATH:.<cr>clear<cr>
+"
 " ---- Mapping of Ctrl-q to use the Kwbd
 nmap <C-Q> <Plug>Kwbd
+"
+" ---- Use <leader> fp to format Python code
+nnoremap <silent> <leader>fp :Black<cr>:CocCommand pyright.organizeimports<cr>
 "
 " -----------------------------------------------------------------------
 " Terminal mode mappings
@@ -34,6 +42,7 @@ nmap <C-Q> <Plug>Kwbd
 "
 " ---- Make terminal as typical window with C-T
 tnoremap <C-T> <C-W>N
+"
 " ---- Export PYTHONPATH
 tnoremap <leader><C-E> export PYTHONPATH=$PYTHONPATH:.<cr>
 "

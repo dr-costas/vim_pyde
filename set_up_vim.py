@@ -85,9 +85,8 @@ def get_argument_parser() -> ArgumentParser:
 
 def arrange_files() -> None:
     msg_log = partial(message_logging, process="arrange_files", indent="  ")
-    home_dir = Path().home()
 
-    target_file_path = home_dir.joinpath(".vimrc")
+    target_file_path = Path().home().joinpath(".vimrc")
     source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
 
     if not target_file_path.is_symlink():

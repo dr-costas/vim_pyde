@@ -27,7 +27,6 @@ Plug 'itchyny/lightline.vim'                    " Status line
 Plug 'taohexxx/lightline-buffer' 			    " Show open buffers in lightline
 Plug 'preservim/nerdcommenter' 					" Commenting out lines
 Plug 'scrooloose/nerdtree'               		" File browser in VIM
-Plug 'PhilRunninger/nerdtree-buffer-ops' 		" Open buffer highlight at NERTReee
 Plug 'Xuyuanp/nerdtree-git-plugin'        		" Plugin for NERDTRee and Git
 Plug 'vim-python/python-syntax' 				" Python syntax highlight
 Plug 'preservim/tagbar' 						" Tag bar

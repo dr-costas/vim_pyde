@@ -24,13 +24,13 @@ At the moment, Vim PyDE is only for macOS.
 1. [Introduction](#introduction)
 2. [How to set-up Vim PyDE](#how-to-set-up-vim-pyde)
 3. [Plugins used](#plugins-used)
-4. [Vim settings used](vim-settings-used)
-4. [Common development cases]
+4. [Common development use-cases](#common-development-use-cases)
 5. [Debugging]
 6. [Git integration]
 7. [Terminal and REPL integration]
 8. [Virtual environments]
 9. [Other functionalities]
+10. [View and change settings]
 
 ----
 
@@ -171,3 +171,7 @@ adds a nice and fancy start screen.
 
 * [Vim-Surround](https://github.com/tpope/vim-surround): Vim -Surround provides fast
 ways to alter and add surroundings, e.g. brackets.
+
+----
+
+## Common development use-cases

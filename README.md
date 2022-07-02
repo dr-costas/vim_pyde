@@ -24,13 +24,12 @@ At the moment, Vim PyDE is only for macOS.
 1. [Introduction](#introduction)
 2. [How to set-up Vim PyDE](#how-to-set-up-vim-pyde)
 3. [Plugins used](#plugins-used)
-4. [Common development use-cases](#common-development-use-cases)
-5. [Debugging]
-6. [Git integration]
-7. [Terminal and REPL integration]
-8. [Virtual environments]
-9. [Other functionalities]
-10. [View and change settings]
+4. [Working with files](#working-with-files)
+5. [Debugging](#debugging)
+6. [Git integration](#git-integration)
+7. [Virtual environments](#virtual-environments)
+8. [Terminal and REPL](#terminal-and-repl)
+9. [View and change settings](#view-and-change-settings)
 
 ----
 
@@ -174,4 +173,25 @@ ways to alter and add surroundings, e.g. brackets.
 
 ----
 
-## Common development use-cases
+## Working with files
+
+----
+
+## Debugging
+
+----
+
+## Git integration
+
+----
+
+## Virtual environments
+
+----
+
+## Terminal and REPL
+
+----
+
+## View and change settings
+

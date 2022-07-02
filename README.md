@@ -122,59 +122,43 @@ and the color scheme currently used by Vim PyDE.
 * [IndentLine](https://github.com/Yggdroot/indentLine): IndentiLine is a Vim plugin to
 display line indentation.
 
-* [LightLine](https://github.com/itchyny/lightline.vim)
+* [LightLine](https://github.com/itchyny/lightline.vim): LightLine is a status and tabline
+plugin.
 
-   LightLine is a status and tabline plugin.
+* [LightLineBuffer](https://github.com/mengelbrecht/lightline-bufferline): LightLineBuffer
+is a plugin to display open buffers in the LightLine.
 
-* [LightLineBuffer](https://github.com/mengelbrecht/lightline-bufferline)
+* [NERDCommenter](https://github.com/preservim/nerdcommenter): NERDCommenter is a plugin
+that offers flexible commenting functionalities.
 
-   LightLineBuffer is a plugin to display open buffers in the LightLine.
+* [NERDTree](https://github.com/preservim/nerdtree): NERDTree is a file explorer for Vim.
 
-* [NERDCommenter](https://github.com/preservim/nerdcommenter)
+* [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin): NERDtree Git is a plugin
+to display git status of files in NERDTree.
 
-   NERDCommenter is a plugin that offers flexible commenting functionalities.
+* [Python syntax](https://github.com/vim-python/python-syntax): Python syntax is a Python
+syntax highlighting plugin.
 
-* [NERDTree](https://github.com/preservim/nerdtree)
+* [Tagbar](https://github.com/preservim/tagbar): Tabgbar is a plugin that displays project
+structure/class outline.
 
-   NERDTree is a file explorer for Vim.
+* [Vim-Devicons](https://github.com/ryanoasis/vim-devicons): Vim-Devicons is a plugin that
+adds icons to files at NERDTree.
 
-* [NERDTree Git](https://github.com/Xuyuanp/nerdtree-git-plugin)
+* [Vim-Fugitive](https://github.com/tpope/vim-fugitive): Vim-Fugitive is a git wrapper for
+Vim.
 
-   NERDtree Git is a plugin to display git status of files in
-   NERDTree.
+* [Vim-Gitgutter](https://github.com/airblade/vim-gitgutter): Vim-Gitgutter id a plugin
+that shows git diff in the sign column.
 
-* [Python syntax](https://github.com/vim-python/python-syntax)
+* [Vim-Markdown](https://github.com/preservim/vim-markdown): Vim-Markdown is a plugin that
+offers markdown syntax highlighting.
 
-   Python syntax is a Python syntax highlighting plugin.
+* [Vim-Pydocstring](https://github.com/heavenshell/vim-pydocstring): Vim-Pydocstring offers
+generation of docstrings templates.
 
-* [Tagbar](https://github.com/preservim/tagbar)
+* [Vim-REPL](https://github.com/sillybun/vim-repl): Vim-REPL is a plugin that offers REPL
+functionalities for Vim.
 
-   Tabgbar is a plugin that displays project structure/class outline.
-
-* [Vim-Devicons](https://github.com/ryanoasis/vim-devicons)
-
-   Vim-Devicons is a plugin that adds icons to files.
-
-* [Vim-Fugitive](https://github.com/tpope/vim-fugitive)
-
-   Vim-Fugitive is a git wrapper for Vim.
-
-* [Vim-Gitgutter](https://github.com/airblade/vim-gitgutter)
-
-   Vim-Gitgutter id a plugin that shows git diff in the sign column.
-
-* [Vim-Markdown](https://github.com/preservim/vim-markdown)
-
-   Vim-Markdown is a plugin that offers markdown syntax highlighting.
-
-* [Vim-Pydocstring](https://github.com/heavenshell/vim-pydocstring)
-
-   Vim-Pydocstring offers generation of docstrings templates.
-
-* [Vim-REPL](https://github.com/sillybun/vim-repl)
-
-   Vim-REPL is a plugin that offers REPL functionalities for Vim.
-
-* [Vim-Templates](https://github.com/tibabit/vim-templates)
-
-   Vim-Templates offers usage of templates for file types.
+* [Vim-Templates](https://github.com/tibabit/vim-templates): Vim-Templates offers usage
+of templates for file types.

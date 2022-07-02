@@ -162,3 +162,12 @@ functionalities for Vim.
 
 * [Vim-Templates](https://github.com/tibabit/vim-templates): Vim-Templates offers usage
 of templates for file types.
+
+ * [Vimspector](https://github.com/puremourning/vimspector): Vimspector is a Vim debugger
+ with full functionalities.
+
+* [Vim-Startify](https://github.com/mhinz/vim-startify): Vim-Startify is a plugin that
+adds a nice and fancy start screen.
+
+* [Vim-Surround](https://github.com/tpope/vim-surround): Vim -Surround provides fast
+ways to alter and add surroundings, e.g. brackets.

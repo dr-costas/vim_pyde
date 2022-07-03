@@ -175,9 +175,44 @@ ways to alter and add surroundings, e.g. brackets.
 
 ## Working with files
 
+To explore, open, move, and delete, you can use the provided functionality from NERDTree.
+Typical movements and operations are described in the
+[NERDTRee's GitHub](https://github.com/preservim/nerdtree) or help file.
+
+To add a new file, you either use NERDTree or the Vim-Templates plugin. Currently,
+templates exist for Python files (`.py`), YAML files (`.yaml`), Vimspector
+settings (`.vimspector.json`), and Vim specific files. A full list of the
+templates can be see at the `ROOT/templates` directory.
+
+For example, to start a new file in the current buffer you can do:
+
+
+```Vim
+:e my_python_file.py
+```
+
+and the new file `my_python_file.py` will open, having the pre-specified structure
+from the Python file template. If you want to edit the template, you can consult
+the [Vim-Templates](https://github.com/tibabit/vim-templates) plugin documentation.
+
 ----
 
 ## Debugging
+
+Debugging is happening by the [Vimspector](https://github.com/puremourning/vimspector)
+plugin. Vimspector needs a settings file in the project's root folder or somewhere
+visible for Vimspector (check at the Vimspector's documentation for other than project's
+root folder locations).
+
+To generate a Vimspector settings file, you can use the Vim-Templates and the provided
+template for Vimspector JSON file. Just do `vsp .vimspector.json` and the template
+will be created in the Vim's current working directory. 
+
+Vimspector has some available mappings for its operations. You can see those mappings
+at the [Vimspector's GitHub](https://github.com/puremourning/vimspector). Additionally,
+Vim PyDE has the following added mappings:
+
+
 
 ----
 

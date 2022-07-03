@@ -104,6 +104,7 @@ in alphabetical order, together with links to their GitHub repository.
 
 * [Auto-pairs](https://github.com/jiangmiao/auto-pairs): The auto-pairs plugin allows
 to insert or delete brackets, quotes, etc., in pairs
+
 * [Black](https://github.com/psf/black): Black is the "uncompromising" Python code formatter.
 
 * [CoC](https://github.com/neoclide/coc.nvim): Conquest of Completion (CoC) is a

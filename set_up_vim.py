@@ -11,6 +11,7 @@ __author__ = "Konstantinos Drossos"
 __docformat__ = "reStructuredText"
 
 from argparse import ArgumentParser
+from fileinput import FileInput
 from functools import partial
 import logging
 from pathlib import Path
@@ -28,7 +29,8 @@ def print_ascii_art() -> None:
     ASCII art was taken from: https://patorjk.com/software/taag
     using the Slant fonts.
     """
-    print("\n\n\n"
+    print(
+        "\n\n\n"
         "   _    ___              ____        ____  ______\n"
         "  | |  / (_)___ ___     / __ \\__  __/ __ \\/ ____/\n"
         "  | | / / / __ `__ \\   / /_/ / / / / / / / __/   \n"
@@ -85,6 +87,8 @@ def get_argument_parser() -> ArgumentParser:
 
 def arrange_files() -> None:
     msg_log = partial(message_logging, process="arrange_files", indent="  ")
+
+    fix_vimrc_paths()
 
     target_file_path = Path().home().joinpath(".vimrc")
     source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
@@ -160,6 +164,16 @@ def install_plugins() -> None:
     msg_log("Plugins installed")
 
 
+def fix_vimrc_paths() -> None:
+    with FileInput("vimrc", inplace=True) as f:
+        for line in f:
+            if line.startswith("source"):
+                line_parts = line.split(" ")
+                new_path = Path(__file__).parent.resolve().joinpath(line_parts[1])
+                line = f"{line_parts[0]} {new_path}"
+            print(line, end="")
+
+
 def main():
     arg_parser = get_argument_parser()
     args = arg_parser.parse_args()
@@ -167,9 +181,9 @@ def main():
     msg_log = partial(message_logging, process="main", indent="")
 
     print("\n")
-    print("="*200)
+    print("=" * 200)
     msg_log("Set-up script starting")
-    print("-"*200, end="\n\n")
+    print("-" * 200, end="\n\n")
 
     if args.install_fonts:
         msg_log("Installing fonts from Homebrew process starting")
@@ -195,9 +209,9 @@ def main():
         msg_log("Plugins installation process ended")
 
     print("")
-    print("-"*200)
+    print("-" * 200)
     msg_log("Set-up script ended")
-    print("="*200)
+    print("=" * 200)
     print("\n")
 
 

@@ -281,3 +281,7 @@ you taste.
 
 Spelling and thesaurus are provided by Vim. For more info you can check the
 Vim's spelling documentation.
+
+----
+
+That's all folks! 

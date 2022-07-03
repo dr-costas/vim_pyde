@@ -30,6 +30,7 @@ At the moment, Vim PyDE is only for macOS.
 7. [Virtual environments](#virtual-environments)
 8. [Terminal and REPL](#terminal-and-repl)
 9. [View and change settings](#view-and-change-settings)
+10. [Spelling](#spelling)
 
 ----
 
@@ -187,7 +188,7 @@ templates can be see at the `ROOT/templates` directory.
 For example, to start a new file in the current buffer you can do:
 
 
-```Vim
+```vim
 :e my_python_file.py
 ```
 
@@ -236,11 +237,47 @@ where `%` means the file at the current active buffer.
 
 ## Virtual environments
 
+Virtual environments are handled through the `coc-pyright` add on of the `CoC` plugin.
+Basically, this means that you do not have to do anything, just log into your virtual
+environment before open Vim and `coc-pyright` will take care everything else.
+
 ----
 
 ## Terminal and REPL
+
+There are two ways to open and work in a terminal from Vim PyDE. The first is using the
+built in functionality from Vim and the second is by using the
+[Vim-REPL](https://github.com/sillybun/vim-repl) plugin. Vim-PyDE offers mappings for both.
+
+For the first case, you can use the mapping `<leader>(C-T)` (leader key plus Ctrl+T) and
+the terminal will open at the `belowright` position of the current buffer. Plus the
+environmental variable `PYTHONPATH` will be set as `PYTHONPATH=$PYTHONPATH:.`.
+
+For the second case, you can use the mapping `<leader>zb` and the terminal will open below
+everything, without setting up the `PYTHONPATH`.
+
+To open the Python `REPL`, you can use the mapping `<leader>zp`. Additionally, you can
+check at the [Vim-REPL](https://github.com/sillybun/vim-repl) documentation what other
+functionalities you can have. For example, Vim-REPL plugin allows to send code from a
+Python file directly to the REPL console for execution.
 
 ----
 
 ## View and change settings
 
+Settings of Vim PyDE are divided in two categories. First are the settings that
+are for Vim and then are the settings that affect the plugins. Vim settings are
+in the `ROOT/vim_settings/` files.
+
+All settings of Vim PyDE are either available from the used plugins or from the
+files in the `ROOT/plugins_settings` directory.
+
+From the above two directories, you can see all settings and also modify them to
+you taste.
+
+----
+
+## Spelling
+
+Spelling and thesaurus are provided by Vim. For more info you can check the
+Vim's spelling documentation.

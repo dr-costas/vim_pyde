@@ -212,19 +212,25 @@ Vimspector has some available mappings for its operations. You can see those map
 at the [Vimspector's GitHub](https://github.com/puremourning/vimspector). Additionally,
 Vim PyDE has the following added mappings:
 
-<div align="center">
-
 | Mapping       | Function                       |
 | :---          | :----                          |
 | `<leader>F3`  | Completely close Vimspector    |
 | `<leader>F4`  | Fresh start of Vimspector      |
 | `<leader>dF9` | Delete all breakpoints         |
 
-</div>
-
 ----
 
 ## Git integration
+
+Git is integrated in Vim PyDE through [Vim-Fugitive](https://github.com/tpope/vim-fugitive)
+plugin. This plugin offers typical commit/push/pull functions (and many more) through the
+`:Git ` command. For example, a git commit would be: 
+
+```vim
+:Git commit % -m "A commit"
+```
+
+where `%` means the file at the current active buffer. 
 
 ----
 

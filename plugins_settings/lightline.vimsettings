@@ -172,13 +172,13 @@ endfunction
 " 	   This function changes the default component of LightLine
 function! PatchedModeFunction()
 	if (IsNERDETree()) 
-		return "  NERDTree"
+		return "פּ  NERDTree"
 	elseif (IsTerminal() > 0)
-		return "  Terminal"
+		return "  Terminal"
 	elseif (IsTagbar() > 0)
-		return '  Tagbar'
+		return '  Tagbar'
 	elseif (IsStartify() > 0)
-		return '  Startify'
+		return '  Startify'
 	else
 		return "  " . lightline#mode()
 	endif

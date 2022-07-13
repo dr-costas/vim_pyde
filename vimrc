@@ -33,7 +33,7 @@ source vim_settings/functions_and_commnads.vimsettings
 source vim_settings/mappings.vimsettings
 "
 " ---- Miscellaneous 
-source vim_settings/misc_settings.vimsettings  
+source vim_settings/misc_settings.vimsettings
 "
 " -----------------------------------------------------------------------
 " 		Mappings and plugins settings
@@ -64,9 +64,9 @@ source plugins_settings/python_docstring.vimsettings
 source plugins_settings/repl.vimsettings
 "
 " ---- Tagbar
-source plugins_settings/tagbar.vimsettings 
+source plugins_settings/tagbar.vimsettings
 "
-" ---- Vim templates
+"---- Vim templates
 source plugins_settings/vim_templates.vimsettings
 "
 " ---- Vimspector

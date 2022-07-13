@@ -42,10 +42,24 @@ def print_ascii_art() -> None:
 
 
 def message_logging(msg: str, process: str, indent: str = "") -> None:
+    """Common message logging function.
+
+    :param msg: Message to log.
+    :type msg: str
+    :param process: Name of the process that does the logging.
+    :type process: str
+    :param indent: Indentation to use.
+    :type indent: str
+    """
     logging.info(msg=f"{indent}- {msg}", extra={"procesname": process})
 
 
 def get_argument_parser() -> ArgumentParser:
+    """Creates and returns an argument parse.
+
+    :return: Argument parser to use.
+    :rtype: argparse.ArgumentParser
+    """
     arg_parser = ArgumentParser()
 
     args = [
@@ -86,6 +100,8 @@ def get_argument_parser() -> ArgumentParser:
 
 
 def arrange_files() -> None:
+    """Makes the symbolik link to vimrc
+    """
     msg_log = partial(message_logging, process="arrange_files", indent="  ")
 
     fix_vimrc_paths()
@@ -106,6 +122,8 @@ def arrange_files() -> None:
 
 
 def install_fonts() -> None:
+    """Installs the NerdFonts from Homebrew
+    """
     msg_log = partial(message_logging, process="install_fonts", indent="  ")
     msg_log_inner = partial(message_logging, process="install_fonts", indent="    ")
 
@@ -137,6 +155,8 @@ def install_fonts() -> None:
 
 
 def install_vim() -> None:
+    """Installs Vim from Homebrew
+    """
     msg_log = partial(message_logging, process="install_vim", indent="  ")
     msg_log("Installing Vim from Homebrew")
     run("brew install vim", shell=True, stdout=DEVNULL)
@@ -144,6 +164,8 @@ def install_vim() -> None:
 
 
 def download_plug() -> None:
+    """Downloads Plug
+    """
     msg_log = partial(message_logging, process="download_plug", indent="  ")
     msg_log(
         "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -158,6 +180,8 @@ def download_plug() -> None:
 
 
 def install_plugins() -> None:
+    """Installs Vim plugins.
+    """
     msg_log = partial(message_logging, process="install_plugins", indent="  ")
     msg_log("Installing Vim plugins")
     run("vim +'PlugInstall' +qa", shell=True, stdout=DEVNULL, stderr=DEVNULL)
@@ -165,6 +189,8 @@ def install_plugins() -> None:
 
 
 def fix_vimrc_paths() -> None:
+    """Fixes the paths in the vimrc for sourcing the settings.
+    """
 
     parent_path = Path(__file__).parent.resolve()
 

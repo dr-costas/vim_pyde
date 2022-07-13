@@ -165,11 +165,18 @@ def install_plugins() -> None:
 
 
 def fix_vimrc_paths() -> None:
-    with FileInput("vimrc", inplace=True) as f:
+
+    parent_path = Path(__file__).parent.resolve()
+
+    with FileInput(parent_path.joinpath("vimrc"), inplace=True) as f:
         for line in f:
             if line.startswith("source"):
                 line_parts = line.split(" ")
-                new_path = Path(__file__).parent.resolve().joinpath(line_parts[1])
+                old_path = Path(line_parts[1])
+                new_path = parent_path.joinpath(
+                    old_path.parents[0].name,
+                    old_path.name,
+                )
                 line = f"{line_parts[0]} {new_path}"
             print(line, end="")
 

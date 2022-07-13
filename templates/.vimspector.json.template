@@ -200,7 +200,7 @@
         "cwd": "${workspaceRoot}",
         "program": "${workspaceRoot}/main.py",
 		"args": [
-		"--input-argument-1", "value", "argument=\"test\"""
+		"--input-argument-1", "value", "argument=\"test\""
 		],
         "stopOnEntry": false,
         "console": "integratedTerminal"

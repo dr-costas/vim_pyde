@@ -14,6 +14,8 @@ from fileinput import FileInput
 from functools import partial
 import logging
 import platform
+import os
+import sys
 from pathlib import Path
 from subprocess import DEVNULL, PIPE, run
 
@@ -22,6 +24,7 @@ DATE_FORMAT = "%d-%b-%y %H:%M:%S"
 FORMAT = "[Vim-PyDE | %(asctime)s | %(procesname)s | %(levelname)s]: %(message)s"
 logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 HAS_ARM = "ARM" in platform.uname()[3]
+sys.path.append(os.getcwd())
 
 def print_ascii_art() -> None:
     """Prints an ASCII art of the Vim PyDE string.

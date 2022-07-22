@@ -81,6 +81,13 @@ def get_argument_parser() -> ArgumentParser:
             },
         ],
         [
+            ["--install-node"],
+            {
+                "action": "store_true",
+                "help": "Install Node from Homebrew",
+            },
+        ],
+        [
             ["--install-plug"],
             {
                 "action": "store_true",
@@ -168,6 +175,14 @@ def install_vim() -> None:
         run("brew install vim", shell=True, stdout=DEVNULL)
     msg_log("Vim installed")
 
+def install_node() -> None:
+    """ Installs Node from Homebrew
+    """
+    msg_log = partial(message_logging, process="install_node", indent="  ")
+    msg_log("Installing Node from Homebrew")
+    run("brew install node", shell=True, stdout=DEVNULL)
+    msg_log("Node installed")
+
 
 def download_plug() -> None:
     """Downloads Plug
@@ -232,6 +247,10 @@ def main():
         msg_log("Installing Vim from Homebrew process starting")
         install_vim()
         msg_log("Vim installation process ended")
+    if args.install_node:
+        msg_log("Installing Node from Homebrew process starting")
+        install_node()
+        msg_log("Node installation process ended")
 
     msg_log("Making symbolik link of `vimrc` file process startin")
     arrange_files()
@@ -241,6 +260,7 @@ def main():
         msg_log("Downloading Plug process starting")
         download_plug()
         msg_log("Plug downloading process ended")
+
 
     if args.install_plugins:
         msg_log("Installing Vim plugins process starting")

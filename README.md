@@ -78,6 +78,7 @@ Then, to set-up Vim PyDE you have to:
   using the following flags:
 
    * `--install-vim` to install [Vim](https://github.com/vim/vim) using [Homebrew](https://brew.sh).
+   * `--install-node` to install [Node](https://github.com/nodejs/node) using [Homebrew](https://brew.sh). 
    * `--install-plug` to install [Plug](https://github.com/junegunn/vim-plug).
    * `--install-fonts` to install [NERDFonts](https://github.com/ryanoasis/nerd-fonts) for [Vim](https://github.com/vim/vim)
    * `--install-plugins` to install the plugins for Vim PyDE
@@ -85,14 +86,13 @@ Then, to set-up Vim PyDE you have to:
    For example, to use all the above flags, you can do from inside `ROOT` directory:
 
    ```bash
-   python set_up_vim.py --install-vim --install-plug --install-fonts --install-plugins
+   python set_up_vim.py --install-vim --install-node --install-plug --install-fonts --install-plugins
    ```
 
    All the above should be installed. The only reason for not installing them is
    if you already have them installed. For example, you might already have some NERDFonts
    installed and you do not need new all you already have installed
-   [Vim](https://github.com/vim/vim) from [Homebrew](https://brew.sh).
-
+   [Vim](https://github.com/vim/vim) from [Homebrew](https://brew.sh). The dependency on [Node](https://github.com/nodejs/node) comes from the Vimspector plugin, so it is advisable to install [Node](https://github.com/nodejs/node) before the plugins.
 And your are ready!
 
 ----

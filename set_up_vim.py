@@ -180,7 +180,10 @@ def install_node() -> None:
     """
     msg_log = partial(message_logging, process="install_node", indent="  ")
     msg_log("Installing Node from Homebrew")
-    run("brew install node", shell=True, stdout=DEVNULL)
+    if HAS_ARM:
+        run("arch -arm64 brew install node", shell=True, stdout=DEVNULL)
+    else:
+        run("brew install node", shell=True, stdout=DEVNULL)
     msg_log("Node installed")
 
 

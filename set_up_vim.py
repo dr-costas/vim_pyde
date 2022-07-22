@@ -9,11 +9,11 @@ Brew is needed to use this script.
 
 __author__ = "Konstantinos Drossos"
 __docformat__ = "reStructuredText"
-
 from argparse import ArgumentParser
 from fileinput import FileInput
 from functools import partial
 import logging
+import platform
 from pathlib import Path
 from subprocess import DEVNULL, PIPE, run
 
@@ -21,7 +21,7 @@ from subprocess import DEVNULL, PIPE, run
 DATE_FORMAT = "%d-%b-%y %H:%M:%S"
 FORMAT = "[Vim-PyDE | %(asctime)s | %(procesname)s | %(levelname)s]: %(message)s"
 logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
-
+HAS_ARM = "ARM" in platform.uname()[3]
 
 def print_ascii_art() -> None:
     """Prints an ASCII art of the Vim PyDE string.
@@ -159,7 +159,10 @@ def install_vim() -> None:
     """
     msg_log = partial(message_logging, process="install_vim", indent="  ")
     msg_log("Installing Vim from Homebrew")
-    run("brew install vim", shell=True, stdout=DEVNULL)
+    if HAS_ARM:
+        run("arch -arm64 brew install vim", shell=True, stdout=DEVNULL)
+    else:
+        run("brew install vim", shell=True, stdout=DEVNULL)
     msg_log("Vim installed")
 
 

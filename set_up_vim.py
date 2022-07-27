@@ -148,16 +148,26 @@ def get_argument_parser() -> ArgumentParser:
 
 def install_fonts() -> None:
     """Installs the NerdFonts from Homebrew"""
-    msg_log = partial(message_logging, process="install_fonts", indent="  ")
-    msg_log_inner = partial(message_logging, process="install_fonts", indent="    ")
+    msg_log = partial(
+        message_logging,
+        process="install_fonts",
+        indent="  ",
+    )
+
+    msg_log_inner = partial(
+        message_logging,
+        process="install_fonts",
+        indent="    ",
+    )
 
     msg_log("Getting available NERDFonts from Homebrew")
+
     # Get all available fonts from Homebrew
     brew_fonts = run(
         'brew search "/font-/"', shell=True, stdout=PIPE
     ).stdout.splitlines()
 
-    # Keep on the Nerd Fonts
+    # Keep the Nerd Fonts
     brew_fonts = [
         font.decode("utf-8")
         for font in brew_fonts
@@ -194,7 +204,12 @@ def install_fonts() -> None:
 
 def install_plugins() -> None:
     """Installs Vim plugins."""
-    msg_log = partial(message_logging, process="install_plugins", indent="  ")
+    msg_log = partial(
+        message_logging,
+        process="install_plugins",
+        indent="  ",
+    )
+
     msg_log("Installing Vim plugins")
     run("vim +'PlugInstall' +qa", shell=True, stdout=DEVNULL, stderr=DEVNULL)
     msg_log("Plugins installed")
@@ -202,7 +217,12 @@ def install_plugins() -> None:
 
 def install_vim() -> None:
     """Installs Vim from Homebrew"""
-    msg_log = partial(message_logging, process="install_vim", indent="  ")
+    msg_log = partial(
+        message_logging,
+        process="install_vim",
+        indent="  ",
+    )
+
     msg_log("Installing Vim from Homebrew")
     run("brew install vim", shell=True, stdout=DEVNULL)
     msg_log("Vim installed")
@@ -243,7 +263,11 @@ def main():
     arg_parser = get_argument_parser()
     args = arg_parser.parse_args()
 
-    msg_log = partial(message_logging, process="main", indent="")
+    msg_log = partial(
+        message_logging,
+        process="main",
+        indent="",
+    )
 
     print("\n")
     print("=" * 200)

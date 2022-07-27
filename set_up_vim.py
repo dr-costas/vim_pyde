@@ -260,9 +260,9 @@ def main():
         msg_log("Plugins installation process ended")
 
     print("")
-    print("-" * 200)
+    print("-" * 100)
     msg_log("Set-up script ended")
-    print("=" * 200)
+    print("=" * 100)
     print("\n")
 
 

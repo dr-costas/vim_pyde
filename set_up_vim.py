@@ -81,9 +81,13 @@ def download_plug() -> None:
 def fix_vimrc() -> None:
     """Fixes the vimrc for sourcing the settings."""
 
+    # Get the path of the vim_pyde directory
     path_parent = Path(__file__).parent.resolve()
+
+    # Get the path of the ~/.vimrc file
     file_vimrc = Path.home().joinpath(".vimrc")
 
+    # Fix in-place the paths in the ~/.vimrc
     with FileInput(file_vimrc, inplace=True) as f:
         for line in f:
             if line.startswith("source"):

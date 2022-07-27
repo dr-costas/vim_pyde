@@ -26,29 +26,40 @@ logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 
 def arrange_files() -> None:
     """Makes the .vimrc file"""
-
+    # Create partial message logging function
     msg_log = partial(
         message_logging,
         process="arrange_files",
         indent="  ",
     )
 
+    # Get the path of the vim_pyde directory
     path_parent = Path(__file__).parent.resolve()
 
+    # Create source and destination files
     file_src = path_parent.joinpath("vimrc")
     file_dst = Path.home().joinpath(".vimrc")
 
+    # Check if the destination file exists
     if file_dst.exists():
         suffix = ""
         file_dst_bak = file_dst
+
+        # While it exists, add .bak as suffix
         while file_dst_bak.exists():
             suffix = f"{suffix}.bak"
             file_dst = file_dst_bak.with_suffix(suffix)
+
+        # Move the existing .vimrc to vimrc.bak.bak..
         move(file_dst, file_dst_bak)
+
+        # Inform about what happened
         msg_log("`.vimrc` exists, moved to: `{file_dst_bak}`")
 
+    # Create the ~/.vimrc file
     copy(file_src, file_dst)
 
+    # Fix the paths in the ~/.vimrc
     fix_vimrc()
 
 

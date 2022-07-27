@@ -270,9 +270,9 @@ def main():
     )
 
     print("\n")
-    print("=" * 200)
+    print("=" * 100)
     msg_log("Set-up script starting")
-    print("-" * 200, end="\n\n")
+    print("-" * 100, end="\n\n")
 
     if args.install_fonts:
         msg_log("Installing fonts from Homebrew process starting")

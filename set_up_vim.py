@@ -33,9 +33,9 @@ def arrange_files() -> None:
         indent="  ",
     )
 
-    parent_path = Path(__file__).parent.resolve()
+    path_parent = Path(__file__).parent.resolve()
 
-    file_src = parent_path.joinpath("vimrc")
+    file_src = path_parent.joinpath("vimrc")
     file_dst = Path.home().joinpath(".vimrc")
 
     if file_dst.exists():
@@ -71,9 +71,9 @@ def fix_vimrc() -> None:
     """Fixes the vimrc for sourcing the settings."""
 
     path_parent = Path(__file__).parent.resolve()
-    file_dst = Path.home().joinpath(".vimrc")
+    file_vimrc = Path.home().joinpath(".vimrc")
 
-    with FileInput(file_dst, inplace=True) as f:
+    with FileInput(file_vimrc, inplace=True) as f:
         for line in f:
             if line.startswith("source"):
                 line_parts = line.split(" ")

@@ -15,6 +15,7 @@ from fileinput import FileInput
 from functools import partial
 import logging
 from pathlib import Path
+from shutil import copy, move
 from subprocess import DEVNULL, PIPE, run
 
 
@@ -24,30 +25,35 @@ logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 
 
 def arrange_files() -> None:
-    """Makes the symbolik link to vimrc
-    """
-    msg_log = partial(message_logging, process="arrange_files", indent="  ")
+    """Makes the .vimrc file"""
 
-    fix_vimrc_paths()
+    msg_log = partial(
+        message_logging,
+        process="arrange_files",
+        indent="  ",
+    )
 
-    target_file_path = Path().home().joinpath(".vimrc")
-    source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
+    parent_path = Path(__file__).parent.resolve()
 
-    if not target_file_path.is_symlink():
-        msg_log(f"Making symbolik link of {source_file_path} to {target_file_path}")
-        run(f"ln -s {source_file_path} {target_file_path}", shell=True, stdout=DEVNULL)
-        msg_log("Link created")
-    else:
-        msg_log(f"File {target_file_path} already exists, will not override")
-        msg_log(
-            "If you want to use the `.vimrc` file created by this script, "
-            "please rename/remove the existing one"
-        )
+    file_src = parent_path.joinpath("vimrc")
+    file_dst = Path.home().joinpath(".vimrc")
+
+    if file_dst.exists():
+        suffix = ""
+        file_dst_bak = file_dst
+        while file_dst_bak.exists():
+            suffix = f"{suffix}.bak"
+            file_dst = file_dst_bak.with_suffix(suffix)
+        move(file_dst, file_dst_bak)
+        msg_log("`.vimrc` exists, moved to: `{file_dst_bak}`")
+
+    copy(file_src, file_dst)
+
+    fix_vimrc()
 
 
 def download_plug() -> None:
-    """Downloads Plug
-    """
+    """Downloads Plug"""
     msg_log = partial(message_logging, process="download_plug", indent="  ")
     msg_log(
         "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
@@ -61,22 +67,22 @@ def download_plug() -> None:
     msg_log("Plug downloaded")
 
 
-def fix_vimrc_paths() -> None:
-    """Fixes the paths in the vimrc for sourcing the settings.
-    """
+def fix_vimrc() -> None:
+    """Fixes the vimrc for sourcing the settings."""
 
-    parent_path = Path(__file__).parent.resolve()
+    path_parent = Path(__file__).parent.resolve()
+    file_dst = Path.home().joinpath(".vimrc")
 
-    with FileInput(parent_path.joinpath("vimrc"), inplace=True) as f:
+    with FileInput(file_dst, inplace=True) as f:
         for line in f:
             if line.startswith("source"):
                 line_parts = line.split(" ")
-                old_path = Path(line_parts[1])
-                new_path = parent_path.joinpath(
-                    old_path.parents[0].name,
-                    old_path.name,
+                path_old = Path(line_parts[1])
+                path_new = path_parent.joinpath(
+                    path_old.parents[0].name,
+                    path_old.name,
                 )
-                line = f"{line_parts[0]} {new_path}"
+                line = f"{line_parts[0]} {path_new}"
             print(line, end="")
 
 
@@ -126,8 +132,7 @@ def get_argument_parser() -> ArgumentParser:
 
 
 def install_fonts() -> None:
-    """Installs the NerdFonts from Homebrew
-    """
+    """Installs the NerdFonts from Homebrew"""
     msg_log = partial(message_logging, process="install_fonts", indent="  ")
     msg_log_inner = partial(message_logging, process="install_fonts", indent="    ")
 
@@ -155,11 +160,7 @@ def install_fonts() -> None:
         if "nerd-font" in font.decode("utf-8")
     ]
 
-    brew_fonts = [
-        font
-        for font in brew_fonts
-        if font not in installed_fonts
-    ]
+    brew_fonts = [font for font in brew_fonts if font not in installed_fonts]
 
     if len(brew_fonts) == 0:
         msg_log("No available NerdFonts found. Stopping")
@@ -177,8 +178,7 @@ def install_fonts() -> None:
 
 
 def install_plugins() -> None:
-    """Installs Vim plugins.
-    """
+    """Installs Vim plugins."""
     msg_log = partial(message_logging, process="install_plugins", indent="  ")
     msg_log("Installing Vim plugins")
     run("vim +'PlugInstall' +qa", shell=True, stdout=DEVNULL, stderr=DEVNULL)
@@ -186,8 +186,7 @@ def install_plugins() -> None:
 
 
 def install_vim() -> None:
-    """Installs Vim from Homebrew
-    """
+    """Installs Vim from Homebrew"""
     msg_log = partial(message_logging, process="install_vim", indent="  ")
     msg_log("Installing Vim from Homebrew")
     run("brew install vim", shell=True, stdout=DEVNULL)

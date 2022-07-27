@@ -23,35 +23,61 @@ FORMAT = "[Vim-PyDE | %(asctime)s | %(procesname)s | %(levelname)s]: %(message)s
 logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 
 
-def print_ascii_art() -> None:
-    """Prints an ASCII art of the Vim PyDE string.
-
-    ASCII art was taken from: https://patorjk.com/software/taag
-    using the Slant fonts.
+def arrange_files() -> None:
+    """Makes the symbolik link to vimrc
     """
-    print(
-        "\n\n\n"
-        "   _    ___              ____        ____  ______\n"
-        "  | |  / (_)___ ___     / __ \\__  __/ __ \\/ ____/\n"
-        "  | | / / / __ `__ \\   / /_/ / / / / / / / __/   \n"
-        "  | |/ / / / / / / /  / ____/ /_/ / /_/ / /___   \n"
-        "  |___/_/_/ /_/ /_/  /_/    \\__, /_____/_____/   \n"
-        "                           /____/                \n"
-        "\n"
+    msg_log = partial(message_logging, process="arrange_files", indent="  ")
+
+    fix_vimrc_paths()
+
+    target_file_path = Path().home().joinpath(".vimrc")
+    source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
+
+    if not target_file_path.is_symlink():
+        msg_log(f"Making symbolik link of {source_file_path} to {target_file_path}")
+        run(f"ln -s {source_file_path} {target_file_path}", shell=True, stdout=DEVNULL)
+        msg_log("Link created")
+    else:
+        msg_log(f"File {target_file_path} already exists, will not override")
+        msg_log(
+            "If you want to use the `.vimrc` file created by this script, "
+            "please rename/remove the existing one"
+        )
+
+
+def download_plug() -> None:
+    """Downloads Plug
+    """
+    msg_log = partial(message_logging, process="download_plug", indent="  ")
+    msg_log(
+        "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     )
+    run(
+        "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        shell=True,
+        stdout=DEVNULL,
+        stderr=DEVNULL,
+    )
+    msg_log("Plug downloaded")
 
 
-def message_logging(msg: str, process: str, indent: str = "") -> None:
-    """Common message logging function.
-
-    :param msg: Message to log.
-    :type msg: str
-    :param process: Name of the process that does the logging.
-    :type process: str
-    :param indent: Indentation to use.
-    :type indent: str
+def fix_vimrc_paths() -> None:
+    """Fixes the paths in the vimrc for sourcing the settings.
     """
-    logging.info(msg=f"{indent}- {msg}", extra={"procesname": process})
+
+    parent_path = Path(__file__).parent.resolve()
+
+    with FileInput(parent_path.joinpath("vimrc"), inplace=True) as f:
+        for line in f:
+            if line.startswith("source"):
+                line_parts = line.split(" ")
+                old_path = Path(line_parts[1])
+                new_path = parent_path.joinpath(
+                    old_path.parents[0].name,
+                    old_path.name,
+                )
+                line = f"{line_parts[0]} {new_path}"
+            print(line, end="")
 
 
 def get_argument_parser() -> ArgumentParser:
@@ -99,28 +125,6 @@ def get_argument_parser() -> ArgumentParser:
     return arg_parser
 
 
-def arrange_files() -> None:
-    """Makes the symbolik link to vimrc
-    """
-    msg_log = partial(message_logging, process="arrange_files", indent="  ")
-
-    fix_vimrc_paths()
-
-    target_file_path = Path().home().joinpath(".vimrc")
-    source_file_path = Path(__file__).parent.resolve().joinpath("vimrc")
-
-    if not target_file_path.is_symlink():
-        msg_log(f"Making symbolik link of {source_file_path} to {target_file_path}")
-        run(f"ln -s {source_file_path} {target_file_path}", shell=True, stdout=DEVNULL)
-        msg_log("Link created")
-    else:
-        msg_log(f"File {target_file_path} already exists, will not override")
-        msg_log(
-            "If you want to use the `.vimrc` file created by this script, "
-            "please rename/remove the existing one"
-        )
-
-
 def install_fonts() -> None:
     """Installs the NerdFonts from Homebrew
     """
@@ -140,6 +144,23 @@ def install_fonts() -> None:
         if "nerd-font" in font.decode("utf-8")
     ]
 
+    # Find already installed fonts
+    installed_fonts = run(
+        "brew list --cask", shell=True, stdout=PIPE
+    ).stdout.splitlines()
+
+    installed_fonts = [
+        font.decode("utf-8")
+        for font in installed_fonts
+        if "nerd-font" in font.decode("utf-8")
+    ]
+
+    brew_fonts = [
+        font
+        for font in brew_fonts
+        if font not in installed_fonts
+    ]
+
     if len(brew_fonts) == 0:
         msg_log("No available NerdFonts found. Stopping")
         msg_log(
@@ -147,36 +168,12 @@ def install_fonts() -> None:
             'the command: "brew tap homebrew/cask-fonts"'
         )
     else:
-        msg_log(f"Got {len(brew_fonts)} available fonts")
-        for font_name in brew_fonts:
-            msg_log_inner(f"Now installing {font_name}")
+        fonts_total = len(brew_fonts)
+        msg_log(f"Got {fonts_total} available fonts")
+        for i_font, font_name in enumerate(brew_fonts, start=1):
+            msg_log_inner(f"Now installing {font_name} ({i_font}/{fonts_total})")
             run(f"brew install {font_name}", shell=True, stdout=DEVNULL, stderr=DEVNULL)
-            msg_log_inner(f"{font_name} installed")
-
-
-def install_vim() -> None:
-    """Installs Vim from Homebrew
-    """
-    msg_log = partial(message_logging, process="install_vim", indent="  ")
-    msg_log("Installing Vim from Homebrew")
-    run("brew install vim", shell=True, stdout=DEVNULL)
-    msg_log("Vim installed")
-
-
-def download_plug() -> None:
-    """Downloads Plug
-    """
-    msg_log = partial(message_logging, process="download_plug", indent="  ")
-    msg_log(
-        "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    )
-    run(
-        "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        shell=True,
-        stdout=DEVNULL,
-        stderr=DEVNULL,
-    )
-    msg_log("Plug downloaded")
+            msg_log_inner(f"{font_name} installed ({i_font}/{fonts_total})")
 
 
 def install_plugins() -> None:
@@ -188,23 +185,44 @@ def install_plugins() -> None:
     msg_log("Plugins installed")
 
 
-def fix_vimrc_paths() -> None:
-    """Fixes the paths in the vimrc for sourcing the settings.
+def install_vim() -> None:
+    """Installs Vim from Homebrew
     """
+    msg_log = partial(message_logging, process="install_vim", indent="  ")
+    msg_log("Installing Vim from Homebrew")
+    run("brew install vim", shell=True, stdout=DEVNULL)
+    msg_log("Vim installed")
 
-    parent_path = Path(__file__).parent.resolve()
 
-    with FileInput(parent_path.joinpath("vimrc"), inplace=True) as f:
-        for line in f:
-            if line.startswith("source"):
-                line_parts = line.split(" ")
-                old_path = Path(line_parts[1])
-                new_path = parent_path.joinpath(
-                    old_path.parents[0].name,
-                    old_path.name,
-                )
-                line = f"{line_parts[0]} {new_path}"
-            print(line, end="")
+def message_logging(msg: str, process: str, indent: str = "") -> None:
+    """Common message logging function.
+
+    :param msg: Message to log.
+    :type msg: str
+    :param process: Name of the process that does the logging.
+    :type process: str
+    :param indent: Indentation to use.
+    :type indent: str
+    """
+    logging.info(msg=f"{indent}- {msg}", extra={"procesname": process})
+
+
+def print_ascii_art() -> None:
+    """Prints an ASCII art of the Vim PyDE string.
+
+    ASCII art was taken from: https://patorjk.com/software/taag
+    using the Slant fonts.
+    """
+    print(
+        "\n\n\n"
+        "   _    ___              ____        ____  ______\n"
+        "  | |  / (_)___ ___     / __ \\__  __/ __ \\/ ____/\n"
+        "  | | / / / __ `__ \\   / /_/ / / / / / / / __/   \n"
+        "  | |/ / / / / / / /  / ____/ /_/ / /_/ / /___   \n"
+        "  |___/_/_/ /_/ /_/  /_/    \\__, /_____/_____/   \n"
+        "                           /____/                \n"
+        "\n"
+    )
 
 
 def main():

@@ -5,6 +5,6 @@
 "
 "
 " ---- Path for searching for templates
-let g:tmpl_search_paths = ['~/.myvim_files/templates']
+let g:tmpl_search_paths = ['~/vim_pyde/templates']
 "
 " EOF

@@ -7,10 +7,10 @@ Vim related files, using the
 Brew is needed to use this script.
 """
 
-__author__ = "Konstantinos Drossos"
-__docformat__ = "reStructuredText"
+__author__: str = "Konstantinos Drossos"
+__docformat__: str = "reStructuredText"
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from fileinput import FileInput
 from functools import partial
 import logging
@@ -27,28 +27,28 @@ logging.basicConfig(format=FORMAT, level=logging.INFO, datefmt=DATE_FORMAT)
 def arrange_files() -> None:
     """Makes the .vimrc file"""
     # Create partial message logging function
-    msg_log = partial(
+    msg_log: partial[None] = partial(
         message_logging,
         process="arrange_files",
         indent="  ",
     )
 
     # Get the path of the vim_pyde directory
-    path_parent = Path(__file__).parent.resolve()
+    path_parent: Path = Path(__file__).parent.resolve()
 
     # Create source and destination files
-    file_src = path_parent.joinpath("vimrc")
-    file_dst = Path.home().joinpath(".vimrc")
+    file_src: Path = path_parent.joinpath("vimrc")
+    file_dst: Path = Path.home().joinpath(".vimrc")
 
     # Check if the destination file exists
     if file_dst.exists():
-        suffix = ""
-        file_dst_bak = file_dst
+        suffix: str = ""
+        file_dst_bak: Path = file_dst
 
         # While it exists, add .bak as suffix
         while file_dst_bak.exists():
-            suffix = f"{suffix}.bak"
-            file_dst = file_dst_bak.with_suffix(suffix)
+            suffix: str = f"{suffix}.bak"
+            file_dst: Path = file_dst_bak.with_suffix(suffix)
 
         # Move the existing .vimrc to vimrc.bak.bak..
         move(file_dst, file_dst_bak)
@@ -65,7 +65,7 @@ def arrange_files() -> None:
 
 def download_plug() -> None:
     """Downloads Plug"""
-    msg_log = partial(message_logging, process="download_plug", indent="  ")
+    msg_log: partial[None] = partial(message_logging, process="download_plug", indent="  ")
     msg_log(
         "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     )
@@ -82,22 +82,22 @@ def fix_vimrc() -> None:
     """Fixes the vimrc for sourcing the settings."""
 
     # Get the path of the vim_pyde directory
-    path_parent = Path(__file__).parent.resolve()
+    path_parent: Path = Path(__file__).parent.resolve()
 
     # Get the path of the ~/.vimrc file
-    file_vimrc = Path.home().joinpath(".vimrc")
+    file_vimrc: Path = Path.home().joinpath(".vimrc")
 
     # Fix in-place the paths in the ~/.vimrc
     with FileInput(file_vimrc, inplace=True) as f:
         for line in f:
             if line.startswith("source"):
-                line_parts = line.split(" ")
-                path_old = Path(line_parts[1])
-                path_new = path_parent.joinpath(
+                line_parts: list[str] = line.split(" ")
+                path_old: Path = Path(line_parts[1])
+                path_new: Path = path_parent.joinpath(
                     path_old.parents[0].name,
                     path_old.name,
                 )
-                line = f"{line_parts[0]} {path_new}"
+                line: str = f"{line_parts[0]} {path_new}"
             print(line, end="")
 
 
@@ -107,7 +107,7 @@ def get_argument_parser() -> ArgumentParser:
     :return: Argument parser to use.
     :rtype: argparse.ArgumentParser
     """
-    arg_parser = ArgumentParser()
+    arg_parser: ArgumentParser = ArgumentParser()
 
     args = [
         [
@@ -148,13 +148,13 @@ def get_argument_parser() -> ArgumentParser:
 
 def install_fonts() -> None:
     """Installs the NerdFonts from Homebrew"""
-    msg_log = partial(
+    msg_log: partial[None] = partial(
         message_logging,
         process="install_fonts",
         indent="  ",
     )
 
-    msg_log_inner = partial(
+    msg_log_inner: partial[None] = partial(
         message_logging,
         process="install_fonts",
         indent="    ",
@@ -163,29 +163,33 @@ def install_fonts() -> None:
     msg_log("Getting available NERDFonts from Homebrew")
 
     # Get all available fonts from Homebrew
-    brew_fonts = run(
-        'brew search "/font-/"', shell=True, stdout=PIPE
+    brew_fonts_bts: list[bytes] = run(
+        'brew search "/font-/"',
+        shell=True,
+        stdout=PIPE,
     ).stdout.splitlines()
 
     # Keep the Nerd Fonts
-    brew_fonts = [
+    brew_fonts: list[str] = [
         font.decode("utf-8")
-        for font in brew_fonts
+        for font in brew_fonts_bts
         if "nerd-font" in font.decode("utf-8")
     ]
 
     # Find already installed fonts
-    installed_fonts = run(
-        "brew list --cask", shell=True, stdout=PIPE
+    installed_fonts_bts: list[bytes] = run(
+        "brew list --cask",
+        shell=True,
+        stdout=PIPE,
     ).stdout.splitlines()
 
-    installed_fonts = [
+    installed_fonts: list[str] = [
         font.decode("utf-8")
-        for font in installed_fonts
+        for font in installed_fonts_bts
         if "nerd-font" in font.decode("utf-8")
     ]
 
-    brew_fonts = [font for font in brew_fonts if font not in installed_fonts]
+    brew_fonts: list[str] = [font for font in brew_fonts if font not in installed_fonts]
 
     if len(brew_fonts) == 0:
         msg_log("No available NerdFonts found. Stopping")
@@ -194,24 +198,37 @@ def install_fonts() -> None:
             'the command: "brew tap homebrew/cask-fonts"'
         )
     else:
-        fonts_total = len(brew_fonts)
+        fonts_total: int = len(brew_fonts)
         msg_log(f"Got {fonts_total} available fonts")
+
         for i_font, font_name in enumerate(brew_fonts, start=1):
             msg_log_inner(f"Now installing {font_name} ({i_font}/{fonts_total})")
-            run(f"brew install {font_name}", shell=True, stdout=DEVNULL, stderr=DEVNULL)
+
+            run(
+                f"brew install {font_name}",
+                shell=True,
+                stdout=DEVNULL,
+                stderr=DEVNULL,
+            )
+
             msg_log_inner(f"{font_name} installed ({i_font}/{fonts_total})")
 
 
 def install_plugins() -> None:
     """Installs Vim plugins."""
-    msg_log = partial(
+    msg_log: partial[None] = partial(
         message_logging,
         process="install_plugins",
         indent="  ",
     )
 
     msg_log("Installing Vim plugins")
-    run("vim +'PlugInstall' +qa", shell=True, stdout=DEVNULL, stderr=DEVNULL)
+    run(
+        "vim +'PlugInstall' +qa",
+        shell=True,
+        stdout=DEVNULL,
+        stderr=DEVNULL,
+    )
     msg_log("Plugins installed")
 
 
@@ -223,16 +240,33 @@ def install_universal_ctags() -> None:
         indent="  ",
     )
 
-    # TODO: Add checking for existing CTags
+    msg_log("Checking for existing Universal CTags")
 
-    msg_log("Installing Universal CTags from Homebrew")
-    run("brew install universal-ctags", shell=True, stdout=DEVNULL)
-    msg_log("Universal CTags installed")
+    cmd_output: str = (
+        run(
+            "which ctags",
+            shell=True,
+            stdout=PIPE,
+        )
+        .stdout.decode("utf-8")
+        .strip()
+    )
+
+    if cmd_output.endswith("ctags"):
+        msg_log("Found existing CTags")
+    else:
+        msg_log("Not found CTags, installing Universal CTags from Homebrew")
+        run(
+            "brew install universal-ctags",
+            shell=True,
+            stdout=DEVNULL,
+        )
+        msg_log("Universal CTags installed")
 
 
 def install_vim() -> None:
     """Installs Vim from Homebrew"""
-    msg_log = partial(
+    msg_log: partial[None] = partial(
         message_logging,
         process="install_vim",
         indent="  ",
@@ -274,11 +308,11 @@ def print_ascii_art() -> None:
     )
 
 
-def main():
-    arg_parser = get_argument_parser()
-    args = arg_parser.parse_args()
+def main() -> None:
+    arg_parser: ArgumentParser = get_argument_parser()
+    args: Namespace = arg_parser.parse_args()
 
-    msg_log = partial(
+    msg_log: partial[None] = partial(
         message_logging,
         process="main",
         indent="",

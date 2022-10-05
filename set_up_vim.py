@@ -215,6 +215,21 @@ def install_plugins() -> None:
     msg_log("Plugins installed")
 
 
+def install_universal_ctags() -> None:
+    """Instals the Universal CTags with Homebrew"""
+    msg_log: partial[None] = partial(
+        message_logging,
+        process="install_universal_ctags",
+        indent="  ",
+    )
+
+    # TODO: Add checking for existing CTags
+
+    msg_log("Installing Universal CTags from Homebrew")
+    run("brew install universal-ctags", shell=True, stdout=DEVNULL)
+    msg_log("Universal CTags installed")
+
+
 def install_vim() -> None:
     """Installs Vim from Homebrew"""
     msg_log = partial(

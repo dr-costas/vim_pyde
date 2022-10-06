@@ -14,4 +14,7 @@ let g:SimplyFold_docstring_preview=1
 " ---- Set syntax highlight for .vimsettings files
 autocmd BufNewFile,BufRead *.vimsettings set filetype=vim
 "
+" ---- Set syntax highlight for .dvc files
+autocmd! BufNewFile,BufRead Dvcfile,*.dvc,dvc.lock setfiletype yaml  
+"
 " EOF

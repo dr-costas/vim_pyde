@@ -138,12 +138,57 @@ def get_argument_parser() -> ArgumentParser:
                 "help": "Install Vim plugins",
             },
         ],
+        [
+            ["--install-nodejs"],
+            {
+                "action": "store_true",
+                "help": "Install Node JS",
+            },
+        ],
     ]
 
     for arg in args:
         arg_parser.add_argument(*arg[0], **arg[1])
 
     return arg_parser
+
+
+def install_nodejs() -> None:
+    """Installs Node JS from Homebrew"""
+    msg_log: partial[None] = partial(
+        message_logging,
+        process="install_nodejs",
+        indent="  ",
+    )
+
+    existing_node: str = run(
+        [
+            "which",
+            "node",
+        ],
+        shell=True,
+        stdout=PIPE,
+    ).stdout.decode(
+        encoding="utf-8",
+        errors="strict",
+    )
+
+    if existing_node.endswith("node"):
+        msg_log(
+            "There is existing Node JS installation. "
+            "Continuing with existing installation."
+        )
+    else:
+        run(
+            [
+                "brew",
+                "install"
+                "node"
+            ],
+            shell=True,
+            stdout=DEVNULL,
+        )
+        msg_log("Node JS installed")
 
 
 def install_fonts() -> None:
@@ -327,6 +372,8 @@ def main() -> None:
         msg_log("Installing fonts from Homebrew process starting")
         install_fonts()
         msg_log("Fonts installing process ended")
+    if args.install_nodejs:
+        msg_log("Install Node JS from Homebrew process starting")
     if args.install_vim:
         msg_log("Installing Vim from Homebrew process starting")
         install_vim()

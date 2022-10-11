@@ -65,7 +65,9 @@ def arrange_files() -> None:
 
 def download_plug() -> None:
     """Downloads Plug"""
-    msg_log: partial[None] = partial(message_logging, process="download_plug", indent="  ")
+    msg_log: partial[None] = partial(
+        message_logging, process="download_plug", indent="  "
+    )
     msg_log(
         "Downloading Plug from GitHub: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     )
@@ -180,11 +182,7 @@ def install_nodejs() -> None:
         )
     else:
         run(
-            [
-                "brew",
-                "install"
-                "node"
-            ],
+            ["brew", "install" "node"],
             shell=True,
             stdout=DEVNULL,
         )

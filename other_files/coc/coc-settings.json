@@ -1,5 +1,6 @@
 {
   "pyright.enable": true,
+  "pyright.inlayHints.enable": false,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.autoSearchPaths": true,
   "python.analysis.typeCheckingMode": "basic",

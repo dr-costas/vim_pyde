@@ -57,9 +57,6 @@ endif
 " ---- Map the <CR> to select items from pop-up
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 "
-" ---- Make the <CR> select the first completion item and confirm the completion when no selection
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"  
-"
 " ---- Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

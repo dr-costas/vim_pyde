@@ -155,40 +155,6 @@ def get_argument_parser() -> ArgumentParser:
     return arg_parser
 
 
-def install_nodejs() -> None:
-    """Installs Node JS from Homebrew"""
-    msg_log: partial[None] = partial(
-        message_logging,
-        process="install_nodejs",
-        indent="  ",
-    )
-
-    existing_node: str = run(
-        [
-            "which",
-            "node",
-        ],
-        shell=True,
-        stdout=PIPE,
-    ).stdout.decode(
-        encoding="utf-8",
-        errors="strict",
-    )
-
-    if existing_node.endswith("node"):
-        msg_log(
-            "There is existing Node JS installation. "
-            "Continuing with existing installation."
-        )
-    else:
-        run(
-            ["brew", "install" "node"],
-            shell=True,
-            stdout=DEVNULL,
-        )
-        msg_log("Node JS installed")
-
-
 def install_fonts() -> None:
     """Installs the NerdFonts from Homebrew"""
     msg_log: partial[None] = partial(
@@ -255,6 +221,40 @@ def install_fonts() -> None:
             )
 
             msg_log_inner(f"{font_name} installed ({i_font}/{fonts_total})")
+
+
+def install_nodejs() -> None:
+    """Installs Node JS from Homebrew"""
+    msg_log: partial[None] = partial(
+        message_logging,
+        process="install_nodejs",
+        indent="  ",
+    )
+
+    existing_node: str = run(
+        [
+            "which",
+            "node",
+        ],
+        shell=True,
+        stdout=PIPE,
+    ).stdout.decode(
+        encoding="utf-8",
+        errors="strict",
+    )
+
+    if existing_node.endswith("node"):
+        msg_log(
+            "There is existing Node JS installation. "
+            "Continuing with existing installation."
+        )
+    else:
+        run(
+            ["brew", "install" "node"],
+            shell=True,
+            stdout=DEVNULL,
+        )
+        msg_log("Node JS installed")
 
 
 def install_plugins() -> None:

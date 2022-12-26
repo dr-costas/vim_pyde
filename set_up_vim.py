@@ -155,6 +155,13 @@ def get_argument_parser() -> ArgumentParser:
                 "help": "Install universal CTags",
             },
         ],
+        [
+            ["--install-everything"],
+            {
+                "action": "store_true",
+                "help": "Install everything, no-matter other choices",
+            },
+        ],
     ]
 
     for arg in args:
@@ -377,17 +384,19 @@ def main() -> None:
     msg_log("Set-up script starting")
     print("-" * 100, end="\n\n")
 
-    if args.install_fonts:
+    if args.install_fonts or args.install_everything:
         process_name = "NerdFonts from Homebrew"
         msg_log(msg_start.substitute(process_name=process_name))
         install_fonts()
         msg_log(msg_end.substitute(process_name=process_name))
-    if args.install_nodejs:
+
+    if args.install_nodejs or args.install_everything:
         process_name = "Node JS from Hombrew"
         msg_log(msg_start.substitute(process_name=process_name))
         install_nodejs()
         msg_log(msg_end.substitute(process_name=process_name))
-    if args.install_vim:
+
+    if args.install_vim or args.install_everything:
         process_name = "Vim from Hombrew"
         msg_log(msg_start.substitute(process_name=process_name))
         install_vim()
@@ -397,19 +406,19 @@ def main() -> None:
     arrange_files()
     msg_log("Symbolik link creation process ended")
 
-    if args.install_plug:
+    if args.install_plug or args.install_everything:
         process_name = "Plug from GitHub"
         msg_log(msg_start.substitute(process_name=process_name))
         download_plug()
         msg_log(msg_end.substitute(process_name=process_name))
 
-    if args.install_plugins:
+    if args.install_plugins or args.install_everything:
         process_name = "Vim plugins using Plug"
         msg_log(msg_start.substitute(process_name=process_name))
         install_plugins()
         msg_log(msg_end.substitute(process_name=process_name))
 
-    if args.install_universal_ctags:
+    if args.install_universal_ctags or args.install_everything:
         process_name = "Universal CTags"
         msg_log(msg_start.substitute(process_name=process_name))
         install_plugins()

@@ -16,6 +16,7 @@ from functools import partial
 import logging
 from pathlib import Path
 from shutil import copy, move
+from string import Template
 from subprocess import DEVNULL, PIPE, run
 
 
@@ -145,6 +146,13 @@ def get_argument_parser() -> ArgumentParser:
             {
                 "action": "store_true",
                 "help": "Install Node JS",
+            },
+        ],
+        [
+            ["--install-universal-ctags"],
+            {
+                "action": "store_true",
+                "help": "Install universal CTags",
             },
         ],
     ]
@@ -361,35 +369,51 @@ def main() -> None:
         indent="",
     )
 
+    msg_start = Template("Installing $process_name process starting")
+    msg_end = Template("$process_name installation process ended")
+
     print("\n")
     print("=" * 100)
     msg_log("Set-up script starting")
     print("-" * 100, end="\n\n")
 
     if args.install_fonts:
-        msg_log("Installing fonts from Homebrew process starting")
+        process_name = "NerdFonts from Homebrew"
+        msg_log(msg_start.substitute(process_name=process_name))
         install_fonts()
-        msg_log("Fonts installing process ended")
+        msg_log(msg_end.substitute(process_name=process_name))
     if args.install_nodejs:
-        msg_log("Install Node JS from Homebrew process starting")
+        process_name = "Node JS from Hombrew"
+        msg_log(msg_start.substitute(process_name=process_name))
+        install_nodejs()
+        msg_log(msg_end.substitute(process_name=process_name))
     if args.install_vim:
-        msg_log("Installing Vim from Homebrew process starting")
+        process_name = "Vim from Hombrew"
+        msg_log(msg_start.substitute(process_name=process_name))
         install_vim()
-        msg_log("Vim installation process ended")
+        msg_log(msg_end.substitute(process_name=process_name))
 
-    msg_log("Making symbolik link of `vimrc` file process startin")
+    msg_log("Making symbolik link of `vimrc` file process starting")
     arrange_files()
     msg_log("Symbolik link creation process ended")
 
     if args.install_plug:
-        msg_log("Downloading Plug process starting")
+        process_name = "Plug from GitHub"
+        msg_log(msg_start.substitute(process_name=process_name))
         download_plug()
-        msg_log("Plug downloading process ended")
+        msg_log(msg_end.substitute(process_name=process_name))
 
     if args.install_plugins:
-        msg_log("Installing Vim plugins process starting")
+        process_name = "Vim plugins using Plug"
+        msg_log(msg_start.substitute(process_name=process_name))
         install_plugins()
-        msg_log("Plugins installation process ended")
+        msg_log(msg_end.substitute(process_name=process_name))
+
+    if args.install_universal_ctags:
+        process_name = "Universal CTags"
+        msg_log(msg_start.substitute(process_name=process_name))
+        install_plugins()
+        msg_log(msg_end.substitute(process_name=process_name))
 
     print("")
     print("-" * 100)

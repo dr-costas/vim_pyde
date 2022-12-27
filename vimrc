@@ -13,7 +13,7 @@
 source other_files/directives_that_go_on_top.vimsettings
 "
 " -----------------------------------------------------------------------
-" 		Plugin settings
+" 		Plugin definitions
 " -----------------------------------------------------------------------
 "
 " ---- Plugin settings

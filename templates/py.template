@@ -7,6 +7,7 @@ Detailed description.
 
 __all__ = []
 __docformat__ = 'reStructuredText'
+__author__ = "Konstantinos Drosos - Nokia Technologies"
 
 # imports
 

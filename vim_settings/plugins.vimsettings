@@ -34,7 +34,7 @@ Plug 'preservim/tagbar' 						" Tag bar
 Plug 'ryanoasis/vim-devicons'					" Devicons
 Plug 'tpope/vim-fugitive'                 		" GIT integration
 Plug 'airblade/vim-gitgutter' 					" Git indication at sign column
-Plug 'fisadev/vim-isort' 						" iSort for Python
+"Plug 'fisadev/vim-isort' 						" iSort for Python
 Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 Plug 'sillybun/vim-repl'                        " REPL Python terminal for Vim

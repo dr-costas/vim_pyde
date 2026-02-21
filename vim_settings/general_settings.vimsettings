@@ -18,6 +18,8 @@ set encoding=utf8   					" Encoding.
 "
 set t_Co=256        					" 256 colours
 "
+"set t_ut=        					    " Fix repainting of lines
+"
 set number          					" Absolute line numbers.
 "
 set relativenumber  					" Relative line numbers

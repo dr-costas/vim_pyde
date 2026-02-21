@@ -7,6 +7,9 @@
 " ---- Choose dark background
 set background=dark
 "
+" ---- Apply colorscheme immediately (safe on reload)
+silent! colorscheme gruvbox
+"
 " ---- Clear highlight on the sign column
 highlight clear SignColumn
 "
@@ -57,6 +60,9 @@ augroup colorscheme_overrides
   augroup END
 "
 " ---- Activate on Vim enter the colorscheme
-autocmd vimenter * ++nested colorscheme gruvbox
+augroup GruvboxStartup
+  autocmd!
+  autocmd VimEnter * ++nested colorscheme gruvbox
+augroup END
 "
 " EOF

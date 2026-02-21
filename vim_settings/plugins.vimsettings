@@ -10,6 +10,8 @@ filetype plugin indent on    			" required
 "
 " ---- Make Vimspector mapping to HUMAN before loading it
 let g:vimspector_enable_mappings = 'HUMAN'
+" Set Python version for vim-isort BEFORE plugin is loaded
+let g:vim_isort_python_version = 3
 "
 " ---- Start Plug
 call plug#begin('~/.vim/plugged')
@@ -37,9 +39,11 @@ Plug 'tpope/vim-markdown' 		  				" Markdown fancy stuff
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " Docstrings
 Plug 'sillybun/vim-repl'                        " REPL Python terminal for Vim
 Plug 'tibabit/vim-templates' 					" Template files
-Plug 'puremourning/vimspector' 		  			" Debugging plugin
+"Plug 'puremourning/vimspector', { 'branch': 'wipe-out-terminal' } " Debugging plugin
+Plug 'puremourning/vimspector'   				" Debugging plugin
 Plug 'mhinz/vim-startify'						" Vim start screen
 Plug 'tpope/vim-surround' 						" Postfix surrounding
+"Plug 'christoomey/vim-tmux-navigator'			" Vim-keys navigation for Vim and Tmux
 call plug#end()
 "
 " EOF

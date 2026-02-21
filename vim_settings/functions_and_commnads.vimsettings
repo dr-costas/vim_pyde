@@ -2,96 +2,142 @@
 " ==================================
 " Functions and commands file
 " ==================================
-"
-"
+
 " -----------------------------------------------------------------------
-" 	Functions
+"   Functions
 " -----------------------------------------------------------------------
+
 " ---- Delete a buffer but keep window script
-" 	   Code from: https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
-" 	   Delete the buffer; keep windows; create a scratch buffer if no buffers left
-function s:Kwbd(kwbdStage)
-  if(a:kwbdStage == 1)
-    if(&modified)
-      let answer = confirm("This buffer has been modified.  Are you sure you want to delete it?", "&Yes\n&No", 2)
-      if(answer != 1)
+"      Based on: https://vim.fandom.com/wiki/Deleting_a_buffer_without_closing_the_window
+"      Practical additions:
+"        - re-source safe (function!)
+"        - abort on error
+"        - wipe terminal buffers (so they actually close)
+"        - use setlocal for scratch buffer options
+function! s:Kwbd(kwbdStage) abort
+  if a:kwbdStage == 1
+    if &modified
+      let answer = confirm(
+            \ "This buffer has been modified. Are you sure you want to delete it?",
+            \ "&Yes\n&No", 2)
+      if answer != 1
         return
       endif
     endif
-    if(!buflisted(winbufnr(0)))
-      bd!
+
+    " If current window isn't showing a listed buffer, just delete it.
+    if !buflisted(winbufnr(0))
+      if &buftype ==# 'terminal'
+        bwipeout!
+      else
+        bd!
+      endif
       return
     endif
-    let s:kwbdBufNum = bufnr("%")
+
+    let s:kwbdBufNum = bufnr('%')
     let s:kwbdWinNum = winnr()
-    windo call s:Kwbd(2)
+
+    " Move other windows off the buffer being deleted
+    windo if buflisted(winbufnr(0)) | call s:Kwbd(2) | endif
+
     execute s:kwbdWinNum . 'wincmd w'
+
     let s:buflistedLeft = 0
-    let s:bufFinalJump = 0
-    let l:nBufs = bufnr("$")
+    let s:bufFinalJump  = 0
+    let l:nBufs = bufnr('$')
     let l:i = 1
-    while(l:i <= l:nBufs)
-      if(l:i != s:kwbdBufNum)
-        if(buflisted(l:i))
-          let s:buflistedLeft = s:buflistedLeft + 1
+
+    while l:i <= l:nBufs
+      if l:i != s:kwbdBufNum
+        if buflisted(l:i)
+          let s:buflistedLeft += 1
         else
-          if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
+          " Candidate for a final jump buffer (unnamed scratch)
+          if bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump
             let s:bufFinalJump = l:i
           endif
         endif
       endif
-      let l:i = l:i + 1
+      let l:i += 1
     endwhile
-    if(!s:buflistedLeft)
-      if(s:bufFinalJump)
-        windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
+
+    " If we are deleting the last listed buffer, create/choose a scratch target.
+    if !s:buflistedLeft
+      if s:bufFinalJump
+        windo if buflisted(winbufnr(0)) | execute 'b! ' . s:bufFinalJump | endif
       else
         enew
-        let l:newBuf = bufnr("%")
-        windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
+        let l:newBuf = bufnr('%')
+        windo if buflisted(winbufnr(0)) | execute 'b! ' . l:newBuf | endif
       endif
       execute s:kwbdWinNum . 'wincmd w'
     endif
-    if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
-      execute "bd! " . s:kwbdBufNum
+
+    " Finally delete/wipe the original buffer
+    if buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr('%')
+      " Wipe terminal buffers so they actually close
+      if getbufvar(s:kwbdBufNum, '&buftype') ==# 'terminal'
+        execute 'bwipeout! ' . s:kwbdBufNum
+      else
+        execute 'bd! ' . s:kwbdBufNum
+      endif
     endif
-    if(!s:buflistedLeft)
-      set buflisted
-      set bufhidden=delete
-      set buftype=
+
+    " Configure the last remaining scratch buffer (buffer-local)
+    if !s:buflistedLeft
+      setlocal buftype=nofile
+      setlocal bufhidden=wipe
       setlocal noswapfile
+      " Choose one:
+      " - keep it unlisted (common for scratch):
+      setlocal nobuflisted
+      " - OR if you want it listed, comment the above and uncomment:
+      " setlocal buflisted
     endif
+
   else
-    if(bufnr("%") == s:kwbdBufNum)
-      let prevbufvar = bufnr("#")
-      if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
+    " Stage 2: in other windows, move away from the buffer being deleted
+    if bufnr('%') ==# s:kwbdBufNum
+      let l:prev = bufnr('#')
+      if l:prev > 0 && buflisted(l:prev) && l:prev != s:kwbdBufNum
         b #
       else
-        bn
+        " bnext (bn) can land on unlisted; this stays closer to "normal" buffers
+        bnext
       endif
     endif
   endif
 endfunction
-"
-"
-" ---- Add preview window for NERDTree.
-" 	   Code from: https://stackoverflow.com/a/28407909/3842823
-function! NERDTreeLivePreview()
-  " Get the path of the item under the cursor if possible:
-  let current_file = g:NERDTreeFileNode.GetSelected()
 
-  if current_file == {}
+
+" ---- Add preview window for NERDTree.
+"      Based on: https://stackoverflow.com/a/28407909/3842823
+function! NERDTreeLivePreview() abort
+  " Be defensive: only act if we can access the NERDTree API
+  if !exists('g:NERDTreeFileNode')
     return
-  else
-    exe 'pedit '.current_file.path.str()
   endif
+
+  let l:node = g:NERDTreeFileNode.GetSelected()
+  if empty(l:node) || l:node == {}
+    return
+  endif
+
+  " Avoid previewing directories; only preview files
+  if has_key(l:node, 'path') && l:node.path.isDirectory
+    return
+  endif
+
+  silent! execute 'pedit ' . fnameescape(l:node.path.str())
 endfunction
-"
+
+
 " -----------------------------------------------------------------------
-" 	Commands
+"   Commands
 " -----------------------------------------------------------------------
-"
+
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-"
+
 " EOF

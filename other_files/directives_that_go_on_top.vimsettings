@@ -12,3 +12,62 @@ let g:black_virtualenv = '/opt/homebrew/opt/black/libexec'
 "
 " ── vim-isort: always use the Python-3 interface ─────────────
 let g:vim_isort_python_version = 3
+
+
+function! VimPydeIsNerdTreeOpen() abort
+  return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunction
+"
+" ---- Safe reload function for Vim
+command! ReloadVimSettings call s:ReloadVimSettings()
+function! s:ReloadVimSettings() abort
+  " 1) Quiesce UI plugins that keep state
+  let l:nerdtree_was_open = VimPydeIsNerdTreeOpen()
+  if l:nerdtree_was_open
+    silent! NERDTreeClose
+  endif
+
+  " 2) Reload only your reload-safe core config
+  source ~/vim_pyde/vim_settings/general_settings.vimsettings
+  source ~/vim_pyde/vim_settings/misc_settings.vimsettings
+  source ~/vim_pyde/vim_settings/mappings.vimsettings
+  source ~/vim_pyde/vim_settings/functions_and_commnads.vimsettings
+
+  " 3) UI stack in deterministic order (theme -> statusline -> devicons -> nerdtree)
+  source ~/vim_pyde/plugins_settings/gruvbox.vimsettings
+  source ~/vim_pyde/plugins_settings/lightline.vimsettings
+  source ~/vim_pyde/plugins_settings/lightline_buffer.vimsettings
+
+  if exists(':WebDevIconsRefresh')
+    silent! WebDevIconsRefresh
+  endif
+
+  " NERDTree settings (autocmds/mappings), then reopen it if it was open
+  source ~/vim_pyde/plugins_settings/nerdtree.vimsettings
+
+  " 4) Source the remaining plugin settings EXCEPT the ones above
+  for l:f in sort(glob('~/vim_pyde/plugins_settings/*.vimsettings', 0, 1))
+    if l:f =~# '/\(gruvbox\|lightline\|lightline_buffer\|nerdtree\)\.vimsettings$'
+      continue
+    endif
+    execute 'source' fnameescape(l:f)
+  endfor
+
+  " 5) Restore invariants
+  filetype plugin indent on
+  syntax enable
+
+  " Refresh devicons properly after re-source
+  if exists('g:loaded_webdevicons')
+    silent! call webdevicons#refresh()
+  endif
+
+  " 6) Rebuild UI plugin buffers cleanly
+  if l:nerdtree_was_open
+    silent! NERDTree
+    silent! NERDTreeRefreshRoot
+  endif
+
+  redraw!
+endfunction
+" EOF

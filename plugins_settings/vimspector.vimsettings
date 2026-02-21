@@ -13,4 +13,7 @@ nmap <silent> <leader><F4> :call vimspector#Launch()<cr>
 " ---- Key for clearing all breakpoints
 nmap <leader>d<F9> :call vimspector#ClearBreakpoints()<cr>
 "
+" ---- Directory settings
+let g:vimspector_base_dir='/Users/drosos/.vim/plugged/vimspector'  
+"
 " EOF

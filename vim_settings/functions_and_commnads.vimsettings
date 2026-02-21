@@ -132,12 +132,10 @@ function! NERDTreeLivePreview() abort
   silent! execute 'pedit ' . fnameescape(l:node.path.str())
 endfunction
 
-
 " -----------------------------------------------------------------------
 "   Commands
 " -----------------------------------------------------------------------
 
 command! Kwbd call s:Kwbd(1)
 nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-
 " EOF

@@ -1,0 +1,13 @@
+" /Users/konstantinosdrosos/vim_pyde/other_files/directives_that_go_last.vimsettings file starts
+"
+" ==================================
+" directives_that_go_last settings file
+" ==================================
+"
+"
+" ---- Vimspector post-debug restore ----
+augroup RestoreAfterVimspector
+  autocmd!
+  autocmd User VimspectorDebugEnded ++nested silent! filetype plugin indent on | silent! syntax enable
+augroup END
+" EOF

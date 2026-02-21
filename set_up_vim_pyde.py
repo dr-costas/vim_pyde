@@ -322,6 +322,38 @@ def install_universal_ctags() -> None:
         msg_log("Universal CTags installed")
 
 
+def install_silver_searcher() -> None:
+    """Instals the universal searcher with Homebrew"""
+    msg_log: partial[None] = partial(
+        message_logging,
+        process="install_silver_searcher",
+        indent="  ",
+    )
+
+    msg_log("Checking for existing silver searcher")
+
+    cmd_output: str = (
+        run(
+            "which ag",
+            shell=True,
+            stdout=PIPE,
+        )
+        .stdout.decode("utf-8")
+        .strip()
+    )
+
+    if cmd_output.endswith("ag"):
+        msg_log("Found existing silver searcher")
+    else:
+        msg_log("Not found silver searcher, installing silver searcher from Homebrew")
+        run(
+            "brew install silver-searcher",
+            shell=True,
+            stdout=DEVNULL,
+        )
+        msg_log("Silver seacher installed")
+
+
 def install_vim() -> None:
     """Installs Vim from Homebrew"""
     msg_log: partial[None] = partial(
@@ -420,6 +452,12 @@ def main() -> None:
 
     if args.install_universal_ctags or args.install_everything:
         process_name = "Universal CTags"
+        msg_log(msg_start.substitute(process_name=process_name))
+        install_plugins()
+        msg_log(msg_end.substitute(process_name=process_name))
+
+    if args.install_silver_searcher or args.install_everything:
+        process_name = "Silver searchers"
         msg_log(msg_start.substitute(process_name=process_name))
         install_plugins()
         msg_log(msg_end.substitute(process_name=process_name))

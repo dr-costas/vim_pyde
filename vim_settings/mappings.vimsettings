@@ -27,8 +27,7 @@ nnoremap <silent> <F2> :nohl<CR>
 nnoremap <space> za
 "
 " ---- Open terminal at below-right
-"nnoremap <silent> <leader><C-T> :belowright terminal<cr>export PYTHONPATH=$PYTHONPATH:.<cr>clear<cr>
-nnoremap <silent> <leader><C-T> :belowright terminal<CR>:call term_sendkeys(bufnr('%'), "export PYTHONPATH=$PYTHONPATH:.\nclear\n")<CR>i
+nnoremap <silent> <leader><C-T> :belowright terminal bash -lc "export PYTHONPATH=\$PYTHONPATH:. ; clear ; bash -i"<CR>
 "
 " ---- Mapping of Ctrl-q to use the Kwbd
 nmap <C-Q> <Plug>Kwbd

@@ -1,0 +1,14 @@
+"
+" ==================================
+" Vim run commands file
+" ==================================
+"
+" -----------------------------------------------------------------------
+" 		Directives that go on top
+" -----------------------------------------------------------------------
+"
+" Use the virtual-env that Home-brew created for the black formula
+let g:black_virtualenv = '/opt/homebrew/opt/black/libexec'
+"
+" ── vim-isort: always use the Python-3 interface ─────────────
+let g:vim_isort_python_version = 3

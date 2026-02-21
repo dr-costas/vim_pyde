@@ -7,18 +7,27 @@
 " ---- Open NERDTree automatically even when no file is
 " 	   given at Vim and jump to the main window
 augroup NERD
-    au!
+    autocmd!
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     autocmd VimEnter * wincmd p
     autocmd VimEnter * call lightline#update()
 augroup END
 "
+" ---- Correct conceal settings
+augroup NERDTreeDeviconsConceal
+  autocmd!
+  autocmd FileType nerdtree setlocal conceallevel=3 concealcursor=nvic
+augroup END
+"
 " ---- Line numbers on
 let NERDTreeShowLineNumbers=1
 "
 " ---- Relative numbers on
-autocmd FileType nerdtree setlocal relativenumber
+augroup NERDTreeLocal
+	autocmd!
+	autocmd FileType nerdtree setlocal relativenumber
+augroup END
 "
 " ---- Minimal UI
 let NERDTreeMinimalUI = 1

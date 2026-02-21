@@ -7,9 +7,8 @@
 " 		Directives that go on top
 " -----------------------------------------------------------------------
 "
-" Directives that go on top and are not tracked by git
-" The file: myvim_files/other_files/directives_that_go_on_top.vimsettings
-" has to be manually created.
+" ---- Directives that go on top.
+" This file is not reloaded by the reload command
 source ~/vim_pyde/other_files/directives_that_go_on_top.vimsettings
 "
 " -----------------------------------------------------------------------
@@ -17,6 +16,7 @@ source ~/vim_pyde/other_files/directives_that_go_on_top.vimsettings
 " -----------------------------------------------------------------------
 "
 " ---- Plugin settings
+" This file is not reloaded by the reload command
 source ~/vim_pyde/vim_settings/plugins.vimsettings
 "
 " -----------------------------------------------------------------------
@@ -78,9 +78,8 @@ set noautochdir
 " 		Directives that go last
 " -----------------------------------------------------------------------
 "
-" Directives that go last and are not tracker by Git
-" The file: myvim_files/other_files/directives_that_go_last.vimsettings
-" has to be manually created.
+" ---- Directives that go last
+" This file is not reloaded by the reload command
 source ~/vim_pyde/other_files/directives_that_go_last.vimsettings
 "
 " EOF

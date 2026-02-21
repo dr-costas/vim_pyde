@@ -72,4 +72,5 @@ source plugins_settings/vim_templates.vimsettings
 " ---- Vimspector
 source plugins_settings/vimspector.vimsettings
 "
+set noautochdir
 " EOF

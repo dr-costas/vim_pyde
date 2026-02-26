@@ -5,7 +5,7 @@
 "
 "
 " ---- Key for VimspectorReset
-nmap <silent> <leader><F3> :call vimspector#Reset()<cr>
+nmap <silent> <leader>[13~] :call vimspector#Reset()<cr>
 "
 " ---- Key for launching Vimspector, not just restarting
 nmap <silent> <leader><F4> :call vimspector#Launch()<cr> 
